@@ -1,0 +1,93 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{comment} % Para poder hacer comentarios
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Tarea 1: Unidad I}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713)}\\
+\end{center}
+
+\vspace{0.5cm}
+\noindent A continuación se presentan 10 problemas correspondientes a la Unidad I: Relación entre Física y Ciencias de la Salud, ángulos, coordenadas, vectores, potencias de diez y unidades.
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+    \item \textbf{Ángulo plano:} Un paciente en rehabilitación realiza un movimiento de flexión con su brazo describiendo un ángulo de $60^\circ$. Exprese la medida de este ángulo en radianes.
+\begin{comment}
+    \textbf{Solución:} \\
+    Para convertir de grados a radianes, multiplicamos por el factor de conversión $\frac{\pi \text{ rad}}{180^\circ}$:
+    \[ \theta = 60^\circ \times \left( \frac{\pi}{180^\circ} \right) = \frac{\pi}{3} \text{ rad} \approx 1.047 \text{ rad} \]
+\end{comment}
+    \item \textbf{Ángulo plano:} El campo visual de un microscopio de laboratorio abarca un ángulo de $1.2$ radianes. Convierta este valor a grados sexagesimales.
+\begin{comment}    
+    \textbf{Solución:} \\
+    Se utiliza el factor inverso $\frac{180^\circ}{\pi \text{ rad}}$:
+    \[ \theta = 1.2 \text{ rad} \times \left( \frac{180^\circ}{\pi} \right) \approx 68.75^\circ \]
+\end{comment}
+    \item \textbf{Potencias de diez:} Un glóbulo rojo (eritrocito) humano tiene un diámetro aproximado de $0.0000075$ metros. Exprese esta medida utilizando notación científica (potencias de diez) y emplee el prefijo adecuado del Sistema Internacional.
+\begin{comment}
+    \textbf{Solución:} \\
+    Movemos la coma decimal 6 lugares a la derecha:
+    \[ d = 7.5 \times 10^{-6} \text{ m} \]
+    Sabiendo que el prefijo para $10^{-6}$ es micro ($\mu$), la medida es $7.5 \, \mu\text{m}$ (micrómetros).
+\end{comment}
+    \item \textbf{Sistemas de unidades:} En un análisis de laboratorio, se determina que la densidad de una muestra de sangre es de $1.06 \, \text{g/cm}^3$. Convierta este valor a las unidades estándar del Sistema Internacional ($\text{kg/m}^3$).
+\begin{comment}    
+    \textbf{Solución:} \\
+    \[ \rho = 1.06 \, \frac{\text{g}}{\text{cm}^3} \times \left( \frac{1 \text{ kg}}{1000 \text{ g}} \right) \times \left( \frac{10^6 \text{ cm}^3}{1 \text{ m}^3} \right) = 1060 \, \frac{\text{kg}}{\text{m}^3} \]
+\end{comment}    
+    \item \textbf{Sistemas de unidades y Potencias de Diez:} El corazón de un adulto sano bombea aproximadamente $5$ litros de sangre por minuto en reposo. Exprese este caudal en metros cúbicos por segundo ($\text{m}^3\text{/s}$) empleando notación científica.
+\begin{comment}    
+    \textbf{Solución:} \\
+    Sabiendo que $1 \text{ L} = 10^{-3} \text{ m}^3$ y $1 \text{ min} = 60 \text{ s}$:
+    \[ Q = \frac{5 \text{ L}}{\text{min}} = \frac{5 \times 10^{-3} \text{ m}^3}{60 \text{ s}} \approx 8.33 \times 10^{-5} \, \frac{\text{m}^3}{\text{s}} \]
+\end{comment}    
+    \item \textbf{Sistemas de coordenadas:} En una placa de rayos X digitalizada 2D, el punto de origen de un hueso (articulación A) está en las coordenadas $(2, 3)$ cm y el extremo B en $(5, 7)$ cm. Calcule la longitud real del hueso.
+\begin{comment}    
+    \textbf{Solución:} \\
+    Aplicamos la fórmula de distancia entre dos puntos:
+    \[ d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \]
+    \[ d = \sqrt{(5 - 2)^2 + (7 - 3)^2} = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5 \text{ cm} \]
+\end{comment}
+    \item \textbf{Vectores (Magnitud):} Durante una terapia física, la fuerza de tracción que un equipo ejerce sobre la pierna de un paciente puede representarse mediante el vector $\vec{F} = (15\hat{i} + 20\hat{j})$ Newtons. Calcule la magnitud de dicha fuerza.
+\begin{comment}    
+    \textbf{Solución:} \\
+    La magnitud de un vector $\vec{F} = F_x\hat{i} + F_y\hat{j}$ es $|\vec{F}| = \sqrt{F_x^2 + F_y^2}$:
+    \[ |\vec{F}| = \sqrt{15^2 + 20^2} = \sqrt{225 + 400} = \sqrt{625} = 25 \text{ N} \]
+\end{comment}
+    \item \textbf{Vectores (Componentes):} Un ortopedista aplica una tensión de $60$ N sobre una articulación en un ángulo de $30^\circ$ respecto a la horizontal. Calcule las componentes rectangulares ($x$ e $y$) de esta fuerza.
+\begin{comment}    
+    \textbf{Solución:} \\
+    \[ F_x = |\vec{F}| \cos(\theta) = 60 \cos(30^\circ) = 60 \left(\frac{\sqrt{3}}{2}\right) \approx 51.96 \text{ N} \]
+    \[ F_y = |\vec{F}| \sin(\theta) = 60 \sin(30^\circ) = 60 \left(\frac{1}{2}\right) = 30.00 \text{ N} \]
+    El vector fuerza es $\vec{F} = 51.96\hat{i} + 30.00\hat{j}$ N.
+\end{comment}
+    \item \textbf{Vectores (Suma):} Sobre la vértebra L5 de una persona actúan dos fuerzas debido a la tensión muscular: $\vec{F}_1 = (30\hat{i} + 40\hat{j})$ N y $\vec{F}_2 = (-10\hat{i} + 10\hat{j})$ N. Encuentre el vector de la fuerza resultante que soporta la vértebra y su magnitud.
+\begin{comment}    
+    \textbf{Solución:} \\
+    Sumamos componente a componente:
+    \[ \vec{R} = \vec{F}_1 + \vec{F}_2 = (30 - 10)\hat{i} + (40 + 10)\hat{j} = 20\hat{i} + 50\hat{j} \text{ N} \]
+    La magnitud será:
+    \[ |\vec{R}| = \sqrt{20^2 + 50^2} = \sqrt{400 + 2500} = \sqrt{2900} \approx 53.85 \text{ N} \]
+\end{comment}
+    \item \textbf{Potencias de diez (Operaciones):} La concentración de un determinado fármaco en la sangre es de $3 \times 10^{-4}$ moles por litro. Si el volumen total de sangre de un paciente contiene este fármaco disperso en $5 \times 10^0$ litros (5 litros), ¿cuántos moles del fármaco hay en total en el torrente sanguíneo?
+\begin{comment}    
+    \textbf{Solución:} \\
+    Multiplicamos la concentración por el volumen:
+    \[ \text{Total de moles} = (3 \times 10^{-4} \text{ moles/L}) \times (5 \times 10^0 \text{ L}) \]
+    Agrupando los coeficientes y las potencias de base 10:
+    \[ (3 \times 5) \times (10^{-4} \times 10^0) = 15 \times 10^{-4} = 1.5 \times 10^{-3} \text{ moles} \]
+\end{comment}
+\end{enumerate}
+
+\end{document}
