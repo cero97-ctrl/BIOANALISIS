@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.3)  2 MAY 2026 09:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.8.3)  2 MAY 2026 09:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/cero/MEGA/VS_CODE_WORKSPACE/BIOANALISIS/tareas/tarea_1.tex
-(/home/cero/MEGA/VS_CODE_WORKSPACE/BIOANALISIS/tareas/tarea_1.tex
+**/home/cero/MEGA/VS_CODE_WORKSPACE/BIOANALISIS/tareas/tarea_1_sin_sol.tex
+(/home/cero/MEGA/VS_CODE_WORKSPACE/BIOANALISIS/tareas/tarea_1_sin_sol.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -147,11 +147,11 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count279
 \l__pdf_internal_box=\box53
-) (./tarea_1.aux
+) (./tarea_1_sin_sol.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
-\openout1 = `tarea_1.aux'.
+\openout1 = `tarea_1_sin_sol.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -211,44 +211,129 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 46--48
+) Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 26--32
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 32--38
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 39--45
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 46--52
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 53--58
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 60--67
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 68--74
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 75--80
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 81--86
 
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 62--64
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 87--93
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--68
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--88
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 95--101
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 102--108
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 130--132
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 109--115
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--141
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 115--121
 
  []
 
-[4] [5] (./tarea_1.aux
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 122--127
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 129--136
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 136--144
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 144--150
+
+ []
+
+[2] Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 150--156
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 156--163
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 163--168
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 169--175
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 176--181
+
+ []
+
+Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 182--188
+
+ []
+
+Excluding 'comment' comment. [3] (./tarea_1_sin_sol.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -258,18 +343,18 @@ L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3800 strings out of 474222
- 58841 string characters out of 5748734
- 1938975 words of memory out of 5000000
- 26052 multiletter control sequences out of 15000+600000
+ 3801 strings out of 474222
+ 58943 string characters out of 5748734
+ 1936975 words of memory out of 5000000
+ 26053 multiletter control sequences out of 15000+600000
  563328 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,441b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on tarea_1.pdf (5 pages, 128418 bytes).
+ 57i,5n,65p,449b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on tarea_1_sin_sol.pdf (3 pages, 91707 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 49 PDF objects out of 1000 (max. 8388607)
+ 29 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
