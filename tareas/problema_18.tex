@@ -1,0 +1,84 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{virusgreen}{RGB}{16, 185, 129} % Verde para el virus
+\definecolor{virusdark}{RGB}{6, 78, 59}     % Verde oscuro para bordes
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Potencias de Diez: Masas Ultra Pequeñas}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        La masa de un virus común se estima en \textbf{0.00000000000000001} kg. Exprese esta medida en notación científica.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        
+        % Dibujo del virus
+        \begin{scope}[yshift=1.5cm]
+            % Espículas (Proteínas del virus)
+            \foreach \angle in {0, 45, 90, 135, 180, 225, 270, 315} {
+                \draw[line width=2.5pt, virusdark] (\angle:1.2cm) -- (\angle:1.8cm);
+                \filldraw[virusgreen, draw=virusdark, line width=1pt] (\angle:1.9cm) circle (0.25cm);
+            }
+            
+            % Cápside central (Cuerpo del virus)
+            \filldraw[virusgreen!20, draw=virusdark, line width=2pt] (0,0) circle (1.3cm);
+            
+            % Material genético (ARN/ADN ilustrativo en el centro)
+            \draw[virusdark, line width=1.5pt, rounded corners=5pt] (-0.6, 0.2) -- (-0.3, -0.4) -- (0.2, 0.3) -- (0.6, -0.2);
+            
+            % Etiqueta del virus
+            \node[font=\bfseries, text=virusdark, fill=white, inner sep=2pt, rounded corners=2pt] at (0, 0) {Virus};
+        \end{scope}
+        
+        % Representación visual de la notación científica
+        % Se usan espacios reducidos \, para separar los ceros visualmente en bloques y que no se vea tan amontonado
+        \node[font=\Large, text=meddark] at (0, -2.5) {
+            $m = 0 \textcolor{virusgreen}{\mathbf{,}} \underbrace{000\,000\,000\,000\,000\,01}_{\text{\small \textbf{17 lugares hacia la derecha}}} \text{ kg} \quad \xrightarrow{\text{Notación}} \quad \mathbf{1 \times 10^{-17} \text{ kg}}$
+        };
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para convertir este número tan pequeño a notación científica, debemos buscar un coeficiente que sea mayor o igual a 1 y menor que 10. Para lograrlo, desplazamos la coma decimal hacia la derecha hasta ubicarla justo después del número 1.
+        
+        Al mover la coma \textbf{17 posiciones a la derecha}, la base 10 adquiere un exponente negativo de \textbf{$-17$}:
+        \[ m = \mathbf{1 \times 10^{-17} \text{ kg}} \]
+        \textbf{Resultado:} La masa estimada del virus es de \textbf{$1 \times 10^{-17}$ kg}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

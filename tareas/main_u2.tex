@@ -1,0 +1,40 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{pdfpages} % Paquete para incluir PDFs externos
+\usepackage{pgffor}   % Paquete para usar bucles (\foreach)
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref} % Para enlaces clicables en el índice
+
+\begin{document}
+
+% Portada del documento compilado
+\begin{titlepage}
+    \centering
+    \vspace*{5cm}
+    {\Huge \textbf{Solucionario Visual: Tarea 2}}\\[1.5cm]
+    {\Large Física para Ciencias de la Salud (005-1713)}\\[2cm]
+    {\Large \textbf{Unidad II: Biomecánica, Energía y Potencia}}\\[1cm]
+    {\large \textbf{Infografías de los Problemas 1 al 8}}\\[2cm]
+    \vfill
+    {\large \today}
+\end{titlepage}
+
+% Índice generado automáticamente
+\tableofcontents
+\newpage
+
+% Bucle para importar automáticamente los 8 archivos PDF de la Unidad 2
+\foreach \x/\titletoc in {
+    1/{Cinemática: Impulso Nervioso (MRU)},
+    2/{Dinámica: Leyes de Newton},
+    3/{Trabajo y Energía: Rehabilitación Física},
+    4/{Cinemática: Aceleración Sanguínea},
+    5/{Dinámica: Fuerza Centrípeta},
+    6/{Energía Cinética: Reflejo del Estornudo},
+    7/{Energía Potencial: Fluidos Intravenosos},
+    8/{Potencia Mecánica: Gasto Cardíaco}%
+} {
+    \includepdf[pages=-, fitpaper=true, addtotoc={1, section, 1, {Problema \x: \titletoc}, prob:u2:\x}]{problema_\x_u2.pdf}
+}
+
+\end{document}

@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{tumorred}{RGB}{197, 48, 48}
+\definecolor{tumorlight}{RGB}{254, 215, 215}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, % Habilita características avanzadas como las sombras
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Sistemas de Coordenadas: Ubicación de un Tumor}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        En un mapa cartesiano de un plano sagital de resonancia magnética, el centro de un pequeño tumor benigno se encuentra en \textbf{(-2, 4) cm} y su borde exterior en el punto \textbf{(1, 8) cm}. ¿Cuál es el radio (distancia del centro al borde) del tumor?
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.75]
+        % Clip para no salirse de la caja deseada de los ejes (el tumor se dibuja como un corte)
+        \clip (-4.5, -1.5) rectangle (4.5, 9.5);
+
+        % Área del tumor (círculo)
+        \fill[tumorlight, opacity=0.7] (-2,4) circle (5cm);
+        \draw[tumorred, thick, dashed] (-2,4) circle (5cm);
+
+        % Cuadrícula de fondo
+        \draw[step=1cm,gray!50,very thin] (-4.5,-1.5) grid (4.5,9.5);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-4.5,0) -- (4.5,0) node[anchor=south east] {$x$ (cm)};
+        \draw[thick,->,meddark] (0,-1.5) -- (0,9.5) node[anchor=south west] {$y$ (cm)};
+        
+        % Marcas numéricas
+        \foreach \x in {-4,-3,-2,-1,1,2,3,4} \draw (\x cm,0.15cm) -- (\x cm,-0.15cm) node[anchor=north] {\footnotesize $\x$};
+        \foreach \y in {-1,1,2,3,4,5,6,7,8,9} \draw (0.15cm,\y cm) -- (-0.15cm,\y cm) node[anchor=east] {\footnotesize $\y$};
+        \node[anchor=north east] at (0,0) {\footnotesize $0$};
+        
+        % Coordenadas de los puntos
+        \coordinate (C) at (-2,4);
+        \coordinate (E) at (1,8);
+        \coordinate (Aux) at (1,4); % Punto auxiliar para el triángulo rectángulo
+        
+        % Triángulo rectángulo (componentes)
+        \draw[dashed, medteal, thick] (C) -- (Aux) node[midway, below, fill=medlight!30, inner sep=2pt] {$\Delta x = 1 - (-2) = 3$};
+        \draw[dashed, medteal, thick] (Aux) -- (E) node[midway, right, fill=medlight!30, inner sep=2pt] {$\Delta y = 8 - 4 = 4$};
+        
+        % Radio del tumor (Línea principal)
+        \draw[line width=3pt, tumorred, cap=round] (C) -- (E) node[midway, above left=-2pt, text=tumorred, font=\bfseries] {$r = ?$ (Radio)};
+        
+        % Puntos destacados
+        \filldraw[meddark] (C) circle (4pt) node[anchor=east, font=\bfseries, xshift=-4pt, fill=white, inner sep=1pt] {Centro (-2,4)};
+        \filldraw[meddark] (E) circle (4pt) node[anchor=south west, font=\bfseries, yshift=4pt, fill=white, inner sep=1pt] {Borde (1,8)};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para encontrar el radio, que es la distancia del centro al borde, aplicamos la fórmula de distancia entre dos puntos:
+        \begin{align*}
+            r &= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\[1ex]
+            r &= \sqrt{(1 - (-2))^2 + (8 - 4)^2} \\[1ex]
+            r &= \sqrt{(1 + 2)^2 + (4)^2} = \sqrt{(3)^2 + (4)^2} \\[1ex]
+            r &= \sqrt{9 + 16} = \sqrt{25} = \mathbf{5 \text{ cm}}
+        \end{align*}
+        \textbf{Resultado:} El radio del tumor benigno observado en la resonancia magnética es de \textbf{5 cm}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

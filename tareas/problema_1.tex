@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{angleorange}{RGB}{234, 88, 12}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Ángulo Plano: Grados a Radianes}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Un paciente en rehabilitación realiza un movimiento de flexión con su brazo describiendo un ángulo de \textbf{$60^\circ$}. Exprese la medida de este ángulo en radianes.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        % Líneas del ángulo
+        \draw[line width=3pt, meddark, cap=round] (0,0) -- (4,0) node[right, font=\bfseries] {Eje Inicial};
+        \draw[line width=3pt, meddark, cap=round] (0,0) -- (60:4) node[above right, font=\bfseries] {Flexión};
+        
+        % Sector circular (Ángulo)
+        \filldraw[angleorange, fill opacity=0.2, draw=angleorange, line width=2pt] (0,0) -- (2,0) arc (0:60:2) -- cycle;
+        
+        % Etiqueta del ángulo
+        \node[font=\Large\bfseries, text=angleorange!80!black] at (30:2.8) {$60^\circ$};
+        
+        % Puntos
+        \filldraw[medblue] (0,0) circle (4pt) node[below left, font=\bfseries, text=meddark] {Articulación};
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para convertir un ángulo de grados sexagesimales a radianes, multiplicamos el valor por el factor de conversión universal \textbf{$\left(\frac{\pi \text{ rad}}{180^\circ}\right)$}:
+        \begin{align*}
+            \theta &= 60^\circ \times \left( \frac{\pi \text{ rad}}{180^\circ} \right) \\[1ex]
+            \theta &= \frac{60\pi}{180} \text{ rad} = \frac{\pi}{3} \text{ rad}
+        \end{align*}
+        Si deseamos el valor en formato decimal, considerando que $\pi \approx 3.1416$:
+        \[ \theta \approx 1.047 \text{ rad} \]
+        \textbf{Resultado:} El ángulo de flexión equivale a \textbf{$\frac{\pi}{3}$ radianes} o \textbf{$1.047$ rad}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

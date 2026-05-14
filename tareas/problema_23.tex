@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{mercurygray}{RGB}{156, 163, 175}  % Gris para el mercurio
+\definecolor{monitorbg}{RGB}{17, 24, 39}       % Fondo oscuro de pantalla digital
+\definecolor{monitorgreen}{RGB}{16, 185, 129}  % Verde de lectura digital
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Sistemas de Unidades: Presión Arterial}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        La presión sistólica normal es de unos \textbf{120 mmHg} (milímetros de mercurio). Conociendo que \textbf{$1 \text{ mmHg} \approx 133.322 \text{ Pa}$} (Pascales, medida del Sistema Internacional), convierta la presión sistólica a Pascales.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.95]
+        
+        % --- Columna de Mercurio (Izquierda) ---
+        \begin{scope}[shift={(-3, 0)}]
+            % Base del esfigmomanómetro
+            \filldraw[meddark!10, draw=meddark, thick, rounded corners=2pt] (-1, -1.2) rectangle (0.8, 6);
+            
+            % Tubo de vidrio
+            \filldraw[white, draw=meddark!50, thick] (-0.4, -0.5) rectangle (0.1, 5.5);
+            
+            % Bulbo y Mercurio
+            \filldraw[mercurygray, draw=meddark, thick] (-0.4, -0.5) rectangle (0.1, 3);
+            \filldraw[mercurygray, draw=meddark, thick] (-0.15, -0.6) circle (0.45cm);
+            
+            % Escala
+            \foreach \y/\val in {0/0, 1/40, 2/80, 3/120, 4/160, 5/200} {
+                \draw[thick, meddark] (0.1, \y) -- (0.3, \y) node[right, font=\scriptsize\bfseries] {\val};
+            }
+            
+            % Indicador de 120
+            \draw[<-, thick, red!80!black] (0.9, 3) -- (1.5, 3) node[right, font=\bfseries] {120 mmHg};
+            
+            \node[font=\bfseries, text=meddark, align=center] at (-0.1, -2.1) {Esfigmomanómetro\\(Columna de Hg)};
+        \end{scope}
+
+        % --- Flecha de conversión ---
+        \draw[->, ultra thick, medteal] (0.3, 2.5) -- (2.6, 2.5) node[midway, above, font=\small\bfseries] {$\times 133.322$};
+        \draw[->, ultra thick, medteal] (0.3, 2.5) -- (2.6, 2.5) node[midway, below, font=\small\bfseries] {Conversión al S.I.};
+
+        % --- Monitor Digital (Derecha) ---
+        \begin{scope}[shift={(5.5, 1.5)}]
+            % Carcasa del monitor
+            \filldraw[meddark, rounded corners=5pt] (-2.5, -1.5) rectangle (2.5, 3.5);
+            % Pantalla
+            \filldraw[monitorbg, draw=meddark!80, thick, rounded corners=3pt] (-2, -0.5) rectangle (2, 2.5);
+            
+            % Lectura digital
+            \node[font=\huge\bfseries, text=monitorgreen] at (0, 1.4) {15 998};
+            \node[font=\large\bfseries, text=monitorgreen!70] at (0, 0.3) {Pa};
+            
+            % Botones decorativos
+            \filldraw[medteal] (-1.5, -1) circle (0.2cm);
+            \filldraw[medteal] (-0.8, -1) circle (0.2cm);
+            \filldraw[red!80] (1.5, -1) circle (0.2cm);
+            
+            \node[font=\bfseries, text=meddark, align=center] at (0, -2.6) {Monitor Digital\\(Pascales)};
+        \end{scope}
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para convertir la presión sistólica de milímetros de mercurio (mmHg) a Pascales (Pa), utilizamos el factor de conversión proporcionado:
+        \begin{align*}
+            P &= 120 \text{ mmHg} \times \left( \frac{133.322 \text{ Pa}}{1 \text{ mmHg}} \right) \\[1ex]
+            P &= 120 \times 133.322 \text{ Pa} = 15\,998.64 \text{ Pa}
+        \end{align*}
+        Podemos redondear este valor y expresarlo en notación científica para mayor comodidad:
+        \[ P \approx \mathbf{1.6 \times 10^4 \text{ Pa}} \]
+        \textbf{Resultado:} La presión sistólica normal de $120$ mmHg equivale a \textbf{15,998.64 Pa} (aprox. $1.6 \times 10^4$ Pa).
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

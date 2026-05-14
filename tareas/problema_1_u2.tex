@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{nerveyellow}{RGB}{245, 158, 11} % Amarillo/Naranja para la neurona
+\definecolor{musclepink}{RGB}{244, 114, 182} % Rosa para el músculo
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Cinemática: Impulso Nervioso (MRU)}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Un impulso nervioso se propaga a lo largo de un axón a una velocidad constante de \textbf{120 m/s}. Calcule el tiempo que tarda el impulso en recorrer una distancia de \textbf{0.8 m} desde la médula espinal hasta un músculo de la pierna.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.95]
+        
+        % Médula (izquierda)
+        \filldraw[medblue!20, draw=medblue, thick, rounded corners=5pt] (-2.5, -1.5) rectangle (-0.5, 1.5);
+        \node[font=\bfseries, text=meddark, align=center] at (-1.5, 0) {Médula\\Espinal};
+
+        % Neurona (Soma)
+        \filldraw[nerveyellow!50, draw=nerveyellow!90!black, thick] (0,0) circle (0.5cm);
+        % Dendritas
+        \foreach \a in {30, 90, 150, 210, 270, 330} {
+            \draw[thick, nerveyellow!90!black] (0,0) -- (\a:0.8);
+        }
+        
+        % Axón
+        \filldraw[nerveyellow!30, draw=nerveyellow!90!black, thick] (0.4,-0.1) rectangle (6,0.1);
+        
+        % Vainas de mielina
+        \foreach \x in {1, 2.5, 4} {
+            \filldraw[medteal!30, draw=medteal, thick, rounded corners=2pt] (\x, -0.25) rectangle (\x+1, 0.25);
+        }
+
+        % Músculo (derecha)
+        \filldraw[musclepink!50, draw=musclepink!90!black, thick, rounded corners=3pt] (6, -1.2) rectangle (7.5, 1.2);
+        \draw[thick, musclepink!90!black] (6.3, -1) -- (6.3, 1);
+        \draw[thick, musclepink!90!black] (6.7, -1) -- (6.7, 1);
+        \draw[thick, musclepink!90!black] (7.1, -1) -- (7.1, 1);
+        \node[font=\bfseries, text=meddark, align=center] at (6.75, -1.6) {Músculo};
+
+        % Impulso nervioso (Vector de Velocidad)
+        \draw[->, ultra thick, red!80!black] (1.5, 0.8) -- (3.5, 0.8) node[midway, above, font=\bfseries] {Impulso: $v = 120 \text{ m/s}$};
+
+        % Cota de Distancia
+        \draw[<->, thick, meddark] (0, -1.2) -- (6, -1.2) node[midway, below, font=\bfseries] {$d = 0.8 \text{ m}$};
+
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Dado que el impulso viaja a velocidad constante, aplicamos la ecuación del Movimiento Rectilíneo Uniforme (MRU) $v = \frac{d}{t}$. Despejando el tiempo $t$:
+        \begin{align*}
+            t &= \frac{d}{v} = \frac{0.8 \text{ m}}{120 \text{ m/s}} \\[1ex]
+            t &\approx \mathbf{0.00667 \text{ s}} \quad \text{o} \quad \mathbf{6.67 \text{ ms}}
+        \end{align*}
+        \textbf{Resultado:} El impulso nervioso tarda aproximadamente \textbf{6.67 milisegundos} en llegar al músculo.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

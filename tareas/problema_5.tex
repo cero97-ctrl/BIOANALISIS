@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{kneered}{RGB}{239, 68, 68}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Ángulo Plano: Fisiología Articular}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Una extensión de rodilla se mide en \textbf{$30^\circ$}. Determine este ángulo en radianes utilizando factores fraccionarios de $\pi$.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        % Líneas de extensión (Pierna)
+        \draw[line width=3pt, meddark, cap=round] (0,0) -- (4,0) node[right, font=\bfseries] {Eje de Referencia};
+        \draw[line width=3pt, meddark, cap=round] (0,0) -- (-30:4) node[right, font=\bfseries] {Extensión Realizada};
+        
+        % Sector del ángulo
+        \filldraw[kneered, fill opacity=0.2, draw=kneered, line width=2pt] (0,0) -- (2.5,0) arc (0:-30:2.5) -- cycle;
+        
+        % Etiqueta del ángulo
+        \node[font=\Large\bfseries, text=kneered!80!black] at (-15:3.2) {$30^\circ$};
+        
+        % Punto de la rodilla
+        \filldraw[meddark] (0,0) circle (4pt) node[above left, font=\bfseries, text=meddark, yshift=2pt] {Rodilla};
+        
+        % Guía punteada vertical y horizontal para contexto
+        \draw[dashed, meddark!50] (0,-2.5) -- (0,1.5);
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para convertir a radianes, utilizamos el factor de conversión clásico \textbf{$\left(\frac{\pi}{180^\circ}\right)$} y simplificamos manteniendo $\pi$ en la expresión:
+        \begin{align*}
+            \theta &= 30^\circ \times \left( \frac{\pi}{180^\circ} \right) \\[1ex]
+            \theta &= \frac{30\pi}{180} \text{ rad}
+        \end{align*}
+        Si dividimos el numerador y el denominador entre 30 obtenemos:
+        \[ \theta = \mathbf{\frac{\pi}{6} \text{ rad}} \]
+        \textbf{Resultado:} La extensión de rodilla corresponde a un ángulo fraccionario de \textbf{$\frac{\pi}{6}$ radianes}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

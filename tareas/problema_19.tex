@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usetikzlibrary{calc}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{lungpink}{RGB}{244, 114, 182}  % Rosa claro para pulmones
+\definecolor{lungdark}{RGB}{159, 18, 57}    % Rojo oscuro para bronquios/bordes
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Potencias de Diez: Cantidades Grandes}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Los pulmones humanos contienen un promedio de \textbf{480,000,000} de alvéolos para el intercambio gaseoso. Escriba esta cifra empleando potencias de diez (notación científica).
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        
+        % Tráquea y bronquios
+        \draw[line width=4pt, lungdark, cap=round] (0, 1.8) -- (0, 0.4);
+        \draw[line width=3pt, lungdark, cap=round] (0, 0.4) -- (-0.8, -0.2);
+        \draw[line width=3pt, lungdark, cap=round] (0, 0.4) -- (0.8, -0.2);
+        
+        % Pulmón izquierdo (dibujado esquemáticamente con elipse rotada)
+        \filldraw[lungpink!40, draw=lungdark, line width=1.5pt, opacity=0.9, rotate around={15:(-1.2,-0.8)}] (-1.2,-0.8) ellipse (1cm and 1.8cm);
+        % Pulmón derecho
+        \filldraw[lungpink!40, draw=lungdark, line width=1.5pt, opacity=0.9, rotate around={-15:(1.2,-0.8)}] (1.2,-0.8) ellipse (1cm and 1.8cm);
+        
+        % Alvéolos ilustrativos (racimos dentro de los pulmones)
+        \foreach \x/\y in {-1.2/-0.8, -0.8/-1.5, -1.6/-1.8, 1.2/-0.8, 0.8/-1.5, 1.6/-1.8} {
+            \begin{scope}[shift={(\x,\y)}]
+                \filldraw[white, draw=lungdark, thick] (0,0) circle (0.15cm);
+                \filldraw[lungpink, draw=lungdark, very thin] (0,0) circle (0.06cm);
+                \filldraw[lungpink, draw=lungdark, very thin] (0.1,0.06) circle (0.05cm);
+                \filldraw[lungpink, draw=lungdark, very thin] (-0.05,0.1) circle (0.06cm);
+                \filldraw[lungpink, draw=lungdark, very thin] (0.05,-0.08) circle (0.05cm);
+            \end{scope}
+        }
+        
+        \node[font=\bfseries, text=lungdark, fill=white, inner sep=2pt, rounded corners=2pt] at (0, 2.3) {Sistema Respiratorio};
+        
+        % Representación visual de la notación científica
+        \node[font=\Large, text=meddark] at (0, -3.8) {
+            $\text{N}^{\circ} = 4 \textcolor{lungdark}{\mathbf{,}} \underbrace{80\,000\,000}_{\text{\small \textbf{8 lugares a la izquierda}}} \text{ alvéolos} \quad \xrightarrow{\text{Notación}} \quad \mathbf{4.8 \times 10^8}$
+        };
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para convertir un número entero tan grande a notación científica, la coma decimal implícita al final del número debe desplazarse hacia la izquierda hasta formar un coeficiente comprendido entre el 1 y el 10.
+        
+        Al mover la coma \textbf{8 posiciones hacia la izquierda} (ubicándola entre el 4 y el 8), multiplicamos por una base 10 con un exponente positivo de \textbf{8}:
+        \[ \text{N}^{\circ} \text{ Alvéolos} = \mathbf{4.8 \times 10^8} \]
+        \textbf{Resultado:} Los pulmones humanos contienen en promedio \textbf{$4.8 \times 10^8$} alvéolos.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

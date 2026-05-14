@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{band1}{RGB}{220, 38, 38}      % Rojo para F1
+\definecolor{band2}{RGB}{37, 99, 235}      % Azul para F2
+\definecolor{band3}{RGB}{16, 185, 129}     % Verde para F3
+\definecolor{resultant}{RGB}{139, 92, 246} % Púrpura para Resultante
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Suma de Vectores: Bandas Elásticas (Terapia)}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Tres pequeñas bandas elásticas ejercen fuerza en una articulación de los dedos durante terapia ocupacional: $\vec{F}_1 = 10\hat{i}$ N, $\vec{F}_2 = 5\hat{j}$ N, y $\vec{F}_3 = (-2\hat{i} + 3\hat{j})$ N. Calcule la fuerza total resultante.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.6]
+        % Cuadrícula de fondo
+        \draw[step=1cm,gray!40,very thin] (-3.5,-1.5) grid (11.5,9.5);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-3.5,0) -- (11.5,0) node[anchor=north west] {$x$ (N)};
+        \draw[thick,->,meddark] (0,-1.5) -- (0,9.5) node[anchor=south east] {$y$ (N)};
+        
+        % Marcas numéricas
+        \foreach \x in {-2,2,4,6,8,10} \draw (\x cm,0.2cm) -- (\x cm,-0.2cm) node[anchor=north, font=\scriptsize] {\x};
+        \foreach \y in {2,4,6,8} \draw (0.2cm,\y cm) -- (-0.2cm,\y cm) node[anchor=east, font=\scriptsize] {\y};
+        \node[anchor=north east] at (0,0) {\footnotesize $0$};
+        
+        % Coordenadas principales
+        \coordinate (O) at (0,0);
+        \coordinate (F1) at (10,0);
+        \coordinate (F2) at (0,5);
+        \coordinate (F3) at (-2,3);
+        \coordinate (R) at (8,8);
+        
+        % Suma cabeza con cola (trayectoria punteada para ilustrar la suma)
+        \draw[->, dashed, line width=1.5pt, band1!60] (O) -- (F1);
+        \draw[->, dashed, line width=1.5pt, band2!60] (F1) -- (10,5);
+        \draw[->, dashed, line width=1.5pt, band3!60] (10,5) -- (R);
+        
+        % Vectores individuales (nacen del origen)
+        \draw[->, line width=2pt, band1] (O) -- (F1) node[pos=0.8, below, font=\bfseries, yshift=-10pt] {$\vec{F}_1$};
+        \draw[->, line width=2pt, band2] (O) -- (F2) node[pos=0.8, left, font=\bfseries, xshift=-10pt] {$\vec{F}_2$};
+        \draw[->, line width=2pt, band3] (O) -- (F3) node[pos=0.8, above left, font=\bfseries, xshift=-4pt] {$\vec{F}_3$};
+        
+        % Vector Resultante
+        \draw[->, line width=3pt, resultant] (O) -- (R) node[pos=0.85, above right, font=\bfseries, text=resultant, xshift=-12pt] {$\vec{R}$};
+        
+        % Puntos destacados
+        \filldraw[meddark] (O) circle (4pt) node[anchor=north east, font=\bfseries, fill=white, inner sep=1pt] {Articulación};
+        \filldraw[resultant] (R) circle (4pt) node[anchor=south west, font=\bfseries, fill=white, text=resultant, inner sep=1pt] {$(8,8)$ N};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Agrupamos todas las componentes en $x$ (dirección $\hat{i}$) e $y$ (dirección $\hat{j}$) de los tres vectores y las sumamos:
+        \begin{align*}
+            \vec{R} &= \vec{F}_1 + \vec{F}_2 + \vec{F}_3 \\[1ex]
+            \vec{R} &= (10\hat{i} + 0\hat{j}) + (0\hat{i} + 5\hat{j}) + (-2\hat{i} + 3\hat{j}) \\[1ex]
+            \vec{R} &= (10 + 0 - 2)\hat{i} + (0 + 5 + 3)\hat{j} = \mathbf{8\hat{i} + 8\hat{j} \text{ N}}
+        \end{align*}
+        \textbf{Resultado:} La fuerza total resultante sobre la articulación es \textbf{$8\hat{i} + 8\hat{j}$ N}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

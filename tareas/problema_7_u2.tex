@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{ivblue}{RGB}{147, 197, 253}     % Azul claro para el suero
+\definecolor{polegray}{RGB}{156, 163, 175}   % Gris para el atril
+\definecolor{skin}{RGB}{253, 218, 184}       % Color piel
+\definecolor{skindark}{RGB}{203, 143, 98}    % Borde color piel
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Energía Potencial: Fluidos Intravenosos}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Una bolsa de suero fisiológico que contiene \textbf{0.5 kg} de solución es colgada en un atril a \textbf{1.5 m} por encima del brazo de un paciente. ¿Cuál es la energía potencial gravitatoria del fluido con respecto al brazo del paciente? ($g = 9.8 \text{ m/s}^2$)
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.95]
+        
+        % --- Atril (Pole) ---
+        \filldraw[polegray!50, draw=meddark, thick] (-1.2, 0) rectangle (-0.8, 5.5); % Poste principal
+        \filldraw[polegray!80, draw=meddark, thick, rounded corners=2pt] (-2, 0) rectangle (0, 0.2); % Base
+        \draw[thick, meddark, line width=2pt] (-1, 5.3) -- (0.5, 5.3); % Gancho
+        \draw[thick, meddark, line width=2pt] (0.5, 5.3) -- (0.5, 5.1); % Punta del gancho
+        
+        % --- Bolsa de Suero (IV Bag) ---
+        % Nivel de fluido
+        \filldraw[white, draw=meddark, thick, rounded corners=3pt] (0, 3.5) rectangle (1, 5);
+        \filldraw[ivblue, draw=none, rounded corners=2pt] (0.05, 3.55) rectangle (0.95, 4.5);
+        
+        % Cuerda del gancho
+        \draw[thick, meddark] (0.5, 5) -- (0.5, 5.1);
+        
+        % Cámara de goteo (Drip chamber)
+        \filldraw[white, draw=meddark, thick, rounded corners=1pt] (0.35, 2.9) rectangle (0.65, 3.5);
+        \filldraw[ivblue] (0.4, 2.95) rectangle (0.6, 3.1);
+        \filldraw[ivblue] (0.5, 3.3) circle (0.05cm); % Gota
+        
+        % Etiqueta del suero
+        \node[font=\small\bfseries, text=meddark] at (-0.8, 4) {$m = 0.5 \text{ kg}$};
+        
+        % --- Brazo del Paciente ---
+        \filldraw[skin, draw=skindark, thick, rounded corners=6pt] (2.5, 0.2) rectangle (6, 0.8);
+        \node[font=\bfseries, text=meddark] at (4.25, 0.5) {Brazo del Paciente};
+        
+        % --- Tubo Intravenoso ---
+        \draw[thick, ivblue!80!blue] (0.5, 2.9) .. controls (0.5, 1.5) and (3, 2.5) .. (3, 0.8);
+        
+        % --- Medición de Altura (Vectores) ---
+        \draw[dashed, meddark!60, thick] (1.2, 4) -- (6, 4); % Nivel de la bolsa
+        \draw[dashed, meddark!60, thick] (6.2, 0.8) -- (7, 0.8); % Nivel del brazo
+        \draw[dashed, meddark!60, thick] (6, 0.8) -- (6, 4); % Guía vertical
+        
+        \draw[<->, ultra thick, medteal] (6.5, 0.8) -- (6.5, 4) node[midway, right, font=\bfseries] {$h = 1.5 \text{ m}$};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        La energía potencial gravitatoria ($E_p$) depende de la masa del objeto, la aceleración de la gravedad y la altura a la que se encuentra respecto a un punto de referencia (el brazo).
+        \begin{align*}
+            E_p &= m \cdot g \cdot h \\[1ex]
+            E_p &= (0.5 \text{ kg}) \times (9.8 \text{ m/s}^2) \times (1.5 \text{ m}) \\[1ex]
+            E_p &= 4.9 \text{ N} \times 1.5 \text{ m} = \mathbf{7.35 \text{ Joules}}
+        \end{align*}
+        \textbf{Resultado:} El fluido posee una energía potencial de \textbf{7.35 Joules} lista para impulsar su descenso hacia la vía venosa.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

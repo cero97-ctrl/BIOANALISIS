@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{leucocyte}{RGB}{144, 205, 244} % Azul claro para el glóbulo blanco
+\definecolor{bacteria}{RGB}{72, 187, 120}   % Verde para la bacteria
+\definecolor{dispvector}{RGB}{229, 62, 62}  % Rojo para el desplazamiento
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Vector Desplazamiento: Movimiento Celular}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        En una placa de Petri, un leucocito se mueve desde una posición inicial $\vec{r}_1 = (2\hat{i} + 3\hat{j}) \, \mu\text{m}$ hacia una bacteria ubicada en $\vec{r}_2 = (7\hat{i} + 15\hat{j}) \, \mu\text{m}$. Encuentre el vector desplazamiento $\vec{d} = \vec{r}_2 - \vec{r}_1$ y su magnitud.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.45]
+        % Cuadrícula de fondo
+        \draw[step=1cm,gray!40,very thin] (-0.5,-0.5) grid (9.5,16.5);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-0.5,0) -- (9.5,0) node[anchor=north west] {$x$ ($\mu$m)};
+        \draw[thick,->,meddark] (0,-0.5) -- (0,16.5) node[anchor=south east] {$y$ ($\mu$m)};
+        
+        % Marcas numéricas
+        \foreach \x in {2,4,6,8} \draw (\x cm,0.2cm) -- (\x cm,-0.2cm) node[anchor=north, font=\scriptsize] {\x};
+        \foreach \y in {3,6,9,12,15} \draw (0.2cm,\y cm) -- (-0.2cm,\y cm) node[anchor=east, font=\scriptsize] {\y};
+        \node[anchor=north east] at (0,0) {\footnotesize $0$};
+        
+        % Coordenadas
+        \coordinate (O) at (0,0);
+        \coordinate (R1) at (2,3);
+        \coordinate (R2) at (7,15);
+        \coordinate (Aux) at (7,3);
+        
+        % Vectores de posición (origen a puntos)
+        \draw[->, line width=1.5pt, meddark!60] (O) -- (R1) node[midway, below right, font=\bfseries] {$\vec{r}_1$};
+        \draw[->, line width=1.5pt, meddark!60] (O) -- (R2) node[pos=0.6, left, font=\bfseries] {$\vec{r}_2$};
+        
+        % Triángulo rectángulo para el desplazamiento
+        \draw[dashed, medteal, thick] (R1) -- (Aux) node[midway, below, fill=medlight!30, inner sep=2pt] {$\Delta x = 5$};
+        \draw[dashed, medteal, thick] (Aux) -- (R2) node[midway, right, fill=medlight!30, inner sep=2pt] {$\Delta y = 12$};
+        
+        % Vector Desplazamiento
+        \draw[->, line width=3pt, dispvector] (R1) -- (R2) node[midway, above left, font=\bfseries, text=dispvector] {$\vec{d}$};
+        
+        % Puntos destacados (Células dibujadas)
+        \filldraw[leucocyte, draw=meddark, thick] (R1) circle (8pt) node[anchor=north west, font=\bfseries, text=meddark, xshift=4pt, yshift=-15pt] {Leucocito};
+        \filldraw[bacteria, draw=meddark, thick] (R2) ellipse (10pt and 4pt) node[anchor=south east, font=\bfseries, text=meddark, yshift=4pt] {Bacteria};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        \textbf{1. Vector Desplazamiento ($\vec{d}$):} Restamos la posición inicial de la final:
+        \begin{align*}
+            \vec{d} &= \vec{r}_2 - \vec{r}_1 = (7\hat{i} + 15\hat{j}) - (2\hat{i} + 3\hat{j}) \\[1ex]
+            \vec{d} &= (7 - 2)\hat{i} + (15 - 3)\hat{j} = \mathbf{5\hat{i} + 12\hat{j} \, \mu\text{m}}
+        \end{align*}
+        
+        \textbf{2. Magnitud del Desplazamiento ($|\vec{d}|$):} Aplicamos el Teorema de Pitágoras a sus componentes:
+        \begin{align*}
+            |\vec{d}| &= \sqrt{(\Delta x)^2 + (\Delta y)^2} = \sqrt{(5)^2 + (12)^2} \\[1ex]
+            |\vec{d}| &= \sqrt{25 + 144} = \sqrt{169} = \mathbf{13 \, \mu\text{m}}
+        \end{align*}
+        \textbf{Resultado:} El vector desplazamiento es $\mathbf{5\hat{i} + 12\hat{j} \, \mu\text{m}}$ y su magnitud es \textbf{13 $\mu$m}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

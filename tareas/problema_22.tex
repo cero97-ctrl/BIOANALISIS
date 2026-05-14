@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{heartred}{RGB}{220, 38, 38}   % Rojo intenso para el corazón
+\definecolor{arteryred}{RGB}{254, 202, 202} % Rojo claro para la arteria
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Sistemas de Unidades: Caudal Cardíaco}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        El corazón de un adulto sano bombea aproximadamente \textbf{5 litros} de sangre por minuto en reposo. Exprese este caudal en \textbf{metros cúbicos por segundo ($\text{m}^3\text{/s}$)} empleando notación científica.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.9]
+        
+        % Corazón (Dibujado usando curvas de Bézier)
+        \begin{scope}[shift={(-2.5, 0)}]
+            \filldraw[heartred, draw=meddark, line width=1.5pt] 
+                (0,0.5) .. controls (-1.5,2.2) and (-3.5,-0.5) .. 
+                (0,-2.5) .. controls (3.5,-0.5) and (1.5,2.2) .. (0,0.5);
+            \node[font=\bfseries\large, text=white] at (0,-0.6) {Corazón};
+        \end{scope}
+        
+        % Vaso sanguíneo (Arteria)
+        \filldraw[arteryred, draw=heartred, line width=1.5pt] (0, -1.2) rectangle (6, 0);
+        
+        % Flechas de flujo
+        \foreach \x in {1, 3, 5} {
+            \draw[->, line width=2.5pt, heartred] (\x, -0.6) -- (\x+0.8, -0.6);
+        }
+        
+        % Etiqueta del caudal
+        \node[font=\bfseries\large, text=meddark, above] at (3, 0.2) {Caudal $Q = 5 \text{ L/min}$};
+        
+        % Ecuación visual de conversión
+        \node[font=\Large, text=meddark] at (1.5, -4) {
+            $5 \, \frac{\text{L}}{\text{min}} \quad \xrightarrow{\text{Conversión al S.I.}} \quad \text{\textbf{?}} \, \frac{\text{m}^3}{\text{s}}$
+        };
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para convertir este caudal, necesitamos dos factores de conversión: uno para el volumen ($1 \text{ L} = 10^{-3} \text{ m}^3$) y otro para el tiempo ($1 \text{ min} = 60 \text{ s}$). Los multiplicamos de la siguiente manera:
+        \begin{align*}
+            Q &= \frac{5 \text{ L}}{1 \text{ min}} \times \left( \frac{10^{-3} \text{ m}^3}{1 \text{ L}} \right) \times \left( \frac{1 \text{ min}}{60 \text{ s}} \right) \\[1.5ex]
+            Q &= \frac{5 \times 10^{-3}}{60} \, \frac{\text{m}^3}{\text{s}} \approx 0.0833 \times 10^{-3} \, \frac{\text{m}^3}{\text{s}}
+        \end{align*}
+        Para expresarlo en \textbf{notación científica correcta} (coeficiente entre 1 y 10), movemos la coma dos posiciones a la derecha y restamos 2 al exponente:
+        \[ Q \approx \mathbf{8.33 \times 10^{-5} \, \frac{\text{m}^3}{\text{s}}} \]
+        \textbf{Resultado:} El caudal cardíaco es de aproximadamente \textbf{$8.33 \times 10^{-5} \text{ m}^3/\text{s}$}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

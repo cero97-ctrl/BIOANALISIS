@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{incisionred}{RGB}{220, 38, 38}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, % Habilita características avanzadas como las sombras
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Sistemas de Coordenadas: Cirugía Asistida}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        El bisturí de un cirujano robótico se mueve en línea recta desde el punto de origen \textbf{(0, 0) mm} hasta las coordenadas \textbf{(5, -12) mm}. Calcule la distancia recorrida en la incisión.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.55]
+        % Cuadrícula de fondo
+        \draw[step=1cm,gray!40,very thin] (-1.5,-13.5) grid (6.5,1.5);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-1.5,0) -- (6.5,0) node[anchor=north west] {$x$ (mm)};
+        \draw[thick,->,meddark] (0,-13.5) -- (0,1.5) node[anchor=south east] {$y$ (mm)};
+        
+        % Marcas numéricas
+        \foreach \x in {1,2,3,4,5,6} \draw (\x cm,0.2cm) -- (\x cm,-0.2cm) node[anchor=south, yshift=0.1cm] {\footnotesize $\x$};
+        \foreach \y in {-12,-10,-8,-6,-4,-2} \draw (0.2cm,\y cm) -- (-0.2cm,\y cm) node[anchor=east] {\footnotesize $\y$};
+        \node[anchor=north east] at (0,0) {\footnotesize $0$};
+        
+        % Coordenadas de los puntos
+        \coordinate (O) at (0,0);
+        \coordinate (P) at (5,-12);
+        \coordinate (Aux) at (5,0); % Punto auxiliar para el triángulo rectángulo
+        
+        % Triángulo rectángulo (componentes)
+        \draw[dashed, medteal, thick] (O) -- (Aux) node[midway, above, fill=medlight!30, inner sep=2pt] {$\Delta x = 5$};
+        \draw[dashed, medteal, thick] (Aux) -- (P) node[midway, right, fill=medlight!30, inner sep=2pt] {$\Delta y = -12$};
+        
+        % Incisión (Línea principal)
+        \draw[line width=3pt, incisionred, cap=round] (O) -- (P) node[midway, below left, text=incisionred, font=\bfseries] {$d = ?$ (Incisión)};
+        
+        % Puntos destacados
+        \filldraw[meddark] (O) circle (4pt) node[anchor=south east, font=\bfseries, fill=white, inner sep=1pt] {Origen (0,0)};
+        \filldraw[meddark] (P) circle (4pt) node[anchor=north west, font=\bfseries, fill=white, inner sep=1pt] {Fin (5,-12)};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para encontrar la distancia de la incisión, aplicamos la fórmula de distancia entre dos puntos:
+        \begin{align*}
+            d &= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\[1ex]
+            d &= \sqrt{(5 - 0)^2 + (-12 - 0)^2} = \sqrt{(5)^2 + (-12)^2} \\[1ex]
+            d &= \sqrt{25 + 144} = \sqrt{169} = \mathbf{13 \text{ mm}}
+        \end{align*}
+        \textbf{Resultado:} La distancia total de la incisión es de \textbf{13 mm}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

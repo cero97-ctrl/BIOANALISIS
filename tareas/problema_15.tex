@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{tearmuscle}{RGB}{220, 38, 38} % Rojo para el desgarro
+\definecolor{restoring}{RGB}{16, 185, 129} % Verde para la fuerza restauradora
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Suma de Vectores: Estado de Equilibrio}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Para neutralizar un desgarro muscular que tira con una fuerza de $\vec{F}_m = (25\hat{i} - 15\hat{j})$ N, un fisioterapeuta aplica una fuerza restauradora $\vec{F}_r = (-25\hat{i} + 15\hat{j})$ N. Demuestre matemáticamente el estado de equilibrio (Suma de fuerzas = 0).
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.15]
+        % Cuadrícula de fondo (escala de 5 en 5)
+        \draw[step=5,gray!40,very thin] (-30,-20) grid (30,20);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-32,0) -- (32,0) node[anchor=north west] {$x$ (N)};
+        \draw[thick,->,meddark] (0,-22) -- (0,22) node[anchor=south east] {$y$ (N)};
+        
+        % Marcas numéricas
+        \foreach \x in {-25,-15,-5,5,15,25} \draw (\x cm,1) -- (\x cm,-1) node[anchor=north, font=\scriptsize] {\x};
+        \foreach \y in {-15,-5,5,15} \draw (1,\y cm) -- (-1,\y cm) node[anchor=east, font=\scriptsize] {\y};
+        
+        % Coordenadas principales
+        \coordinate (O) at (0,0);
+        \coordinate (Fm) at (25,-15);
+        \coordinate (Fr) at (-25,15);
+        
+        % Vector 1: Fuerza Muscular (Desgarro)
+        \draw[->, line width=2.5pt, tearmuscle] (O) -- (Fm) node[pos=0.8, below left, font=\bfseries, text=tearmuscle] {$\vec{F}_m$};
+        \draw[dashed, tearmuscle, thick] (Fm) -- (25,0);
+        \draw[dashed, tearmuscle, thick] (Fm) -- (0,-15);
+        
+        % Vector 2: Fuerza Restauradora (Fisioterapia)
+        \draw[->, line width=2.5pt, restoring] (O) -- (Fr) node[pos=0.8, above right, font=\bfseries, text=restoring] {$\vec{F}_r$};
+        \draw[dashed, restoring, thick] (Fr) -- (-25,0);
+        \draw[dashed, restoring, thick] (Fr) -- (0,15);
+        
+        % Punto destacado (Origen / Punto de equilibrio)
+        \filldraw[meddark] (O) circle (4pt) node[anchor=south west, font=\bfseries, fill=white, inner sep=1pt, xshift=2pt, yshift=2pt] {Lesión (0,0)};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para comprobar el estado de equilibrio, sumamos las componentes de todas las fuerzas involucradas. Si el sistema está en equilibrio, la fuerza total ($\vec{F}_{\text{total}}$) debe ser cero:
+        \begin{align*}
+            \vec{F}_{\text{total}} &= \vec{F}_m + \vec{F}_r = (25\hat{i} - 15\hat{j}) + (-25\hat{i} + 15\hat{j}) \\[1ex]
+            \vec{F}_{\text{total}} &= (25 - 25)\hat{i} + (-15 + 15)\hat{j} = \mathbf{0\hat{i} + 0\hat{j} \text{ N}}
+        \end{align*}
+        \textbf{Resultado:} La suma de fuerzas es igual a \textbf{0 N}, por lo que el sistema se encuentra en un estado de equilibrio matemático y biomecánico.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

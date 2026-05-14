@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{bloodred}{RGB}{220, 38, 38}   % Rojo intenso para el glóbulo
+\definecolor{bloodlight}{RGB}{254, 226, 226} % Rojo muy claro para el relleno
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Potencias de Diez: Notación Científica}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Un glóbulo rojo (eritrocito) humano tiene un diámetro aproximado de \textbf{0.0000075} metros. Exprese esta medida utilizando notación científica (potencias de diez) y el prefijo adecuado del Sistema Internacional.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        % Eritrocito (vista superior simulando disco bicóncavo)
+        \filldraw[bloodlight, draw=bloodred, line width=2.5pt] (0,0) circle (2cm);
+        \filldraw[bloodred!20, draw=bloodred!50, line width=1pt] (0,0) circle (1.2cm);
+        \filldraw[bloodred!40, draw=none] (0,0) circle (0.6cm); % Sombra central más profunda
+        
+        % Etiqueta del Eritrocito
+        \node[font=\bfseries, text=bloodred!80!black] at (0, 0) {Eritrocito};
+        
+        % Acotación del diámetro
+        \draw[<->, thick, meddark] (-2, -2.6) -- (2, -2.6) node[midway, below, font=\bfseries] {$d = 0.0000075 \text{ m}$};
+        \draw[dashed, meddark!60, thick] (-2, -2.4) -- (-2, -0.5);
+        \draw[dashed, meddark!60, thick] (2, -2.4) -- (2, -0.5);
+        
+        % Representación visual del salto de la coma decimal
+        \node[font=\Large, text=meddark] at (0, -4.8) {
+            $0 \textcolor{bloodred}{\mathbf{,}} \underbrace{0 \quad 0 \quad 0 \quad 0 \quad 0 \quad 7}_{\text{\small \textbf{6 lugares a la derecha}}} \textcolor{bloodred}{\mathbf{,}} 5 \text{ m} \quad \xrightarrow{\text{Notación}} \quad \mathbf{7.5 \times 10^{-6} \text{ m}}$
+        };
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para convertir la medida a notación científica, la coma decimal se desplaza \textbf{6 posiciones} hacia la derecha, obteniendo un coeficiente entre 1 y 10, multiplicado por una base 10 con exponente negativo:
+        \[ d = \mathbf{7.5 \times 10^{-6} \text{ m}} \]
+        En el Sistema Internacional (SI), la potencia $10^{-6}$ corresponde al prefijo \textbf{micro} ($\mu$). Sustituimos la potencia por el símbolo del prefijo:
+        \[ d = \mathbf{7.5 \, \mu\text{m}} \]
+        \textbf{Resultado:} El diámetro del eritrocito es \textbf{$7.5 \times 10^{-6}$ m}, lo que equivale a \textbf{7.5 micrómetros ($\mu$m)}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

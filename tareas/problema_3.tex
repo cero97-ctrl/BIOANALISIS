@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{neckpurple}{RGB}{139, 92, 246}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Ángulo Plano: Terapia Física}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Durante una terapia de cuello, un paciente logra una rotación lateral equivalente a un ángulo de \textbf{$\frac{\pi}{4}$ radianes}. ¿A cuántos grados corresponde esta rotación?
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        % Guías de la vista superior (cabeza rotando)
+        \draw[dashed, meddark!50, line width=1.5pt] (0, -0.5) -- (0, 3.5) node[above, font=\bfseries] {Mirada al frente};
+        \draw[dashed, meddark!50, line width=1.5pt] (-2, 0) -- (2, 0) node[right, font=\bfseries] {Hombros};
+        
+        % Vectores de rotación
+        \draw[->, line width=3pt, meddark] (0,0) -- (0, 2.5);
+        \draw[->, line width=3pt, neckpurple] (0,0) -- (45:2.5) node[above right, font=\bfseries] {Rotación Máxima};
+        
+        % Sector del ángulo
+        \filldraw[neckpurple, fill opacity=0.2, draw=neckpurple, line width=2pt] (0,0) -- (0,1.5) arc (90:45:1.5) -- cycle;
+        
+        % Etiqueta del ángulo
+        \node[font=\Large\bfseries, text=neckpurple!60!black] at (67.5:2) {$\frac{\pi}{4}$};
+        
+        % Centro (Cuello)
+        \filldraw[meddark] (0,0) circle (4pt) node[below right, font=\bfseries, xshift=2pt, yshift=-2pt] {Cuello (Eje)};
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Dado que el ángulo ya se encuentra expresado en función de $\pi$, la conversión a grados sexagesimales resulta muy sencilla multiplicando por \textbf{$\left(\frac{180^\circ}{\pi}\right)$}:
+        \begin{align*}
+            \theta &= \frac{\pi}{4} \text{ rad} \times \left( \frac{180^\circ}{\pi \text{ rad}} \right) \\[1ex]
+            \theta &= \frac{180^\circ \times \pi}{4 \times \pi}
+        \end{align*}
+        El número $\pi$ se cancela en el numerador y el denominador, por lo que basta dividir 180 entre 4:
+        \[ \theta = \frac{180^\circ}{4} = \mathbf{45^\circ} \]
+        \textbf{Resultado:} La rotación lateral lograda por el paciente es de \textbf{$45^\circ$}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{skin}{RGB}{253, 218, 184}      % Color piel base
+\definecolor{skindark}{RGB}{203, 143, 98}   % Borde color piel
+\definecolor{muscle}{RGB}{220, 38, 38}      % Rojo músculo
+\definecolor{iron}{RGB}{107, 114, 128}      % Gris para la pesa
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Dinámica: Leyes de Newton}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Durante una prueba de fuerza isométrica, el bíceps de un paciente ejerce una fuerza ascendente de \textbf{250 N}. Si ignoramos el peso del propio antebrazo, ¿qué masa máxima ($m$) podría sostener en su mano en estado de equilibrio? ($g \approx 9.8 \text{ m/s}^2$).
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.9]
+        
+        % --- Brazo simplificado ---
+        % Brazo superior
+        \filldraw[skin, draw=skindark, thick, rounded corners=10pt] (-2.5, -0.5) rectangle (0, 0.5);
+        % Antebrazo
+        \filldraw[skin, draw=skindark, thick, rounded corners=8pt] (-0.2, -0.4) rectangle (5, 0.4);
+        % Codo
+        \filldraw[skin!80!skindark, draw=skindark, thick] (0,0) circle (0.4cm);
+        \node[font=\scriptsize\bfseries, text=meddark, align=center] at (-0.5, -1) {Articulación\\del codo};
+        
+        % Músculo Bíceps
+        \filldraw[muscle!80, draw=meddark, thick] (-1.5, 0.5) .. controls (-1, 1.3) and (-0.5, 1.3) .. (0.5, 0.4) .. controls (-0.5, 0.6) and (-1, 0.6) .. (-1.5, 0.5);
+        \node[font=\scriptsize\bfseries, text=meddark] at (-0.8, 0.9) {Bíceps};
+        
+        % Mano y Pesa
+        \filldraw[skin, draw=skindark, thick, rounded corners=5pt] (4.8, -0.5) rectangle (5.6, 0.5); 
+        \filldraw[iron!60, draw=meddark, thick, rounded corners=2pt] (5.1, -1.5) rectangle (6.1, -0.5); 
+        \node[font=\bfseries, text=meddark] at (5.6, -1) {Masa $m$};
+        
+        % --- Fuerzas (Vectores) ---
+        % Fuerza del Bíceps hacia arriba
+        \draw[->, ultra thick, medteal] (0.5, 0.4) -- (0.5, 3) node[above, font=\bfseries] {Fuerza muscular ($250 \text{ N}$)};
+        
+        % Peso de la masa hacia abajo
+        \draw[->, ultra thick, muscle] (5.6, -1.5) -- (5.6, -4) node[below, font=\bfseries] {Peso ($W = m \cdot g$)};
+        
+        % Nota de equilibrio
+        \node[font=\large\bfseries, text=meddark, fill=white, inner sep=4pt, rounded corners=3pt, draw=meddark!30] at (3, 2) {$\sum F_y = 0$};
+
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para que el sistema se encuentre en estado de equilibrio (fuerza isométrica sin aceleración), la sumatoria de fuerzas verticales debe ser igual a cero. La fuerza ascendente del músculo debe equilibrar exactamente el peso descendente de la masa ($W = m \cdot g$):
+        \begin{align*}
+            F_{\text{músculo}} &= m \cdot g \\[1ex]
+            250 \text{ N} &= m \cdot (9.8 \text{ m/s}^2)
+        \end{align*}
+        Despejando la masa ($m$):
+        \[ m = \frac{250}{9.8} \approx \mathbf{25.51 \text{ kg}} \]
+        \textbf{Resultado:} El paciente podría sostener una masa máxima teórica de \textbf{25.51 kg} (asumiendo un modelo anatómico simplificado).
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

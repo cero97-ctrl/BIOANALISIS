@@ -1,0 +1,104 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{bloodred}{RGB}{220, 38, 38}    % Rojo intenso para glóbulos
+\definecolor{plasmayellow}{RGB}{253, 230, 138} % Amarillo claro para plasma
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Dinámica: Fuerza Centrípeta}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Una centrífuga de laboratorio se utiliza para separar el plasma de los elementos formes de la sangre. Si un glóbulo rojo de masa \textbf{$m = 1 \times 10^{-14} \text{ kg}$} experimenta una aceleración centrípeta de \textbf{$2000 \times g$} (donde $g = 9.8 \text{ m/s}^2$), ¿cuál es la fuerza centrípeta neta que actúa sobre la célula?
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.95]
+        
+        % --- Vista de la Centrífuga (Izquierda) ---
+        \begin{scope}[shift={(-2.5, 0)}]
+            % Eje central
+            \filldraw[meddark!20, draw=meddark, thick] (0,0) circle (0.6cm);
+            \filldraw[meddark] (0,0) circle (0.15cm);
+            
+            % Trayectoria circular
+            \draw[dashed, thick, meddark!50] (0,0) circle (2.5cm);
+            \draw[->, ultra thick, medteal] (70:2.5) arc (70:110:2.5cm) node[midway, above, font=\bfseries] {Giro $\omega$};
+            
+            % Brazo y Tubo de centrífuga
+            \draw[line width=6pt, meddark!40] (0.6,0) -- (1.5,0);
+            
+            % Tubo de ensayo horizontal (debido a la fuerza centrífuga)
+            \filldraw[blue!5, draw=meddark, thick, rounded corners=4pt] (1.5, -0.4) rectangle (3.5, 0.4);
+            % Capa de plasma
+            \filldraw[plasmayellow, draw=none] (1.6, -0.3) rectangle (2.5, 0.3);
+            % Capa de eritrocitos (paquete globular)
+            \filldraw[bloodred!90!black, draw=none, rounded corners=2pt] (2.5, -0.3) rectangle (3.4, 0.3);
+            
+            \node[font=\bfseries, text=meddark, align=center] at (0,-1.4) {Rotor de\\Centrífuga};
+        \end{scope}
+
+        % --- Zoom al Glóbulo Rojo (Derecha) ---
+        % Líneas de efecto zoom
+        \draw[dashed, gray, thick] (0.5, 0.3) -- (3, 2);
+        \draw[dashed, gray, thick] (0.5, -0.3) -- (3, -2);
+        
+        \begin{scope}[shift={(5, 0)}]
+            \filldraw[white, draw=gray, line width=2pt] (0,0) circle (2.2cm);
+            
+            % Glóbulo rojo (forma bicóncava simulada)
+            \filldraw[bloodred!40, draw=bloodred, ultra thick] (0,0) circle (0.9cm);
+            \filldraw[bloodred!60, draw=bloodred, thick] (0,0) circle (0.45cm); % Centro más claro/oscuro para dar volumen
+            
+            % Vectores
+            \draw[->, ultra thick, red!80!black] (-0.9, 0) -- (-2.8, 0) node[midway, above, font=\bfseries, text=black] {Fuerza Centrípeta ($F_c$)};
+            \draw[->, ultra thick, medteal] (0, 0.9) -- (0, 2.5) node[right, font=\bfseries] {Velocidad ($\vec{v}$)};
+            
+            \node[font=\bfseries, text=meddark, align=center] at (0,-1.4) {Eritrocito aislado\\$m = 1 \times 10^{-14} \text{ kg}$};
+        \end{scope}
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para encontrar la fuerza centrípeta ($F_c$), primero calculamos la aceleración centrípeta ($a$) en unidades estándar ($\text{m/s}^2$), sabiendo que $1g = 9.8 \text{ m/s}^2$:
+        \[ a = 2000 \times 9.8 \text{ m/s}^2 = 19\,600 \text{ m/s}^2 \]
+        Luego, aplicamos la Segunda Ley de Newton orientada hacia el centro de rotación ($F_c = m \cdot a$):
+        \begin{align*}
+            F_c &= (1 \times 10^{-14} \text{ kg}) \times (19\,600 \text{ m/s}^2) \\[1ex]
+            F_c &= 1.96 \times 10^{-10} \text{ N}
+        \end{align*}
+        \textbf{Resultado:} La fuerza neta responsable de separar a la célula es de \textbf{$1.96 \times 10^{-10}$ Newtons}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

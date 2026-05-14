@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{skin}{RGB}{253, 218, 184}        % Color piel
+\definecolor{skindark}{RGB}{203, 143, 98}     % Borde color piel
+\definecolor{salivablue}{RGB}{147, 197, 253}  % Azul claro para gotas/aire
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Energía Cinética: Reflejo del Estornudo}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Durante un estornudo, una persona expulsa aproximadamente \textbf{0.5 g} (\textbf{0.0005 kg}) de aire y pequeñas gotas de saliva a una velocidad asombrosa de \textbf{40 m/s}. Calcule la energía cinética de esta masa expulsada.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.95]
+        
+        % --- Silueta de la cabeza (Perfil izquierdo) ---
+        \filldraw[skin, draw=skindark, thick]
+            (-1, -2) .. controls (-1.5, -1) and (-1.5, 1) .. (0, 2)    % Nuca a coronilla
+            .. controls (1, 2.5) and (2, 1.5) .. (2, 0.5)              % Frente
+            .. controls (2.2, 0.2) and (2.5, -0.1) .. (2.3, -0.3)      % Nariz
+            .. controls (2.1, -0.4) and (2.0, -0.5) .. (2.1, -0.5)     % Labio superior
+            -- (1.0, -0.8)                                             % Interior de la boca (abierta)
+            -- (2.1, -1.1)                                             % Labio inferior
+            .. controls (1.8, -1.3) and (1.5, -1.8) .. (1.5, -2)       % Cuello
+            -- cycle;
+            
+        % Ojo estilizado
+        \filldraw[meddark] (1.3, 0.5) ellipse (0.15cm and 0.08cm);
+        
+        % --- Nube de estornudo (Cono de aire) ---
+        \fill[salivablue, opacity=0.3] (1.5, -0.8) -- (7, 1.5) .. controls (8, -0.8) and (7, -3) .. (7, -3) -- cycle;
+        
+        % Gotas de saliva y partículas
+        \foreach \x/\y in {3/0.2, 3.5/-0.5, 4/0.5, 4.5/-1, 5/0.8, 5.5/-0.2, 6/0.4, 6.5/-1.5, 6.2/-0.8, 4.8/-1.8} {
+            \filldraw[salivablue!80!blue, draw=meddark, thin] (\x, \y) circle (0.1cm);
+            \filldraw[salivablue!80!blue, draw=meddark, thin] (\x-0.3, \y+0.3) circle (0.05cm);
+        }
+        
+        % --- Vectores e Información ---
+        \draw[->, ultra thick, red!80!black] (2.5, -0.8) -- (6.0, -0.8) node[midway, above, font=\large\bfseries, fill=white, inner sep=2pt, rounded corners=2pt, opacity=0.9, text opacity=1] {Velocidad $v = 40 \text{ m/s}$};
+        
+        \node[font=\bfseries, text=meddark, fill=white, inner sep=3pt, rounded corners=3pt, draw=meddark!50, thick] at (4.5, -2.5) {Masa expulsada $m = 0.0005 \text{ kg}$};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        La energía cinética ($E_c$) es la energía asociada al movimiento de una masa. Se calcula mediante la fórmula $E_c = \frac{1}{2} m v^2$. Es crucial usar la masa en kilogramos para que el resultado esté en Joules (J).
+        \begin{align*}
+            E_c &= \frac{1}{2} \cdot (0.0005 \text{ kg}) \cdot (40 \text{ m/s})^2 \\[1ex]
+            E_c &= 0.00025 \text{ kg} \cdot 1600 \text{ m}^2/\text{s}^2 \\[1ex]
+            E_c &= \mathbf{0.4 \text{ Joules}}
+        \end{align*}
+        \textbf{Resultado:} La energía cinética liberada por las partículas durante este estornudo es de \textbf{0.4 Joules}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

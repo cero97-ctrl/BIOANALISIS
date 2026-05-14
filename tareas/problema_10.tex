@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{scarred}{RGB}{153, 27, 27} % Color rojo oscuro/marrón para la cicatriz
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, % Habilita características avanzadas como las sombras
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Sistemas de Coordenadas: Punto Medio}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Durante un análisis forense, se describe una cicatriz que va del punto \textbf{A(1, 2) cm} al punto \textbf{B(7, 10) cm}. Encuentre las coordenadas del punto medio de esta cicatriz.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.65]
+        % Cuadrícula de fondo
+        \draw[step=1cm,gray!40,very thin] (-0.5,-0.5) grid (8.5,11.5);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-0.5,0) -- (8.5,0) node[anchor=north west] {$x$ (cm)};
+        \draw[thick,->,meddark] (0,-0.5) -- (0,11.5) node[anchor=south east] {$y$ (cm)};
+        
+        % Marcas numéricas
+        \foreach \x in {1,2,3,4,5,6,7,8} \draw (\x cm,0.2cm) -- (\x cm,-0.2cm) node[anchor=north, yshift=-0.1cm] {\footnotesize $\x$};
+        \foreach \y in {2,4,6,8,10} \draw (0.2cm,\y cm) -- (-0.2cm,\y cm) node[anchor=east] {\footnotesize $\y$};
+        \node[anchor=north east] at (0,0) {\footnotesize $0$};
+        
+        % Coordenadas de los puntos
+        \coordinate (A) at (1,2);
+        \coordinate (B) at (7,10);
+        \coordinate (M) at (4,6);
+        
+        % Proyecciones del punto medio a los ejes
+        \draw[dashed, medteal, thick] (4,0) -- (M) -- (0,6);
+        
+        % Cicatriz (Línea principal)
+        \draw[line width=3pt, scarred, cap=round] (A) -- (B) node[midway, sloped, above, font=\bfseries] {Cicatriz};
+        
+        % Puntos destacados
+        \filldraw[meddark] (A) circle (4pt) node[anchor=north west, font=\bfseries, fill=white, inner sep=1pt] {A (1,2)};
+        \filldraw[meddark] (B) circle (4pt) node[anchor=south east, font=\bfseries, fill=white, inner sep=1pt] {B (7,10)};
+        \filldraw[medblue] (M) circle (5pt) node[anchor=north west, font=\bfseries, fill=medlight, text=medblue, inner sep=2pt] {Medio M(4,6)};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        La fórmula para encontrar el punto medio $M$ entre dos coordenadas $(x_1, y_1)$ y $(x_2, y_2)$ es un promedio de sus componentes:
+        \begin{align*}
+            M &= \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right) \\[1ex]
+            M &= \left( \frac{1 + 7}{2}, \frac{2 + 10}{2} \right) = \left( \frac{8}{2}, \frac{12}{2} \right) \\[1ex]
+            M &= \mathbf{(4, 6) \text{ cm}}
+        \end{align*}
+        \textbf{Resultado:} El punto medio exacto de la cicatriz se encuentra en las coordenadas \textbf{(4, 6) cm}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

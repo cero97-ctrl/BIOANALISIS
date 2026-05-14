@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{heartred}{RGB}{220, 38, 38}    % Rojo para el corazón
+\definecolor{ecggreen}{RGB}{16, 185, 129}   % Verde brillante para el ECG
+\definecolor{powerorange}{RGB}{245, 158, 11} % Naranja para la energía
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Potencia Mecánica: Gasto Cardíaco}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        El ventrículo izquierdo de un corazón humano en reposo realiza aproximadamente \textbf{1 J} de trabajo mecánico por cada latido. Si la frecuencia cardíaca del paciente es de \textbf{72 latidos por minuto}, ¿cuál es la potencia media desarrollada por el ventrículo en Watts?
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.95]
+        
+        % --- Corazón (Izquierda) ---
+        \begin{scope}[shift={(-4, 0.5)}, scale=0.55]
+            \filldraw[heartred, draw=meddark, line width=1.5pt] 
+                (0,0.5) .. controls (-1.5,2.2) and (-3.5,-0.5) .. 
+                (0,-2.5) .. controls (3.5,-0.5) and (1.5,2.2) .. (0,0.5);
+            \node[font=\bfseries, text=white] at (0,-0.6) {1 J};
+            \node[font=\bfseries, text=meddark, align=center] at (0,-3.8) {Trabajo por\\latido};
+        \end{scope}
+
+        % Flecha 1
+        \draw[->, ultra thick, medteal] (-2.2, 0) -- (-1.6, 0);
+
+        % --- ECG / Frecuencia (Centro) ---
+        \begin{scope}[shift={(0.8, 0)}]
+            % Pantalla del monitor
+            \filldraw[meddark!95!black, draw=meddark, thick, rounded corners=3pt] (-2.2, -1.2) rectangle (2.2, 1.2);
+            % Cuadrícula sutil
+            \draw[step=0.2, gray!40!meddark, very thin] (-2.2,-1.2) grid (2.2,1.2);
+            
+            % Trazo ECG (Ondas P, QRS, T) repetido dos veces
+            \draw[ecggreen, thick] 
+                (-2.2, 0) -- (-1.7, 0) -- (-1.5, 0.2) -- (-1.4, -0.1) -- (-1.2, 0.8) -- (-1.0, -0.3) -- (-0.8, 0) -- (-0.4, 0) -- (-0.2, 0.3) -- (0, 0) --
+                (0.3, 0) -- (0.5, 0.2) -- (0.6, -0.1) -- (0.8, 0.8) -- (1.0, -0.3) -- (1.2, 0) -- (1.6, 0) -- (1.8, 0.3) -- (2.0, 0) -- (2.2, 0);
+                
+            \node[font=\bfseries, text=meddark, align=center] at (0, -2.1) {Frecuencia Cardíaca\\72 latidos / 60 s};
+        \end{scope}
+
+        % Flecha 2
+        \draw[->, ultra thick, medteal] (3.2, 0) -- (3.8, 0);
+
+        % --- Potencia / Resultado (Derecha) ---
+        \begin{scope}[shift={(5.5, 0)}]
+            \filldraw[powerorange!20, draw=powerorange, thick, rounded corners=5pt] (-1.2, -1.2) rectangle (1.2, 1.2);
+            \node[font=\Huge\bfseries, text=powerorange!80!black] at (0, 0.1) {1.2};
+            \node[font=\large\bfseries, text=powerorange!80!black] at (0, -0.6) {Watts};
+            \node[font=\bfseries, text=meddark, align=center] at (0, -2.1) {Potencia Media\\($P = W / t$)};
+        \end{scope}
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        La potencia ($P$) es la rapidez con la que se realiza un trabajo mecánico, expresada como $P = \frac{W}{t}$. Para obtener la potencia en Watts (Joules por segundo), primero calculamos el trabajo total realizado en un minuto (60 segundos):
+        \[ W_{\text{total}} = 72 \text{ latidos} \times 1 \text{ J/latido} = 72 \text{ Joules} \]
+        \[ P = \frac{72 \text{ J}}{60 \text{ s}} = 1.2 \text{ J/s} = \mathbf{1.2 \text{ Watts}} \]
+        \textbf{Resultado:} El ventrículo izquierdo desarrolla una potencia media de \textbf{1.2 W} en reposo.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

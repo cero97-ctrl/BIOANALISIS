@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, % Habilita características avanzadas como las sombras
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Sistemas de Coordenadas: Distancia entre Puntos}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.3cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        En una placa de rayos X digitalizada 2D, el punto de origen de un hueso (articulación A) está en las coordenadas \textbf{(2, 3) cm} y el extremo B en \textbf{(5, 7) cm}. Calcule la longitud real del hueso.
+    \end{tcolorbox}
+
+    \vspace{0.5cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        % Cuadrícula de fondo
+        \draw[step=1cm,gray!30,very thin] (-0.5,-0.5) grid (7.5,8.5);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-0.5,0) -- (7.5,0) node[anchor=north west] {$x$ (cm)};
+        \draw[thick,->,meddark] (0,-0.5) -- (0,8.5) node[anchor=south east] {$y$ (cm)};
+        
+        % Marcas numéricas
+        \foreach \x in {1,2,3,4,5,6,7} \draw (\x cm,2pt) -- (\x cm,-2pt) node[anchor=north] {\small $\x$};
+        \foreach \y in {1,2,3,4,5,6,7,8} \draw (2pt,\y cm) -- (-2pt,\y cm) node[anchor=east] {\small $\y$};
+        
+        % Coordenadas de los puntos
+        \coordinate (A) at (2,3);
+        \coordinate (B) at (5,7);
+        \coordinate (C) at (5,3); % Punto auxiliar para el triángulo rectángulo
+        
+        % Triángulo rectángulo (componentes)
+        \draw[dashed, medteal, thick] (A) -- (C) node[midway, below] {$\Delta x = 5 - 2 = 3$};
+        \draw[dashed, medteal, thick] (C) -- (B) node[midway, right] {$\Delta y = 7 - 3 = 4$};
+        
+        % Hueso (Línea principal)
+        \draw[line width=4pt, medblue, cap=round] (A) -- (B) node[midway, above left=-2pt, text=medblue, font=\bfseries] {$d = ?$ (Hueso)};
+        
+        % Puntos destacados
+        \filldraw[red!80!black] (A) circle (3pt) node[anchor=north east, font=\bfseries] {A (2,3)};
+        \filldraw[red!80!black] (B) circle (3pt) node[anchor=south west, font=\bfseries] {B (5,7)};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.5cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para encontrar la longitud del hueso, aplicamos la fórmula de distancia entre dos puntos (basada en el Teorema de Pitágoras):
+        \begin{align*}
+            d &= \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \\[1ex]
+            d &= \sqrt{(5 - 2)^2 + (7 - 3)^2} \\[1ex]
+            d &= \sqrt{(3)^2 + (4)^2} = \sqrt{9 + 16} \\[1ex]
+            d &= \sqrt{25} = \mathbf{5 \text{ cm}}
+        \end{align*}
+        \textbf{Resultado:} La longitud real del hueso proyectada en la placa es de \textbf{5 cm}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

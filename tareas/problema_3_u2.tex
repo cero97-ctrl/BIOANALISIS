@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{iron}{RGB}{107, 114, 128}      % Gris para la pesa
+\definecolor{rope}{RGB}{217, 119, 6}        % Color cuerda
+\definecolor{bedblue}{RGB}{96, 165, 250}    % Azul para la camilla
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Trabajo y Energía: Rehabilitación Física}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Un paciente en una camilla de tracción levanta repetidamente una pesa de \textbf{5 kg} a una altura de \textbf{0.4 m} a velocidad constante. Calcule el trabajo mecánico realizado por el paciente en un solo levantamiento.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1.1]
+        
+        % Soporte y Polea
+        \filldraw[meddark!20, draw=meddark, thick, rounded corners=2pt] (1.5, 3.5) rectangle (2.5, 3.8);
+        \draw[thick, meddark, line width=2pt] (2, 3.5) -- (2, 3);
+        \filldraw[gray!30, draw=meddark, thick] (2, 2.7) circle (0.3cm);
+        \filldraw[meddark] (2, 2.7) circle (0.05cm); % Eje de la polea
+        
+        % Cuerda
+        \draw[ultra thick, rope] (-0.5, 1) -- (1.7, 2.7); % Hacia el paciente
+        \draw[ultra thick, rope] (2.3, 2.7) -- (2.3, 0.5); % Hacia la pesa
+        
+        % Pierna del paciente (simplificada)
+        \filldraw[bedblue!50, draw=meddark, thick, rounded corners=5pt] (-2.5, 0.5) rectangle (-0.5, 1.5);
+        \node[font=\bfseries, text=meddark] at (-1.5, 1) {Paciente};
+        
+        % Pesa (Masa)
+        \filldraw[iron!80, draw=meddark, thick, rounded corners=3pt] (1.8, -0.5) rectangle (2.8, 0.5);
+        \node[font=\large\bfseries, text=white] at (2.3, 0) {5 kg};
+        
+        % Vectores de Fuerza y Distancia
+        \draw[->, ultra thick, red!80!black] (2.3, 0.5) -- (2.3, 1.8) node[midway, left, font=\bfseries] {$F$};
+        \draw[->, ultra thick, medteal] (3.3, -0.5) -- (3.3, 1.2) node[midway, right, font=\bfseries] {$h = 0.4 \text{ m}$};
+        
+        % Guías punteadas para la altura
+        \draw[dashed, meddark!60, thick] (2.8, -0.5) -- (3.5, -0.5);
+        \draw[dashed, meddark!60, thick] (2.8, 1.2) -- (3.5, 1.2);
+
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        El trabajo mecánico ($W$) realizado para elevar un objeto a velocidad constante contra la gravedad equivale al cambio en su energía potencial gravitatoria ($W = m \cdot g \cdot h$).
+        \begin{align*}
+            W &= (5 \text{ kg}) \times (9.8 \text{ m/s}^2) \times (0.4 \text{ m}) \\[1ex]
+            W &= 49 \text{ N} \times 0.4 \text{ m} = \mathbf{19.6 \text{ Joules}}
+        \end{align*}
+        \textbf{Resultado:} El paciente realiza un trabajo mecánico de \textbf{19.6 Joules (J)} en cada repetición del ejercicio.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

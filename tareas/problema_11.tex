@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{forceorange}{RGB}{221, 107, 32} % Naranja para fuerzas musculares
+\definecolor{forcepurple}{RGB}{128, 90, 213} % Púrpura para la resultante
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, % Habilita características avanzadas como las sombras
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Suma de Vectores: Fuerzas en la Vértebra L5}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Sobre la vértebra L5 de una persona actúan dos fuerzas debido a la tensión muscular: $\vec{F}_1 = (30\hat{i} + 40\hat{j})$ N y $\vec{F}_2 = (-10\hat{i} + 10\hat{j})$ N. Encuentre el vector de la fuerza resultante que soporta la vértebra.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.13]
+        % Cuadrícula de fondo (escala de 10 en 10)
+        \draw[step=10,gray!40,very thin] (-15,-5) grid (35,55);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-15,0) -- (35,0) node[anchor=north west] {$x$ (N)};
+        \draw[thick,->,meddark] (0,-5) -- (0,55) node[anchor=south east] {$y$ (N)};
+        
+        % Marcas numéricas (eje x e y)
+        \foreach \x in {-10,10,20,30} \draw (\x, 1) -- (\x, -1) node[anchor=north, font=\scriptsize, yshift=-1pt] {$\x$};
+        \foreach \y in {10,20,30,40,50} \draw (1, \y) -- (-1, \y) node[anchor=east, font=\scriptsize, xshift=-1pt] {$\y$};
+        
+        % Coordenadas de los vectores
+        \coordinate (O) at (0,0);
+        \coordinate (F1) at (30,40);
+        \coordinate (F2) at (-10,10);
+        \coordinate (R) at (20,50);
+        
+        % Regla del Paralelogramo (Líneas guía)
+        \draw[dashed, medteal, thick] (F1) -- (R);
+        \draw[dashed, medteal, thick] (F2) -- (R);
+        
+        % Vectores de Fuerza
+        \draw[->, line width=2pt, forceorange] (O) -- (F1) node[midway, below right, font=\bfseries] {$\vec{F}_1$};
+        \draw[->, line width=2pt, forceorange] (O) -- (F2) node[midway, above left, font=\bfseries] {$\vec{F}_2$};
+        
+        % Vector Resultante
+        \draw[->, line width=3pt, forcepurple] (O) -- (R) node[pos=0.75, left, font=\bfseries, text=forcepurple] {$\vec{R}$};
+        
+        % Puntos destacados
+        \filldraw[meddark] (O) circle (4pt) node[anchor=north east, font=\bfseries, fill=white, inner sep=1pt] {L5 (0,0)};
+        \filldraw[forcepurple] (R) circle (4pt) node[anchor=south west, font=\bfseries, fill=medlight, text=forcepurple, inner sep=2pt] {Resultante (20,50)};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para encontrar la fuerza resultante $\vec{R}$, sumamos algebraicamente las componentes $\hat{i}$ y $\hat{j}$ de ambos vectores:
+        \begin{align*}
+            \vec{R} &= \vec{F}_1 + \vec{F}_2 = (30\hat{i} + 40\hat{j}) + (-10\hat{i} + 10\hat{j}) \\[1ex]
+            \vec{R} &= (30 - 10)\hat{i} + (40 + 10)\hat{j} = \mathbf{20\hat{i} + 50\hat{j} \text{ N}}
+        \end{align*}
+        \textbf{Resultado:} El vector de fuerza resultante en la vértebra es \textbf{$20\hat{i} + 50\hat{j}$ N}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

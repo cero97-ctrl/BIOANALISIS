@@ -1,0 +1,92 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx} % Paquete necesario para insertar imágenes
+\usepackage{comment} % Para ocultar las soluciones si es necesario
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Tarea 2: Unidad II}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713)}\\
+\end{center}
+
+\vspace{0.5cm}
+\noindent A continuación se presentan problemas correspondientes a la Unidad II: Cinemática, Dinámica, Leyes de Newton, Trabajo, Energía y Potencia, con un enfoque en aplicaciones a las Ciencias de la Salud y la Biomecánica.
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+    % === CINEMÁTICA ===
+    \item \textbf{Cinemática (MRU en fluidos):} Un impulso nervioso se propaga a lo largo de un axón a una velocidad constante de $120 \text{ m/s}$. Calcule el tiempo que tarda el impulso en recorrer una distancia de $0.8 \text{ m}$ desde la médula espinal hasta un músculo de la pierna.
+    \textbf{Solución:} \\
+\begin{comment}
+    Dado que la velocidad es constante, utilizamos la fórmula $v = d / t$, despejando $t$:
+    \[ t = \frac{d}{v} = \frac{0.8 \text{ m}}{120 \text{ m/s}} \approx 0.00667 \text{ s} \text{ (o } 6.67 \text{ ms)} \]
+\end{comment}
+
+    % === DINÁMICA ===
+    \item \textbf{Dinámica (Leyes de Newton):} Durante una prueba de fuerza isométrica, el músculo bíceps de un paciente ejerce una fuerza ascendente de $250 \text{ N}$ sobre el antebrazo. Si se ignora el peso del antebrazo por un momento para simplificar, ¿qué masa máxima podría sostener el paciente en su mano en estado de equilibrio ($g \approx 9.8 \text{ m/s}^2$)?
+    \textbf{Solución:} \\
+\begin{comment}
+    En equilibrio, la fuerza hacia arriba es igual a la fuerza hacia abajo (peso de la masa, $W = m \cdot g$).
+    \[ 250 \text{ N} = m \cdot (9.8 \text{ m/s}^2) \quad \Rightarrow \quad m = \frac{250}{9.8} \approx 25.51 \text{ kg} \]
+\end{comment}
+
+    % === TRABAJO Y ENERGÍA ===
+    \item \textbf{Trabajo (Rehabilitación física):} Un paciente en una camilla de tracción levanta repetidamente una pesa de $5 \text{ kg}$ a una altura de $0.4 \text{ m}$ a velocidad constante. Calcule el trabajo mecánico realizado por el paciente en un solo levantamiento.
+    \textbf{Solución:} \\
+\begin{comment}
+    El trabajo contra la gravedad es el cambio en la energía potencial: $W = m \cdot g \cdot h$.
+    \[ W = (5 \text{ kg})(9.8 \text{ m/s}^2)(0.4 \text{ m}) = 19.6 \text{ Joules (J)} \]
+\end{comment}
+
+    % === CINEMÁTICA (MRUA) ===
+    \item \textbf{Cinemática (Aceleración del flujo sanguíneo):} Durante la fase de sístole, la sangre es bombeada desde el ventrículo izquierdo hacia la aorta, acelerando desde el reposo hasta una velocidad de $0.4 \text{ m/s}$ en un tiempo de $0.1 \text{ s}$. Calcule la aceleración media de la sangre en este proceso.
+    \textbf{Solución:} \\
+\begin{comment}
+    Utilizamos la ecuación de aceleración media $a = \frac{v_f - v_i}{t}$:
+    \[ a = \frac{0.4 \text{ m/s} - 0 \text{ m/s}}{0.1 \text{ s}} = 4 \text{ m/s}^2 \]
+\end{comment}
+
+    % === DINÁMICA (FUERZA CENTRÍPETA) ===
+    \item \textbf{Dinámica (Centrifugación de laboratorio):} Una centrífuga de laboratorio se utiliza para separar el plasma de los elementos formes de la sangre. Si un glóbulo rojo de masa $m = 1 \times 10^{-14} \text{ kg}$ experimenta una aceleración centrípeta de $2000 \times g$ (donde $g = 9.8 \text{ m/s}^2$), ¿cuál es la fuerza centrípeta neta que actúa sobre la célula?
+    \textbf{Solución:} \\
+\begin{comment}
+    Aplicamos la Segunda Ley de Newton $F = m \cdot a$. Primero hallamos $a = 2000 \times 9.8 = 19\,600 \text{ m/s}^2$:
+    \[ F_c = (1 \times 10^{-14} \text{ kg})(19\,600 \text{ m/s}^2) = 1.96 \times 10^{-10} \text{ N} \]
+\end{comment}
+
+    % === ENERGÍA CINÉTICA ===
+    \item \textbf{Energía Cinética (Reflejo del estornudo):} Durante un estornudo, una persona expulsa aproximadamente $0.5 \text{ g}$ ($0.0005 \text{ kg}$) de aire y pequeñas gotas de saliva a una velocidad asombrosa de $40 \text{ m/s}$. Calcule la energía cinética de esta masa expulsada.
+    \textbf{Solución:} \\
+\begin{comment}
+    La fórmula de energía cinética es $E_c = \frac{1}{2} m v^2$:
+    \[ E_c = \frac{1}{2} (0.0005 \text{ kg})(40 \text{ m/s})^2 = 0.00025 \times 1600 = 0.4 \text{ Joules (J)} \]
+\end{comment}
+
+    % === ENERGÍA POTENCIAL ===
+    \item \textbf{Energía Potencial (Fluidos intravenosos):} Una bolsa de suero fisiológico que contiene $0.5 \text{ kg}$ de solución es colgada en un atril a $1.5 \text{ m}$ por encima del brazo de un paciente. ¿Cuál es la energía potencial gravitatoria del fluido con respecto al brazo del paciente? ($g = 9.8 \text{ m/s}^2$)
+    \textbf{Solución:} \\
+\begin{comment}
+    La energía potencial gravitatoria es $E_p = m \cdot g \cdot h$:
+    \[ E_p = (0.5 \text{ kg})(9.8 \text{ m/s}^2)(1.5 \text{ m}) = 7.35 \text{ Joules (J)} \]
+\end{comment}
+
+    % === POTENCIA MECÁNICA ===
+    \item \textbf{Potencia (Gasto cardíaco):} El ventrículo izquierdo de un corazón humano en reposo realiza aproximadamente $1 \text{ J}$ de trabajo mecánico por cada latido. Si la frecuencia cardíaca del paciente es de $72 \text{ latidos por minuto}$, ¿cuál es la potencia media desarrollada por el ventrículo en Watts?
+    \textbf{Solución:} \\
+\begin{comment}
+    Potencia es trabajo sobre tiempo ($P = W / t$). En 1 minuto (60 s), el corazón realiza $72 \times 1 \text{ J} = 72 \text{ J}$ de trabajo:
+    \[ P = \frac{72 \text{ J}}{60 \text{ s}} = 1.2 \text{ Watts (W)} \]
+\end{comment}
+
+\end{enumerate}
+
+\end{document}

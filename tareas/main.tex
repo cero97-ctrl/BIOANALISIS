@@ -1,0 +1,56 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{pdfpages} % Paquete para incluir PDFs externos
+\usepackage{pgffor}   % Paquete para usar bucles (\foreach)
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref} % Para enlaces clicables en el índice
+
+\begin{document}
+
+% Portada del documento compilado
+\begin{titlepage}
+    \centering
+    \vspace*{5cm}
+    {\Huge \textbf{Solucionario Visual: Tarea 1}}\\[1.5cm]
+    {\Large Física para Ciencias de la Salud (005-1713)}\\[2cm]
+    {\Large \textbf{Infografías de los Problemas 1 al 25}}\\[2cm]
+    \vfill
+    {\large \today}
+\end{titlepage}
+
+% Índice generado automáticamente
+\tableofcontents
+\newpage
+
+% Bucle para importar automáticamente los 25 archivos PDF
+\foreach \x/\titletoc in {
+    1/{Ángulo plano: Grados a Radianes},
+    2/{Ángulo plano: Radianes a Grados},
+    3/{Ángulo plano: Terapia física},
+    4/{Ángulo plano: Equipos médicos},
+    5/{Ángulo plano: Fisiología articular},
+    6/{Sistemas de coordenadas: Distancia entre puntos},
+    7/{Sistemas de coordenadas: Ubicación de un tumor},
+    8/{Sistemas de coordenadas: Cirugía asistida},
+    9/{Sistemas de coordenadas: Electrodos de ECG},
+    10/{Sistemas de coordenadas: Punto medio},
+    11/{Vectores: Suma},
+    12/{Vectores: Resta},
+    13/{Vectores: Desplazamiento por resta},
+    14/{Vectores: Suma de múltiples fuerzas},
+    15/{Vectores: Suma y ajuste},
+    16/{Potencias de diez: Notación Científica},
+    17/{Potencias de diez: Multiplicación},
+    18/{Potencias de diez: Masas pequeñas},
+    19/{Potencias de diez: Cantidades grandes},
+    20/{Potencias de diez: Biomasa celular},
+    21/{Sistemas de unidades: Densidad},
+    22/{Sistemas de unidades: Caudal Cardíaco},
+    23/{Sistemas de unidades: Presión Arterial},
+    24/{Sistemas de unidades: Velocidad de Flujo},
+    25/{Sistemas de unidades: Dosis Médica por Peso}%
+} {
+    \includepdf[pages=-, fitpaper=true, addtotoc={1, section, 1, {Problema \x: \titletoc}, prob:\x}]{problema_\x.pdf}
+}
+
+\end{document}

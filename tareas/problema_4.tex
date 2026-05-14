@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{scannerblue}{RGB}{59, 130, 246}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Ángulo Plano: Equipos Médicos}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        El brazo giratorio de un equipo de tomografía (TAC) escanea a un paciente recorriendo un ángulo de \textbf{$270^\circ$}. Exprese este giro en radianes.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+        % Guías de los cuadrantes
+        \draw[dashed, meddark!50, thick] (-3,0) -- (3,0);
+        \draw[dashed, meddark!50, thick] (0,-3) -- (0,3);
+        
+        % Círculo completo (Gantry del TAC)
+        \draw[line width=3pt, meddark!30] (0,0) circle (2cm);
+        
+        % Ángulo de escaneo (Sector relleno y flecha)
+        \filldraw[scannerblue, fill opacity=0.2, draw=none] (0,0) -- (2,0) arc (0:270:2) -- cycle;
+        \draw[->, line width=4pt, scannerblue, cap=round] (2,0) arc (0:270:2);
+        
+        % Paciente (en el centro)
+        \filldraw[meddark, draw=white, thick] (0,0) ellipse (0.8cm and 0.4cm);
+        \node[font=\bfseries, text=white, scale=0.8] at (0,0) {Paciente};
+        
+        % Etiqueta
+        \node[font=\Large\bfseries, text=scannerblue!80!black, fill=white, inner sep=2pt] at (-1.8, 1.8) {$270^\circ$};
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para hallar la medida en radianes, multiplicamos los grados por \textbf{$\left(\frac{\pi}{180^\circ}\right)$} y simplificamos la fracción resultante:
+        \begin{align*}
+            \theta &= 270^\circ \times \left( \frac{\pi}{180^\circ} \right) \\[1ex]
+            \theta &= \frac{270\pi}{180} \text{ rad}
+        \end{align*}
+        Al dividir tanto el numerador como el denominador entre 90 obtenemos la fracción más simple:
+        \[ \theta = \mathbf{\frac{3\pi}{2} \text{ rad}} \quad \text{o bien} \quad \mathbf{1.5\pi \text{ rad}} \]
+        \textbf{Resultado:} El escáner recorre \textbf{$\frac{3\pi}{2}$ radianes} durante la toma de imágenes.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

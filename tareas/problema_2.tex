@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{microgreen}{RGB}{16, 185, 129}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Ángulo Plano: Radianes a Grados}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        El campo visual de un microscopio de laboratorio abarca un ángulo de \textbf{$1.2$ radianes}. Convierta este valor a grados sexagesimales.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        % Lente del microscopio
+        \filldraw[meddark!20, draw=meddark, thick, rounded corners=2pt] (-1, 0) rectangle (1, 0.5);
+        \filldraw[meddark!50, draw=meddark, thick] (-0.5, -0.3) rectangle (0.5, 0);
+        \node[font=\bfseries, text=meddark, above] at (0, 0.6) {Objetivo del Microscopio};
+        
+        % Cono de visión (1.2 rad equivale a ~68.75 grados, es decir, -34.375 a +34.375 desde la vertical)
+        \begin{scope}[shift={(0, -0.3)}]
+            \draw[dashed, meddark!60, thick] (0,0) -- (0,-3.5); % Línea central
+            \draw[line width=2pt, microgreen!80!black] (0,0) -- (-55.6:4);
+            \draw[line width=2pt, microgreen!80!black] (0,0) -- (-124.4:4);
+            
+            % Sector del campo visual
+            \filldraw[microgreen, fill opacity=0.2, draw=microgreen, line width=1.5pt] 
+                (0,0) -- (-124.4:2.5) arc (-124.4:-55.6:2.5) -- cycle;
+                
+            \node[font=\Large\bfseries, text=microgreen!60!black, fill=white, inner sep=2pt, rounded corners=2pt] at (0, -3) {$\theta = 1.2 \text{ rad}$};
+        \end{scope}
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para transformar la medida de radianes a grados sexagesimales, aplicamos el factor de conversión inverso \textbf{$\left(\frac{180^\circ}{\pi \text{ rad}}\right)$}:
+        \begin{align*}
+            \theta &= 1.2 \text{ rad} \times \left( \frac{180^\circ}{\pi \text{ rad}} \right) \\[1ex]
+            \theta &= \frac{1.2 \times 180^\circ}{\pi} = \frac{216^\circ}{\pi}
+        \end{align*}
+        Resolviendo la división (usando $\pi \approx 3.14159$):
+        \[ \theta \approx 68.75^\circ \]
+        \textbf{Resultado:} El ángulo de visión del campo del microscopio es de aproximadamente \textbf{$68.75^\circ$}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{bloodred}{RGB}{220, 38, 38}   % Rojo para la sangre
+\definecolor{drugpurple}{RGB}{128, 90, 213} % Púrpura para el fármaco
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Potencias de Diez: Fármacos en Sangre}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        La concentración de un determinado fármaco en la sangre es de \textbf{$3 \times 10^{-4}$} moles por litro. Si el volumen total de sangre de un paciente contiene este fármaco disperso en \textbf{$5 \times 10^0$} litros, ¿cuántos moles del fármaco hay en total en el torrente sanguíneo?
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        % Vaso sanguíneo (Cilindro horizontal)
+        % Cara posterior izquierda
+        \filldraw[bloodred!15, draw=bloodred, thick] (0,0) ellipse (0.4cm and 0.9cm);
+        
+        % Cuerpo del cilindro
+        \filldraw[bloodred!25, draw=bloodred, thick] (0,-0.9) -- (7,-0.9) arc (-90:90:0.4cm and 0.9cm) -- (0,0.9);
+        
+        % Cara frontal derecha
+        \filldraw[bloodred!40, draw=bloodred, thick] (7,0) ellipse (0.4cm and 0.9cm);
+        
+        % Partículas del fármaco (dibujadas aleatoriamente a lo largo del cilindro)
+        \foreach \x/\y in {0.8/0.2, 1.2/-0.4, 2.0/0.5, 2.5/-0.2, 3.2/0.6, 3.8/-0.6, 4.5/0.1, 5.2/0.4, 5.8/-0.5, 6.4/0.3, 1.5/0.1, 4.0/0.2, 2.8/-0.7} {
+            \filldraw[drugpurple] (\x,\y) circle (3pt);
+        }
+        
+        % Etiquetas visuales
+        \node[font=\bfseries, text=bloodred!80!black] at (3.5, 1.4) {Volumen Sanguíneo = $5 \times 10^0 \text{ L}$};
+        \node[font=\bfseries, text=drugpurple] at (3.5, -1.5) {Concentración Fármaco = $3 \times 10^{-4} \text{ moles/L}$};
+        
+        % Ecuación visual en la parte inferior
+        \node[font=\Large, text=meddark] at (3.5, -3.5) {
+            $\underbrace{(3 \times 10^{-4})}_{\text{Concentración}} \times \underbrace{(5 \times 10^0)}_{\text{Volumen}} \quad \xrightarrow{\text{Agrupar}} \quad \underbrace{(3 \times 5) \times (10^{-4} \times 10^0)}_{\text{Coeficientes y Bases}}$
+        };
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para hallar la cantidad total de moles, multiplicamos la concentración por el volumen. Agrupamos los coeficientes enteros por un lado y las potencias de base 10 por el otro (sumando sus exponentes):
+        \begin{align*}
+            \text{Total} &= (3 \times 10^{-4}) \times (5 \times 10^0) \\[1ex]
+            \text{Total} &= (3 \times 5) \times 10^{-4 + 0} \\[1ex]
+            \text{Total} &= 15 \times 10^{-4} \text{ moles}
+        \end{align*}
+        Para expresarlo en \textbf{notación científica correcta} (coeficiente entre 1 y 10), movemos la coma un lugar a la izquierda, sumando 1 al exponente:
+        \[ 15 \times 10^{-4} = \mathbf{1.5 \times 10^{-3} \text{ moles}} \]
+        \textbf{Resultado:} Hay \textbf{$1.5 \times 10^{-3}$ moles} del fármaco en el torrente sanguíneo.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{tracinitial}{RGB}{113, 128, 150} % Gris azulado para vector inicial
+\definecolor{tracfinal}{RGB}{49, 130, 206}    % Azul brillante para vector final
+\definecolor{tracdelta}{RGB}{229, 62, 62}     % Rojo para la diferencia/cambio
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, % Habilita características avanzadas como las sombras
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Resta de Vectores: Tracción Ortopédica}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        Un sistema ortopédico ejercía una tracción inicial $\vec{T}_1 = (50\hat{i} + 20\hat{j})$ N. Después de reajustar los pesos, la tracción es $\vec{T}_2 = (30\hat{i} + 40\hat{j})$ N. Calcule el vector de cambio de fuerza $\Delta\vec{T} = \vec{T}_2 - \vec{T}_1$.
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.12]
+        % Cuadrícula de fondo (escala de 10 en 10)
+        \draw[step=10,gray!40,very thin] (-35,-5) grid (55,55);
+        
+        % Ejes cartesianos
+        \draw[thick,->,meddark] (-35,0) -- (55,0) node[anchor=north west] {$x$ (N)};
+        \draw[thick,->,meddark] (0,-5) -- (0,55) node[anchor=south east] {$y$ (N)};
+        
+        % Marcas numéricas (eje x e y)
+        \foreach \x in {-30,-20,-10,10,20,30,40,50} \draw (\x, 1.5) -- (\x, -1.5) node[anchor=north, font=\scriptsize, yshift=-2pt] {$\x$};
+        \foreach \y in {10,20,30,40,50} \draw (1.5, \y) -- (-1.5, \y) node[anchor=east, font=\scriptsize, xshift=-2pt] {$\y$};
+        
+        % Coordenadas de los vectores
+        \coordinate (O) at (0,0);
+        \coordinate (T1) at (50,20);
+        \coordinate (T2) at (30,40);
+        \coordinate (DT) at (-20,20);
+        
+        % Vector Inicial T1
+        \draw[->, line width=2pt, tracinitial] (O) -- (T1) node[midway, below right, font=\bfseries] {$\vec{T}_1$};
+        
+        % Vector Final T2
+        \draw[->, line width=2pt, tracfinal] (O) -- (T2) node[pos=0.6, left, font=\bfseries] {$\vec{T}_2$};
+        
+        % Vector Cambio (Resta Geométrica: de T1 a T2)
+        \draw[->, line width=2.5pt, tracdelta] (T1) -- (T2) node[midway, above right, font=\bfseries, text=tracdelta] {$\Delta\vec{T}$};
+        
+        % Proyección del Cambio desde el origen
+        \draw[->, dashed, line width=2pt, tracdelta!60] (O) -- (DT) node[midway, above left, font=\bfseries, text=tracdelta] {$\Delta\vec{T}$};
+        
+        % Puntos destacados
+        \filldraw[meddark] (O) circle (4pt) node[anchor=north east, font=\bfseries, fill=white, inner sep=1pt] {Origen};
+        \filldraw[tracinitial] (T1) circle (4pt) node[anchor=north west, font=\bfseries, text=tracinitial] {$(50,20)$};
+        \filldraw[tracfinal] (T2) circle (4pt) node[anchor=south, font=\bfseries, text=tracfinal, yshift=2pt] {$(30,40)$};
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para encontrar el vector de cambio $\Delta\vec{T}$, restamos las componentes del vector inicial $\vec{T}_1$ al vector final $\vec{T}_2$:
+        \begin{align*}
+            \Delta\vec{T} &= \vec{T}_2 - \vec{T}_1 \\[1ex]
+            \Delta\vec{T} &= (30\hat{i} + 40\hat{j}) - (50\hat{i} + 20\hat{j}) = (30 - 50)\hat{i} + (40 - 20)\hat{j} \\[1ex]
+            \Delta\vec{T} &= \mathbf{-20\hat{i} + 20\hat{j} \text{ N}}
+        \end{align*}
+        \textbf{Resultado:} El vector de cambio de fuerza reajustado es \textbf{$-20\hat{i} + 20\hat{j}$ N}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}

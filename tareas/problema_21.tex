@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores con temática médica/científica
+\definecolor{medblue}{RGB}{43, 108, 176}
+\definecolor{medteal}{RGB}{49, 151, 149}
+\definecolor{medlight}{RGB}{235, 248, 255}
+\definecolor{meddark}{RGB}{26, 32, 44}
+\definecolor{bloodred}{RGB}{220, 38, 38}   % Rojo para la sangre
+\definecolor{glass}{RGB}{156, 163, 175}    % Gris para el tubo de ensayo
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tcolorbox}[
+    enhanced, 
+    colback=medlight!30, 
+    colframe=medblue, 
+    title={\Large \textbf{Sistemas de Unidades: Densidad de la Sangre}}, 
+    halign title=center, 
+    fonttitle=\bfseries, 
+    arc=4mm, 
+    boxrule=1.5pt,
+    shadow={2mm}{-2mm}{0mm}{black!30!white}
+]
+
+    \vspace{0.2cm}
+    \begin{tcolorbox}[colback=white, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Caso Clínico / Problema}]
+        En un análisis de laboratorio, se determina que la densidad de una muestra de sangre es de \textbf{$1.06 \, \text{g/cm}^3$}. Convierta este valor a las unidades estándar del Sistema Internacional (\textbf{$\text{kg/m}^3$}).
+    \end{tcolorbox}
+
+    \vspace{0.4cm}
+    
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        
+        % Tubo de ensayo con sangre
+        \begin{scope}[shift={(-3.5, 0)}]
+            \fill[bloodred!80, rounded corners=3pt] (-0.5, -1.5) rectangle (0.5, 0.5);
+            \fill[bloodred] (0, 0.5) ellipse (0.5cm and 0.12cm);
+            \draw[thick, glass, fill=blue!5, fill opacity=0.2, rounded corners=3pt] (-0.5, 1.5) -- (-0.5, -1.5) arc (180:360:0.5cm) -- (0.5, 1.5);
+            \draw[thick, glass] (-0.6, 1.5) -- (0.6, 1.5); % Borde superior del tubo
+            \node[font=\bfseries, text=meddark, align=center] at (0, -2.5) {Muestra de Sangre\\($\rho = 1.06 \text{ g/cm}^3$)};
+        \end{scope}
+
+        % Pequeño Cubo (1 cm3)
+        \begin{scope}[shift={(-0.2, -0.2)}, scale=0.6]
+            \filldraw[bloodred!60, draw=bloodred, thick] (0,0) rectangle (1,1);
+            \filldraw[bloodred!40, draw=bloodred, thick] (0,1) -- (0.5,1.5) -- (1.5,1.5) -- (1,1) -- cycle;
+            \filldraw[bloodred!80, draw=bloodred, thick] (1,0) -- (1.5,0.5) -- (1.5,1.5) -- (1,1) -- cycle;
+            \node[below, font=\small\bfseries, text=meddark] at (0.75, -0.2) {$1 \text{ cm}^3$};
+            \node[above, font=\small\bfseries, text=meddark] at (0.75, 1.7) {$1.06 \text{ g}$};
+        \end{scope}
+
+        % Flecha de conversión
+        \draw[->, ultra thick, medteal] (1.6, 0) -- (3.2, 0) node[midway, above, font=\small\bfseries] {Conversión};
+        \draw[->, ultra thick, medteal] (1.6, 0) -- (3.2, 0) node[midway, below, font=\small\bfseries] {al S.I.};
+
+        % Cubo Grande (1 m3)
+        \begin{scope}[shift={(4.5, -1)}, scale=1.5]
+            \filldraw[bloodred!60, draw=bloodred, thick] (0,0) rectangle (2,2);
+            \filldraw[bloodred!40, draw=bloodred, thick] (0,2) -- (0.8,2.8) -- (2.8,2.8) -- (2,2) -- cycle;
+            \filldraw[bloodred!80, draw=bloodred, thick] (2,0) -- (2.8,0.8) -- (2.8,2.8) -- (2,2) -- cycle;
+            \node[below, font=\bfseries, text=meddark] at (1.4, -0.2) {$1 \text{ m}^3$};
+            \node[above, font=\bfseries, text=meddark] at (1.4, 2.9) {$1060 \text{ kg}$};
+        \end{scope}
+        
+    \end{tikzpicture}
+    \end{center}
+
+    \vspace{0.4cm}
+    \begin{tcolorbox}[colback=medteal!10, colframe=medteal, arc=2mm, boxrule=1.2pt, title=\textbf{Desarrollo Matemático y Solución}]
+        Para convertir la densidad al Sistema Internacional (SI), debemos cambiar los gramos (g) a kilogramos (kg) y los centímetros cúbicos ($\text{cm}^3$) a metros cúbicos ($\text{m}^3$). Sabiendo que $1 \text{ kg} = 1000 \text{ g}$ y que $(1 \text{ m})^3 = (100 \text{ cm})^3 = 10^6 \text{ cm}^3$, aplicamos los factores de conversión:
+        \begin{align*}
+            \rho &= 1.06 \, \frac{\text{g}}{\text{cm}^3} \times \left( \frac{1 \text{ kg}}{1000 \text{ g}} \right) \times \left( \frac{10^6 \text{ cm}^3}{1 \text{ m}^3} \right) \\[1ex]
+            \rho &= \frac{1.06 \times 10^6}{1000} \, \frac{\text{kg}}{\text{m}^3} = 1.06 \times 10^3 \, \frac{\text{kg}}{\text{m}^3} = \mathbf{1060 \, \frac{\text{kg}}{\text{m}^3}}
+        \end{align*}
+        \textbf{Resultado:} La densidad de la muestra de sangre en unidades estándar del S.I. es de \textbf{1060 kg/m$^3$}.
+    \end{tcolorbox}
+    
+\end{tcolorbox}
+
+\end{document}
