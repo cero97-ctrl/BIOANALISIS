@@ -38,6 +38,15 @@ latexmk -pdf -interaction=nonstopmode "main_u2.tex"
 
 echo ""
 echo "====================================================="
+echo "  Compilando formulario (Unidad II)..."
+echo "====================================================="
+cd ../docs || exit
+latexmk -pdf -interaction=nonstopmode -quiet "formulas_unidad_II.tex"
+latexmk -c -quiet
+cd "$SCRIPT_DIR"
+
+echo ""
+echo "====================================================="
 echo "  Limpiando archivos temporales (.aux, .log, .toc, etc.)"
 echo "====================================================="
 latexmk -c -quiet
@@ -45,3 +54,4 @@ latexmk -c -quiet
 echo ""
 echo "¡Listo! Todos los archivos fueron compilados con éxito."
 echo "Los documentos finales unificados te esperan en: main.pdf y main_u2.pdf"
+echo "Y el nuevo formulario en: ../docs/formulas_unidad_II.pdf"
