@@ -1,0 +1,66 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Formulario de la Unidad III}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713)}\\
+    \vspace{0.2cm}
+    \textit{Estática y Dinámica de Fluidos}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{2.2} % Aumenta el espaciado vertical de las filas para mayor legibilidad
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{5.5cm}|>{\raggedright\arraybackslash}p{5cm}|}
+        \hline
+        \textbf{Concepto} & \textbf{Fórmula} & \textbf{Variables} \\
+        \hline
+        \textbf{Densidad} & $\rho = \dfrac{m}{V}$ & $\rho$: densidad ($\text{kg/m}^3$) \newline $m$: masa \newline $V$: volumen \\
+        \hline
+        \textbf{Presión} & $P = \dfrac{F}{A}$ & $P$: presión ($\text{Pa}$) \newline $F$: fuerza perpendicular \newline $A$: área \\
+        \hline
+        \textbf{Presión Hidrostática} & $P_h = \rho \cdot g \cdot h$ & $P_h$: presión hidrostática \newline $g \approx 9.8 \text{ m/s}^2$ \newline $h$: profundidad \\
+        \hline
+        \textbf{Principio de Pascal} \newline (Prensa Hidráulica) & $\dfrac{F_1}{A_1} = \dfrac{F_2}{A_2}$ & $F_1, F_2$: fuerzas \newline $A_1, A_2$: áreas \\
+        \hline
+        \textbf{Fuerza de Empuje} \newline (Principio de Arquímedes) & $E = \rho_f \cdot g \cdot V_s$ & $E$: empuje ($\text{N}$) \newline $\rho_f$: densidad del fluido \newline $V_s$: volumen sumergido \\
+        \hline
+        \textbf{Caudal} \newline (Flujo volumétrico) & $Q = \dfrac{V}{t} = A \cdot v$ & $Q$: caudal ($\text{m}^3\text{/s}$) \newline $v$: velocidad del fluido \\
+        \hline
+        \textbf{Ecuación de Continuidad} & $A_1 \cdot v_1 = A_2 \cdot v_2$ & $A_1, A_2$: Áreas \newline $v_1, v_2$: Velocidades \\
+        \hline
+        \textbf{Ecuación de Bernoulli} & $P_1 + \frac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \frac{1}{2}\rho v_2^2 + \rho g h_2$ & $P$: presión estática \newline $\frac{1}{2}\rho v^2$: presión dinámica \\
+        \hline
+        \textbf{Ecuación de Poiseuille} & $Q = \dfrac{\pi \cdot r^4 \cdot \Delta P}{8 \cdot \eta \cdot L}$ & $r$: radio del vaso/tubo \newline $\Delta P$: dif. de presión \newline $\eta$: viscosidad dinámica \newline $L$: longitud del tubo \\
+        \hline
+        \textbf{Resistencia Hemodinámica} & $R_h = \dfrac{\Delta P}{Q} = \dfrac{8 \cdot \eta \cdot L}{\pi \cdot r^4}$ & $R_h$: resistencia \newline (Ley de Ohm para fluidos) \\
+        \hline
+    \end{tabular}
+    \vspace{0.3cm}
+    \caption{Fórmulas fundamentales para la resolución de problemas (Unidad III).}
+    \label{tab:formulas_u3}
+\end{table}
+
+\vspace{0.5cm}
+\noindent \textbf{Datos y conversiones de uso común:}
+\begin{itemize}
+    \item Gravedad estándar: $g = 9.8 \text{ m/s}^2$
+    \item Densidad del agua: $\rho_{\text{agua}} = 1000 \text{ kg/m}^3$
+    \item Densidad de la sangre (promedio): $\rho_{\text{sangre}} \approx 1050 \text{ kg/m}^3$ a $1060 \text{ kg/m}^3$
+    \item Presión Atmosférica estándar: $1 \text{ atm} = 101325 \text{ Pa} = 760 \text{ mmHg}$
+    \item Factor de conversión mmHg a Pa (aprox): $1 \text{ mmHg} \approx 133.32 \text{ Pa}$
+    \item Pascal (S.I.): $1 \text{ Pa} = 1 \text{ N/m}^2$
+\end{itemize}
+
+\end{document}
