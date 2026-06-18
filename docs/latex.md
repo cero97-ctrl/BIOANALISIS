@@ -63,3 +63,31 @@ Se debe utilizar el paquete estándar `graphicx`. Este paquete proporciona el co
     \end{scope}
 }
 ```
+
+## 4. Valor inválido `none` en `drop shadow` (tcolorbox / pgfkeys)
+
+**El Problema:**
+Al usar el paquete `tcolorbox` con la opción `drop shadow=none` para intentar desactivar la sombra de una caja, se produce el error:
+
+```
+! Package pgfkeys Error: I do not know the key '/tikz/none' and I am going to ignore it.
+```
+
+Esto ocurre porque `none` no es un valor reconocido por la clave `drop shadow` del sistema `pgfkeys`/`tikz`. El motor interpreta `none` como una clave independiente (`/tikz/none`) en lugar de un valor para `drop shadow`.
+
+**La Solución:**
+Reemplazar `drop shadow=none` por `no shadow`, que es la opción correcta de `tcolorbox` para desactivar sombras.
+
+**Ejemplo incorrecto (genera error):**
+```latex
+\begin{tcolorbox}[drop shadow=none]
+    % ...
+\end{tcolorbox}
+```
+
+**Ejemplo corregido:**
+```latex
+\begin{tcolorbox}[no shadow]
+    % ...
+\end{tcolorbox}
+```

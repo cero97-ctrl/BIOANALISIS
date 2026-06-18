@@ -1,0 +1,119 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Solucionario: Examen Unidad III (Fluidos)}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713)}\\
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+    % Solución Problema 1
+    \item \textbf{Presión Hidrostática y Venosa:}
+    
+    \textbf{Solución:}
+    Para que la sangre logre ingresar a la vena, la presión hidrostática generada por la columna de fluido ($P_h$) debe ser al menos igual a la presión venosa del paciente ($P_v = 2500 \text{ Pa}$).
+    Planteamos la ecuación fundamental de la hidrostática:
+    \[
+    P_h = \rho \cdot g \cdot h
+    \]
+    Despejamos la altura ($h$) requerida:
+    \[
+    h = \frac{P_h}{\rho \cdot g} = \frac{2500 \text{ Pa}}{1060 \text{ kg/m}^3 \cdot 9.8 \text{ m/s}^2}
+    \]
+    \[
+    h = \frac{2500}{10388} \text{ m} \approx 0.241 \text{ m}
+    \]
+    \textbf{Respuesta:} La bolsa debe colocarse a una altura mínima de $0.241 \text{ m}$ ($24.1 \text{ cm}$) por encima del nivel de la vena.
+
+    \vspace{0.5cm}
+    % Solución Problema 2
+    \item \textbf{Principio de Arquímedes:}
+    
+    \textbf{Solución:}
+    Primero, calculamos la fuerza de empuje ($E$) como la diferencia entre el peso real ($W$) y el peso aparente ($W_{ap}$):
+    \[
+    E = W - W_{ap} = 4.50 \text{ N} - 2.10 \text{ N} = 2.40 \text{ N}
+    \]
+    Sabiendo que $E = \rho_{\text{agua}} \cdot g \cdot V_{\text{sumergido}}$, despejamos el volumen de la muestra ósea ($V$):
+    \[
+    V = \frac{E}{\rho_{\text{agua}} \cdot g} = \frac{2.40 \text{ N}}{(1000 \text{ kg/m}^3)(9.8 \text{ m/s}^2)} = \frac{2.40}{9800} \text{ m}^3 \approx 2.45 \times 10^{-4} \text{ m}^3
+    \]
+    Finalmente, calculamos la densidad de la muestra ($\rho_{hueso}$). Sabiendo que $m = \frac{W}{g}$, entonces:
+    \[
+    \rho_{hueso} = \frac{m}{V} = \frac{W/g}{V} = \frac{4.50 \text{ N} / 9.8 \text{ m/s}^2}{2.449 \times 10^{-4} \text{ m}^3} \approx 1875 \text{ kg/m}^3
+    \]
+    \textit{(Alternativamente, mediante proporciones: $\rho_{hueso} = \rho_{\text{agua}} \cdot \frac{W}{E} = 1000 \cdot \frac{4.50}{2.40} = 1875 \text{ kg/m}^3$).}
+    
+    \textbf{Respuesta:} El volumen de la muestra es de aproximadamente $2.45 \times 10^{-4} \text{ m}^3$ y su densidad real es $1875 \text{ kg/m}^3$.
+
+    \vspace{0.5cm}
+    % Solución Problema 3
+    \item \textbf{Hemodinámica (Continuidad y Bernoulli):}
+    
+    \textbf{Solución:}
+    Primero aplicamos la Ecuación de Continuidad para hallar la velocidad en la estenosis ($v_2$). Sabiendo que las áreas son circulares ($A = \pi \cdot r^2$):
+    \[
+    A_1 \cdot v_1 = A_2 \cdot v_2 \implies v_2 = v_1 \left( \frac{r_1}{r_2} \right)^2
+    \]
+    \[
+    v_2 = 0.30 \text{ m/s} \left( \frac{4 \text{ mm}}{2 \text{ mm}} \right)^2 = 0.30 \cdot (2)^2 = 0.30 \cdot 4 = 1.20 \text{ m/s}
+    \]
+    Luego aplicamos la Ecuación de Bernoulli para un tubo horizontal ($h_1 = h_2$):
+    \[
+    P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2 \implies P_2 = P_1 + \frac{1}{2}\rho \left( v_1^2 - v_2^2 \right)
+    \]
+    \[
+    P_2 = 14000 \text{ Pa} + \frac{1}{2}(1060 \text{ kg/m}^3) \left( (0.30 \text{ m/s})^2 - (1.20 \text{ m/s})^2 \right)
+    \]
+    \[
+    P_2 = 14000 + 530 (0.09 - 1.44) = 14000 + 530 (-1.35) = 14000 - 715.5 = 13284.5 \text{ Pa}
+    \]
+    \textbf{Respuesta:} La presión en la zona estrechada desciende a $13284.5 \text{ Pa}$ debido al aumento de velocidad (Efecto Venturi).
+
+    \vspace{0.5cm}
+    % Solución Problema 4
+    \item \textbf{Ley de Poiseuille (Análisis Proporcional):}
+    
+    \textbf{Solución:}
+    De acuerdo con la ecuación de Poiseuille, el caudal es directamente proporcional a la cuarta potencia del radio ($Q \propto r^4$). 
+    Si el nuevo radio $r'$ es el $80\%$ del radio original, entonces $r' = 0.80 r$.
+    El nuevo caudal $Q'$ se expresará como:
+    \[
+    Q' \propto (r')^4 = (0.80 r)^4 = (0.80)^4 \cdot r^4 = 0.4096 \cdot r^4
+    \]
+    Por tanto, $Q' = 0.4096 Q$.
+    \textbf{Respuesta:} Se mantendrá circulando exactamente el $40.96\%$ del caudal sanguíneo original.
+
+    \vspace{0.5cm}
+    % Solución Problema 5
+    \item \textbf{Flujo Viscoso y Resistencia:}
+    
+    \textbf{Solución:}
+    El radio de la aguja es la mitad del diámetro interno: $r = 0.4 \text{ mm} = 4 \times 10^{-4} \text{ m}$.
+    Despejamos la diferencia de presión ($\Delta P$) de la ley de Poiseuille ($Q = \frac{\pi \cdot r^4 \cdot \Delta P}{8 \cdot \eta \cdot L}$):
+    \[
+    \Delta P = \frac{8 \cdot \eta \cdot L \cdot Q}{\pi \cdot r^4}
+    \]
+    Sustituyendo los valores en S.I.:
+    \[
+    \Delta P = \frac{8 \cdot (2.5 \times 10^{-3} \text{ Pa}\cdot\text{s}) \cdot (0.04 \text{ m}) \cdot (2.0 \times 10^{-7} \text{ m}^3\text{/s})}{\pi \cdot (4 \times 10^{-4} \text{ m})^4}
+    \]
+    \[
+    \Delta P = \frac{1.6 \times 10^{-10}}{\pi \cdot 256 \times 10^{-16}} \text{ Pa} = \frac{1.6 \times 10^6}{256\pi} \text{ Pa} = \frac{1600000}{256\pi} \text{ Pa} = \frac{6250}{\pi} \text{ Pa} \approx 1989.4 \text{ Pa}
+    \]
+    \textbf{Respuesta:} La bomba de infusión debe generar una diferencia de presión de aproximadamente $1989.4 \text{ Pa}$.
+
+\end{enumerate}
+
+\end{document}

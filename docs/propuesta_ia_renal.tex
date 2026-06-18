@@ -1,0 +1,134 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+% Usar fuente sin serifa para un aspecto más moderno (tipo infografía)
+\renewcommand{\familydefault}{\sfdefault}
+
+% Definición de colores institucionales/profesionales adaptados
+\definecolor{primarycolor}{RGB}{26, 54, 93}     % Azul oscuro
+\definecolor{secondarycolor}{RGB}{43, 108, 176} % Azul medio
+\definecolor{accentcolor}{RGB}{226, 116, 36}    % Naranja sutil
+\definecolor{lightbg}{RGB}{240, 248, 255}       % Fondo azul muy claro
+\definecolor{tealmed}{RGB}{49, 151, 149}        % Teal médico
+
+% Entorno personalizado para las cajas principales de la infografía
+\newtcolorbox{infobox}[2][]{
+    enhanced,
+    colback=lightbg,
+    colframe=primarycolor,
+    coltitle=white,
+    fonttitle=\bfseries\large,
+    title={#2},
+    boxrule=1.2mm,
+    arc=4mm,
+    breakable,
+    drop shadow=black!30!white,
+    #1
+}
+
+% Entorno personalizado para las subcajas interiores
+\newtcolorbox{subbox}[2][]{
+    enhanced,
+    colback=white,
+    colframe=secondarycolor,
+    coltitle=primarycolor,
+    fonttitle=\bfseries\normalsize,
+    title={#2},
+    boxrule=0.8mm,
+    arc=3mm,
+    breakable,
+    attach boxed title to top left={yshift=-2mm, xshift=3mm},
+    boxed title style={colback=white, colframe=secondarycolor},
+    #1
+}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \textbf{\color{primarycolor} Propuesta Estratégica}}\\[0.3cm]
+    {\Large \textbf{\color{secondarycolor} Integración de IA en la Investigación de Enfermedades Renales}}\\[0.4cm]
+    {\large \textit{\color{accentcolor} Cooperación Interdisciplinaria: Física, IA y Bioanálisis}}\\[0.4cm]
+    {\normalsize \textbf{Prof. César Augusto Rodríguez Gómez} | Físico-Matemático e IA}
+\end{center}
+
+\vspace{0.5cm}
+
+% Resumen / Introducción
+\begin{infobox}[colframe=accentcolor, colback=accentcolor!5, no shadow]{Resumen y Objetivos}
+    La intersección entre la Física, la Inteligencia Artificial y el Bioanálisis ofrece un marco metodológico robusto para abordar la complejidad de las enfermedades del riñón. Los sistemas renales generan grandes volúmenes de datos heterogéneos. Este documento establece las líneas estratégicas para la incorporación de modelado computacional aplicado al estudio de patologías renales, optimizando el procesamiento de imágenes, perfiles químicos y datos ómicos.
+\end{infobox}
+
+\vspace{0.4cm}
+
+\begin{infobox}{Áreas Clave de Impacto Tecnológico y Científico}
+    
+    \begin{subbox}{1. Visión por Computadora en Histopatología Renal}
+    El análisis morfológico de biopsias renales consume un tiempo considerable y está sujeto a la variabilidad inter-observador. La implementación de modelos de aprendizaje profundo permite una cuantificación ultra-precisa y reproducible:
+    \begin{itemize}[leftmargin=*, label=\textcolor{secondarycolor}{\textbullet}]
+        \item \textbf{Segmentación de Estructuras Histológicas:} Desarrollo y entrenamiento de redes convolucionales o transformadores visuales (e.g., arquitecturas \emph{U-Net}) para la delimitación automática de glomérulos, túbulos e intersticio.
+        \item \textbf{Cuantificación de Fibrosis y Atrofia:} Automatización del cálculo del índice de fibrosis tubulointersticial, un parámetro crítico para predecir la progresión de la Enfermedad Renal Crónica (ERC).
+        \item \textbf{Clasificación de Glomerulopatías:} Clasificación automatizada de glomérulos sanos frente a aquellos con esclerosis segmental, lesiones crescénticas o necrosis.
+    \end{itemize}
+    \end{subbox}
+
+    \vspace{0.2cm}
+
+    \begin{subbox}{2. Modelos Predictivos y Analítica Avanzada de Datos Clínicos}
+    Los bioanalistas generan perfiles bioquímicos complejos (creatinina, urea, aclaramiento de depuración, proteinuria, electrolitos). La IA permite identificar patrones no lineales:
+    \begin{itemize}[leftmargin=*, label=\textcolor{secondarycolor}{\textbullet}]
+        \item \textbf{Predicción de Injuria Renal Aguda (IRA):} Algoritmos de aprendizaje supervisado (\emph{XGBoost}, \emph{Random Forests} o redes recurrentes \emph{LSTM}) diseñados para alertar sobre el riesgo de desarrollo de IRA con horas de anticipación.
+        \item \textbf{Fenotipado Clínico de la ERC:} Uso de técnicas de aprendizaje no supervisado (\emph{Clustering} mediante $K$-Means, mixturas gaussianas o reducción de dimensionalidad con \emph{t-SNE} / \emph{UMAP}) para descubrir subtipos de progresión de la enfermedad.
+    \end{itemize}
+    \end{subbox}
+
+    \vspace{0.2cm}
+
+    \begin{subbox}{3. Integración de Datos Ómicos (Multi-omics)}
+    La biología de sistemas se beneficia directamente de los enfoques de la física estadística para el análisis de redes complejas:
+    \begin{itemize}[leftmargin=*, label=\textcolor{secondarycolor}{\textbullet}]
+        \item \textbf{Genómica y Transcriptómica:} Identificación de perfiles de expresión de ARN mensajero en tejido renal asociados a la resistencia a tratamientos inmunosupresores.
+        \item \textbf{Proteómica y Metabolómica Urinaria:} Procesamiento y análisis de espectros de masas de muestras de orina para el descubrimiento de nuevos biomarcadores tempranos antes de la pérdida evidente del filtrado glomerular.
+    \end{itemize}
+    \end{subbox}
+
+    \vspace{0.2cm}
+
+    \begin{subbox}{4. Automatización y Optimización de Procesos de Laboratorio}
+    Optimización del flujo de trabajo experimental y el tratamiento de señales analíticas crudas:
+    \begin{itemize}[leftmargin=*, label=\textcolor{secondarycolor}{\textbullet}]
+        \item \textbf{Procesamiento Analítico de Señales:} Aplicación de filtros digitales basados en física analítica y modelos de deconvolución en instrumentación avanzada (e.g., espectroscopía Raman o FTIR) para eliminar ruido de fondo y automatizar la detección de picos de analitos.
+        \item \textbf{Sistemas RAG:} Implementación local de arquitecturas de generación aumentada por recuperación (\emph{Retrieval-Augmented Generation}) alimentadas con la literatura científica interna para agilizar la discusión de resultados.
+    \end{itemize}
+    \end{subbox}
+
+\end{infobox}
+
+\vspace{0.4cm}
+
+\begin{infobox}[colframe=tealmed, colback=white]{Consideraciones Metodológicas y Éticas}
+    
+    \begin{minipage}{0.48\textwidth}
+        \textbf{\color{tealmed} IA Explicable (XAI)}\\[0.2cm]
+        Dada la naturaleza crítica del diagnóstico médico, es imperativo evitar los modelos de tipo ``caja negra''. Se priorizará la interpretabilidad mediante metodologías como \textbf{SHAP} (\emph{SHapley Additive exPlanations}) o \textbf{LIME}, garantizando que los bioanalistas comprendan rigurosamente el fundamento biofísico y estadístico detrás de cada predicción.
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \textbf{\color{tealmed} Privacidad y Seguridad}\\[0.2cm]
+        El diseño de todas las herramientas de software debe cumplir rigurosamente con protocolos de anonimización estricta de las muestras y la protección de datos sensibles de salud de los pacientes bajo estudio (cumplimiento normativo y ético internacional).
+    \end{minipage}
+    
+\end{infobox}
+
+\end{document}

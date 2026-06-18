@@ -1,0 +1,192 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{babel} % Prevención de errores con Babel y TikZ
+\usepackage[most]{tcolorbox} % Para las cajas estilo infografía
+
+% Definición de colores estilo Ciencias de la Salud
+\definecolor{saludBlue}{RGB}{24, 116, 205}
+\definecolor{saludLight}{RGB}{235, 245, 255}
+
+% Entorno personalizado para las tarjetas de los problemas
+\newtcolorbox{infobox}[2][]{
+    enhanced,
+    colback=saludLight,
+    colframe=saludBlue,
+    coltitle=white,
+    fonttitle=\bfseries\large,
+    title={#2},
+    boxrule=1.2mm,
+    arc=4mm,
+    breakable,
+    drop shadow=black!30!white,
+    segmentation style={solid, draw=saludBlue, line width=1pt},
+    #1
+}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \textbf{Solucionario Visual: Unidad III}}\\[0.3cm]
+    {\Large \textbf{Física para Ciencias de la Salud (005-1713)}}\\[0.2cm]
+    {\large \textit{Estática y Dinámica de Fluidos}}
+\end{center}
+
+\vspace{0.5cm}
+
+% Problema 1: Presión Hidrostática
+\begin{infobox}{1. Presión Hidrostática}
+    \textbf{Problema:} Un paciente está recibiendo suero intravenoso. La densidad del suero es de $1030 \text{ kg/m}^3$. Si la bolsa de fluido se encuentra colgada a $1.2 \text{ m}$ por encima del nivel de la vena del brazo, calcule la presión hidrostática que el fluido ejerce a la entrada de la aguja.
+    \tcblower
+    \textbf{Solución:}\\
+    Utilizamos la ecuación fundamental de la hidrostática $P_h = \rho \cdot g \cdot h$. Sustituyendo los valores del S.I.:
+    \[
+    P_h = (1030 \text{ kg/m}^3)(9.8 \text{ m/s}^2)(1.2 \text{ m})
+    \]
+    \[
+    P_h = 12112.8 \text{ Pa} \approx 12.1 \text{ kPa}
+    \]
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 2: Principio de Pascal
+\begin{infobox}{2. Principio de Pascal}
+    \textbf{Problema:} En un consultorio odontológico, el mecanismo de la silla funciona mediante una prensa hidráulica. El émbolo menor tiene un área de $10 \text{ cm}^2$ y el émbolo mayor que sostiene la silla tiene un área de $400 \text{ cm}^2$. Si el peso conjunto de la silla y el paciente es de $2000 \text{ N}$, ¿qué fuerza debe aplicarse en el émbolo menor para levantar el sistema?
+    \tcblower
+    \textbf{Solución:}\\
+    Según el Principio de Pascal, la presión es igual en ambos émbolos: $\frac{F_1}{A_1} = \frac{F_2}{A_2}$. Despejando la fuerza del émbolo menor ($F_1$):
+    \[
+    F_1 = F_2 \left( \frac{A_1}{A_2} \right) = 2000 \text{ N} \left( \frac{10 \text{ cm}^2}{400 \text{ cm}^2} \right)
+    \]
+    \[
+    F_1 = 2000 \text{ N} (0.025) = 50 \text{ N}
+    \]
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 3: Principio de Arquímedes
+\begin{infobox}{3. Principio de Arquímedes}
+    \textbf{Problema:} Como parte de una terapia física en piscina, un hombre con una masa de $70 \text{ kg}$ y un volumen corporal de $0.065 \text{ m}^3$ se sumerge completamente en agua ($\rho = 1000 \text{ kg/m}^3$). ¿Cuál es su peso aparente dentro del agua?
+    \tcblower
+    \textbf{Solución:}\\
+    El peso real del hombre es $W = m \cdot g = 70 \text{ kg} \cdot 9.8 \text{ m/s}^2 = 686 \text{ N}$. La fuerza de empuje ($E$) viene dada por $E = \rho_{\text{agua}} \cdot g \cdot V_{\text{sumergido}}$:
+    \[
+    E = (1000 \text{ kg/m}^3)(9.8 \text{ m/s}^2)(0.065 \text{ m}^3) = 637 \text{ N}
+    \]
+    El peso aparente será:
+    \[
+    W_{\text{aparente}} = W - E = 686 \text{ N} - 637 \text{ N} = 49 \text{ N}
+    \]
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 4: Presión Sanguínea / Manometría
+\begin{infobox}{4. Presión Sanguínea (Manometría)}
+    \textbf{Problema:} El tensiómetro de un paciente indica una presión arterial sistólica de $120 \text{ mmHg}$ (milímetros de mercurio). Exprese esta presión manométrica en las unidades del Sistema Internacional (Pascales). (Dato: $\rho_{\text{Hg}} = 13600 \text{ kg/m}^3$).
+    \tcblower
+    \textbf{Solución:}\\
+    Convertimos la altura de la columna de mercurio a metros: $h = 0.12 \text{ m}$. Aplicamos la ecuación de presión de un fluido $P = \rho \cdot g \cdot h$:
+    \[
+    P = (13600 \text{ kg/m}^3)(9.8 \text{ m/s}^2)(0.12 \text{ m})
+    \]
+    \[
+    P = 15993.6 \text{ Pa}
+    \]
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 5: Ecuación de Continuidad
+\begin{infobox}{5. Ecuación de Continuidad}
+    \textbf{Problema:} La sangre fluye a través de una arteria que posee un área transversal de $4 \text{ cm}^2$ con una velocidad media de $30 \text{ cm/s}$. Esta arteria luego se ramifica en una amplia red de capilares que en conjunto suman un área total de $2400 \text{ cm}^2$. ¿Cuál será la velocidad media de la sangre en esta zona capilar?
+    \tcblower
+    \textbf{Solución:}\\
+    Sabiendo que el caudal se conserva ($Q_1 = Q_2$), planteamos $A_1 \cdot v_1 = A_2 \cdot v_2$. Despejando la velocidad en los capilares ($v_2$):
+    \[
+    v_2 = \frac{A_1 \cdot v_1}{A_2} = \frac{(4 \text{ cm}^2)(30 \text{ cm/s})}{2400 \text{ cm}^2} = \frac{120}{2400} \text{ cm/s}
+    \]
+    \[
+    v_2 = 0.05 \text{ cm/s} = 0.5 \text{ mm/s}
+    \]
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 6: Ecuación de Bernoulli
+\begin{infobox}{6. Ecuación de Bernoulli}
+    \textbf{Problema:} Por una tubería horizontal fluye agua pura ($\rho = 1000 \text{ kg/m}^3$). En una sección amplia, la presión es de $15000 \text{ Pa}$ y la velocidad del fluido es de $2 \text{ m/s}$. El conducto luego se estrecha, elevando la velocidad a $4 \text{ m/s}$. ¿Qué presión habrá en esta parte estrecha?
+    \tcblower
+    \textbf{Solución:}\\
+    Siendo el tubo horizontal ($h_1 = h_2$), la Ecuación de Bernoulli se reduce a:
+    \[
+    P_1 + \frac{1}{2}\rho v_1^2 = P_2 + \frac{1}{2}\rho v_2^2
+    \]
+    Despejando $P_2$:
+    \[
+    P_2 = P_1 + \frac{1}{2}\rho (v_1^2 - v_2^2)
+    \]
+    \[
+    P_2 = 15000 \text{ Pa} + 500 \text{ kg/m}^3 ((2 \text{ m/s})^2 - (4 \text{ m/s})^2)
+    \]
+    \[
+    P_2 = 15000 \text{ Pa} + 500 (4 - 16) \text{ Pa} = 15000 \text{ Pa} - 6000 \text{ Pa} = 9000 \text{ Pa}
+    \]
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 7: Tubo de Pitot
+\begin{infobox}{7. Tubo de Pitot}
+    \textbf{Problema:} En una práctica experimental, se utiliza un tubo de Pitot en miniatura adaptado para estimar la velocidad de un flujo en un simulador de sistema circulatorio (densidad del fluido = $1060 \text{ kg/m}^3$). Si la diferencia de presión ($\Delta P$) medida por el instrumento es de $530 \text{ Pa}$, determine la velocidad del fluido.
+    \tcblower
+    \textbf{Solución:}\\
+    A partir de la ecuación del Tubo de Pitot, la velocidad está dada por:
+    \[
+    v = \sqrt{\frac{2 \Delta P}{\rho}} = \sqrt{\frac{2(530 \text{ Pa})}{1060 \text{ kg/m}^3}} = \sqrt{\frac{1060}{1060} \text{ m}^2\text{/s}^2} = \sqrt{1 \text{ m}^2\text{/s}^2} = 1 \text{ m/s}
+    \]
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 8: Concepto de Ley de Poiseuille (Proporcionalidad)
+\begin{infobox}{8. Ley de Poiseuille (Proporcionalidad)}
+    \textbf{Problema:} Una pequeña arteria disminuye su radio a la mitad debido a la acumulación de placa aterosclerótica. Suponiendo que la diferencia de presión y la viscosidad de la sangre se mantienen constantes, ¿En qué proporción se verá reducido el flujo (caudal) sanguíneo?
+    \tcblower
+    \textbf{Solución:}\\
+    Según la ecuación de Poiseuille $Q = \frac{\pi \cdot r^4 \cdot \Delta P}{8 \cdot \eta \cdot L}$, el caudal es directamente proporcional a la cuarta potencia del radio ($Q \propto r^4$). Si el nuevo radio es $r' = \frac{1}{2}r$, entonces:
+    \[
+    Q' \propto \left(\frac{1}{2}r\right)^4 = \frac{1}{16} r^4
+    \]
+    El flujo sanguíneo se reduce severamente a una dieciseisava parte ($\frac{1}{16}$) de su valor original.
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 9: Resistencia Hemodinámica
+\begin{infobox}{9. Resistencia Hemodinámica}
+    \textbf{Problema:} A través de un vaso sanguíneo fluye un caudal de $5 \times 10^{-6} \text{ m}^3\text{/s}$. Si se determina experimentalmente que la diferencia de presión entre los extremos de este vaso es de $2000 \text{ Pa}$, calcule la resistencia hemodinámica de dicho segmento vascular.
+    \tcblower
+    \textbf{Solución:}\\
+    Por analogía con la ley de Ohm para fluidos, $\Delta P = Q \cdot R_h$, despejamos la resistencia:
+    \[
+    R_h = \frac{\Delta P}{Q} = \frac{2000 \text{ Pa}}{5 \times 10^{-6} \text{ m}^3\text{/s}} = 400 \times 10^6 \text{ Pa}\cdot\text{s/m}^3 = 4 \times 10^8 \text{ Pa}\cdot\text{s/m}^3
+    \]
+\end{infobox}
+
+\vspace{0.3cm}
+% Problema 10: Ley de Poiseuille (Cálculo Completo)
+\begin{infobox}{10. Ley de Poiseuille (Cálculo Completo)}
+    \textbf{Problema:} Se usa una sonda cilíndrica de $1 \text{ m}$ de longitud y un radio interno de $1 \text{ mm}$ ($10^{-3} \text{ m}$) para administrar una solución intravenosa viscosa ($\eta = 1.0 \times 10^{-3} \text{ Pa}\cdot\text{s}$). Si la bomba de infusión genera una diferencia de presión de $4000 \text{ Pa}$ a lo largo de la sonda, determine el caudal que está ingresando al paciente.
+    \tcblower
+    \textbf{Solución:}\\
+    Utilizamos la ecuación completa de Poiseuille $Q = \frac{\pi \cdot r^4 \cdot \Delta P}{8 \cdot \eta \cdot L}$. Sustituimos cuidadosamente los datos:
+    \[
+    Q = \frac{\pi \cdot (10^{-3} \text{ m})^4 \cdot (4000 \text{ Pa})}{8 \cdot (1.0 \times 10^{-3} \text{ Pa}\cdot\text{s}) \cdot (1 \text{ m})} = \frac{\pi \cdot (10^{-12}) \cdot 4000}{8 \times 10^{-3}} \text{ m}^3\text{/s}
+    \]
+    \[
+    Q = \frac{4000\pi \times 10^{-12}}{8 \times 10^{-3}} \text{ m}^3\text{/s} = 500\pi \times 10^{-9} \text{ m}^3\text{/s} = 5\pi \times 10^{-7} \text{ m}^3\text{/s}
+    \]
+    \textit{(Numéricamente esto equivale a aproximadamente $1.57 \times 10^{-6} \text{ m}^3\text{/s}$ ó $1.57 \text{ ml/s}$).}
+\end{infobox}
+
+\end{document}
