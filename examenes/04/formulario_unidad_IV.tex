@@ -1,0 +1,73 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Formulario de la Unidad IV}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713)}\\
+    \vspace{0.2cm}
+    \textit{Propiedades de Líquidos y Fenómenos de Transporte}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.25} % Ajuste fino de espaciado vertical para evitar desbordamientos
+    {\small
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{5.5cm}|>{\raggedright\arraybackslash}p{5cm}|}
+        \hline
+        \textbf{Concepto} & \textbf{Fórmula} & \textbf{Variables} \\
+        \hline
+        \textbf{Calor de Vaporización} & $Q = m \cdot L_v$ & $Q$: calor disipado/absorbido ($\text{J}$) \newline $m$: masa del líquido ($\text{kg}$) \newline $L_v$: calor de vaporización ($\text{J/kg}$) \\
+        \hline
+        \textbf{Tensión Superficial} & $\gamma = \dfrac{F}{L}$ & $\gamma$: tensión superficial ($\text{N/m}$) \newline $F$: fuerza superficial ($\text{N}$) \newline $L$: longitud de contacto ($\text{m}$) \\
+        \hline
+        \textbf{Longitud de Contacto} \newline (Anillo de alambre) & $L = 2 \cdot (2\pi \cdot r) = 2\pi \cdot d$ & $r$: radio del anillo \newline $d$: diámetro del anillo \newline (Posee dos caras de contacto) \\
+        \hline
+        \textbf{Ley de Laplace} \newline (Alvéolo / Burbuja húmeda) & $\Delta P = \dfrac{2\gamma}{r}$ & $\Delta P$: diferencia de presión ($\text{Pa}$) \newline $r$: radio de la esfera ($\text{m}$) \\
+        \hline
+        \textbf{Ley de Jurin} \newline (Ascenso capilar) & $h = \dfrac{2\gamma \cos \theta}{\rho \cdot g \cdot r}$ & $h$: altura de ascensión ($\text{m}$) \newline $\theta$: ángulo de contacto \newline $\rho$: densidad del fluido ($\text{kg/m}^3$) \newline $g \approx 9.8 \text{ m/s}^2$ \newline $r$: radio interno del capilar \\
+        \hline
+        \textbf{Primera Ley de Fick} \newline (Flujo difusivo) & $J = D \dfrac{\Delta C}{\Delta x}$ & $J$: flujo difusivo ($\text{kg/(m}^2\cdot\text{s)}$) \newline $D$: coeficiente de difusión ($\text{m}^2\text{/s}$) \newline $\Delta C$: dif. de concentración \newline $\Delta x$: espesor de la membrana \\
+        \hline
+        \textbf{Tasa de Transporte} \newline (Flujo de masa neto) & $\dfrac{\Delta m}{\Delta t} = J \cdot A = D \cdot A \dfrac{\Delta C}{\Delta x}$ & $\dfrac{\Delta m}{\Delta t}$: tasa de masa ($\text{kg/s}$) \newline $A$: área de la membrana ($\text{m}^2$) \\
+        \hline
+        \textbf{Tiempo de Difusión} \newline (Segunda Ley de Fick) & $t \approx \dfrac{x^2}{2D}$ & $t$: tiempo medio de difusión ($\text{s}$) \newline $x$: distancia recorrida ($\text{m}$) \\
+        \hline
+        \textbf{Presión Osmótica} \newline (Ecuación de van 't Hoff) & $\Pi = M_{\text{osm}} \cdot R \cdot T = i \cdot M_c \cdot R \cdot T$ & $\Pi$: presión osmótica ($\text{Pa}$) \newline $M_{\text{osm}}$: osmolaridad ($\text{Osm/m}^3$) \newline $i$: factor de van 't Hoff \newline $M_c$: concentración molar \newline $R$: cte. de gases \newline $T$: temp. absoluta ($\text{K}$) \\
+        \hline
+    \end{tabular}
+    }
+    \vspace{0.3cm}
+    \caption{Fórmulas fundamentales para la resolución de problemas (Unidad IV).}
+    \label{tab:formulas_u4}
+\end{table}
+
+\vspace{0.4cm}
+
+
+\noindent \textbf{Datos y conversiones de uso común:}
+\begin{itemize}
+    \item Gravedad estándar: $g = 9.8 \text{ m/s}^2$
+    \item Densidad del agua pura: $\rho_{\text{agua}} = 1000 \text{ kg/m}^3$
+    \item Relación caloría-Julio: $1 \text{ cal} = 4.186 \text{ J}$
+    \item Constante universal de los gases ($R$):
+        \begin{itemize}
+            \item En unidades del S.I.: $R = 8.314 \text{ J/(mol}\cdot\text{K)}$ (la concentración debe estar en $\text{mol/m}^3$ y la presión en $\text{Pa}$)
+            \item En unidades químicas: $R = 0.0821 \text{ L}\cdot\text{atm/(mol}\cdot\text{K)}$ (la concentración debe estar en $\text{mol/L}$ y la presión en $\text{atm}$)
+        \end{itemize}
+    \item Presión Atmosférica estándar: $1 \text{ atm} = 101325 \text{ Pa}$
+    \item Temperatura absoluta: $T(\text{K}) = T(^{\circ}\text{C}) + 273.15$
+    \item Conversión de osmolaridad: $1 \text{ Osm/L} = 1000 \text{ Osm/m}^3 = 1000 \text{ mol/m}^3$ (para partículas activas)
+\end{itemize}
+
+\end{document}

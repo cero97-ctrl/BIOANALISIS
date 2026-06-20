@@ -1,0 +1,267 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Problemas y Soluciones: Unidad IV (Líquidos y Fenómenos de Transporte)}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713)}\\
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+
+    % Problema 1: Calor de Vaporización
+    \item \textbf{Calor de Vaporización y Termorregulación:} Durante un ejercicio físico intenso, una estudiante de Bioanálisis evapora $250 \text{ g}$ de sudor (agua) para mantener su temperatura corporal estable. Si el calor de vaporización del agua a la temperatura corporal ($37 \text{ }^{\circ}\text{C}$) es $L_v = 2.42 \times 10^6 \text{ J/kg}$, ¿cuánto calor (en Julios y calorías) ha disipado su cuerpo mediante este mecanismo de evaporación? (Dato: $1 \text{ cal} = 4.186 \text{ J}$).
+    
+    \textbf{Solución:}
+    El calor requerido para evaporar una masa $m$ de líquido viene dado por la relación:
+    \[
+    Q = m \cdot L_v
+    \]
+    Primero convertimos la masa de sudor a kilogramos: $m = 250 \text{ g} = 0.25 \text{ kg}$.
+    Sustituyendo los valores en el S.I.:
+    \[
+    Q = (0.25 \text{ kg})(2.42 \times 10^6 \text{ J/kg}) = 6.05 \times 10^5 \text{ J}
+    \]
+    Para convertir el calor a calorías, dividimos entre la equivalencia en Julios:
+    \[
+    Q_{\text{cal}} = \frac{6.05 \times 10^5 \text{ J}}{4.186 \text{ J/cal}} \approx 144529.39 \text{ cal} \approx 144.5 \text{ kcal}
+    \]
+    El cuerpo de la estudiante disipó $6.05 \times 10^5 \text{ J}$ (aproximadamente $144.5 \text{ kcal}$) de energía térmica.
+
+    \vspace{0.3cm}
+    % Problema 2: Tensión Superficial (Fuerza)
+    \item \textbf{Tensión Superficial:} Se introduce un anillo de alambre delgado de $4 \text{ cm}$ de diámetro en una muestra de plasma sanguíneo a $37 \text{ }^{\circ}\text{C}$. Se requiere una fuerza adicional hacia arriba de $1.46 \times 10^{-2} \text{ N}$ justo en el momento en que el anillo se separa de la superficie del plasma. Calcule el valor de la tensión superficial del plasma sanguíneo.
+    
+    \textbf{Solución:}
+    La tensión superficial ($\gamma$) está definida por la fuerza por unidad de longitud de la superficie de contacto:
+    \[
+    \gamma = \frac{F}{L}
+    \]
+    Dado que la película líquida tiene dos superficies (una interna y otra externa al anillo), la longitud total de contacto $L$ es el doble del perímetro del anillo:
+    \[
+    L = 2 \cdot (2\pi \cdot r) = 2\pi \cdot d
+    \]
+    donde $d = 4 \text{ cm} = 0.04 \text{ m}$ es el diámetro.
+    Sustituyendo la longitud total de contacto:
+    \[
+    L = 2\pi (0.04 \text{ m}) \approx 0.2513 \text{ m}
+    \]
+    Calculamos la tensión superficial:
+    \[
+    \gamma = \frac{1.46 \times 10^{-2} \text{ N}}{0.2513 \text{ m}} \approx 0.0581 \text{ N/m} = 5.81 \times 10^{-2} \text{ N/m}
+    \]
+
+    \vspace{0.3cm}
+    % Problema 3: Ley de Laplace (Alveolos pulmonares)
+    \item \textbf{Tensión Superficial en los Pulmones (Ley de Laplace):} Los alvéolos pulmonares pueden modelarse físicamente como pequeñas esferas de aire rodeadas por una fina capa de líquido. 
+    \begin{enumerate}
+        \item Calcule la diferencia de presión ($\Delta P$) necesaria para mantener abierto un alvéolo de radio $r = 1.0 \times 10^{-4} \text{ m}$ si el líquido alveolar carece de surfactante pulmonar (tensión superficial similar a la del agua pura, $\gamma_0 = 0.072 \text{ N/m}$).
+        \item Calcule nuevamente la presión necesaria si la presencia de surfactante reduce la tensión superficial a un valor de $\gamma_1 = 0.025 \text{ N/m}$.
+    \end{enumerate}
+    
+    \textbf{Solución:}
+    De acuerdo con la ley de Laplace para una burbuja esférica con una única interfaz de líquido (el alvéolo se modela como una burbuja húmeda en contacto con el tejido pulmonar interno), la diferencia de presión requerida es:
+    \[
+    \Delta P = \frac{2\gamma}{r}
+    \]
+    
+    \begin{enumerate}
+        \item Sin surfactante pulmonar ($\gamma_0 = 0.072 \text{ N/m}$):
+        \[
+        \Delta P_0 = \frac{2(0.072 \text{ N/m})}{1.0 \times 10^{-4} \text{ m}} = 1440 \text{ Pa}
+        \]
+        \item Con surfactante pulmonar ($\gamma_1 = 0.025 \text{ N/m}$):
+        \[
+        \Delta P_1 = \frac{2(0.025 \text{ N/m})}{1.0 \times 10^{-4} \text{ m}} = 500 \text{ Pa}
+        \]
+    \end{enumerate}
+    La presencia del agente surfactante reduce drásticamente la presión necesaria para expandir el alvéolo de $1440 \text{ Pa}$ a solo $500 \text{ Pa}$, previniendo así el colapso pulmonar (atelectasia).
+
+    \vspace{0.3cm}
+    % Problema 4: Capilaridad (Ley de Jurin)
+    \item \textbf{Capilaridad (Ley de Jurin):} En un ensayo de laboratorio se utiliza un tubo capilar de vidrio de radio interno $r = 0.25 \text{ mm}$ ($2.5 \times 10^{-4} \text{ m}$) para tomar una muestra de agua a $20 \text{ }^{\circ}\text{C}$ ($\gamma = 0.073 \text{ N/m}$ y $\rho = 1000 \text{ kg/m}^3$). Suponiendo que el ángulo de contacto entre el agua y el vidrio limpio es $\theta = 0^{\circ}$ (mojado completo), determine la altura máxima que alcanza la columna de líquido en el tubo capilar debido a las fuerzas de cohesión y adhesión.
+    
+    \textbf{Solución:}
+    La altura $h$ de la columna líquida viene dada por la ley de Jurin:
+    \[
+    h = \frac{2\gamma \cos \theta}{\rho \cdot g \cdot r}
+    \]
+    Sustituyendo los valores en unidades del S.I. ($g = 9.8 \text{ m/s}^2$ y $\cos 0^{\circ} = 1$):
+    \[
+    h = \frac{2(0.073 \text{ N/m})(1)}{(1000 \text{ kg/m}^3)(9.8 \text{ m/s}^2)(2.5 \times 10^{-4} \text{ m})}
+    \]
+    \[
+    h = \frac{0.146}{2.45} \approx 0.0596 \text{ m} = 5.96 \text{ cm}
+    \]
+    El agua ascenderá por el capilar hasta una altura de $5.96 \text{ cm}$.
+
+    \vspace{0.3cm}
+    % Problema 5: Ley de Fick (Difusión de solutos)
+    \item \textbf{Primera Ley de Fick (Difusión simple):} Una hormona se difunde a través de una lámina delgada de tejido de $0.1 \text{ mm}$ ($1.0 \times 10^{-4} \text{ m}$) de espesor. Si el coeficiente de difusión de la hormona en ese medio es $D = 2.0 \times 10^{-11} \text{ m}^2\text{/s}$ y la diferencia de concentración entre ambas caras del tejido se mantiene en $1.5 \times 10^{-3} \text{ kg/m}^3$, calcule el flujo difusivo ($J$) a través del tejido.
+    
+    \textbf{Solución:}
+    La Primera Ley de Fick en una dimensión está dada por:
+    \[
+    J = -D \frac{\Delta C}{\Delta x}
+    \]
+    Considerando la magnitud del flujo (dirección desde mayor concentración a menor concentración):
+    \[
+    J = D \frac{C_1 - C_2}{\Delta x} = D \frac{\Delta C}{\Delta x}
+    \]
+    Sustituyendo los datos:
+    \[
+    J = (2.0 \times 10^{-11} \text{ m}^2\text{/s}) \frac{1.5 \times 10^{-3} \text{ kg/m}^3}{1.0 \times 10^{-4} \text{ m}}
+    \]
+    \[
+    J = (2.0 \times 10^{-11}) (15.0) \text{ kg/(m}^2\cdot\text{s)} = 3.0 \times 10^{-10} \text{ kg/(m}^2\cdot\text{s)}
+    \]
+    El flujo de soluto por unidad de área y tiempo es $3.0 \times 10^{-10} \text{ kg/(m}^2\cdot\text{s)}$.
+
+    \vspace{0.3cm}
+    % Problema 6: Ley de Fick y Transporte de Oxígeno
+    \item \textbf{Primera Ley de Fick (Difusión alveolar):} La membrana alveolar de un mamífero tiene una superficie total de $80 \text{ m}^2$ y un espesor promedio de $0.5 \text{ }\mu\text{m}$ ($5.0 \times 10^{-7} \text{ m}$). El coeficiente de difusión del oxígeno ($O_2$) gaseoso a través de esta membrana húmeda es $D = 2.1 \times 10^{-11} \text{ m}^2\text{/s}$. Si la diferencia de concentración de oxígeno entre el alveolo y la sangre capilar es de $6.0 \times 10^{-3} \text{ kg/m}^3$, calcule la tasa neta de transporte de oxígeno por unidad de tiempo (tasa de flujo de masa $\frac{\Delta m}{\Delta t}$).
+    
+    \textbf{Solución:}
+    El flujo difusivo es $J = \frac{1}{A} \frac{\Delta m}{\Delta t}$. Por lo tanto, la tasa de transferencia de masa es:
+    \[
+    \frac{\Delta m}{\Delta t} = J \cdot A = D \cdot A \frac{\Delta C}{\Delta x}
+    \]
+    Sustituyendo los datos conocidos:
+    \[
+    \frac{\Delta m}{\Delta t} = (2.1 \times 10^{-11} \text{ m}^2\text{/s})(80 \text{ m}^2) \frac{6.0 \times 10^{-3} \text{ kg/m}^3}{5.0 \times 10^{-7} \text{ m}}
+    \]
+    Calculamos los términos:
+    \[
+    \frac{\Delta C}{\Delta x} = \frac{6.0 \times 10^{-3}}{5.0 \times 10^{-7}} = 1.2 \times 10^4 \text{ kg/m}^4
+    \]
+    \[
+    \frac{\Delta m}{\Delta t} = (1.68 \times 10^{-9} \text{ m}^4\text{/s})(1.2 \times 10^4 \text{ kg/m}^4) = 2.016 \times 10^{-5} \text{ kg/s} = 20.16 \text{ mg/s}
+    \]
+    La tasa neta de transporte de oxígeno a través de la membrana alveolar es de $20.16 \text{ mg/s}$.
+
+    \vspace{0.3cm}
+    % Problema 7: Segunda Ley de Fick y Tiempo de Difusión
+    \item \textbf{Segunda Ley de Fick (Tiempo medio de difusión):} Se estima que las moléculas del neurotransmisor acetilcolina tienen un coeficiente de difusión de $D = 4.0 \times 10^{-10} \text{ m}^2\text{/s}$ en el fluido intersticial. Si la hendidura sináptica entre dos neuronas tiene una distancia típica de separación de $x = 20 \text{ nm}$ ($2.0 \times 10^{-8} \text{ m}$), estime el tiempo medio que le toma a una molécula cruzar la hendidura por difusión simple.
+    
+    \textbf{Solución:}
+    El tiempo medio de difusión en una dimensión puede aproximarse a partir de la relación cuadrática derivada del análisis de la difusión simple:
+    \[
+    t \approx \frac{x^2}{2D}
+    \]
+    Sustituyendo la distancia de la hendidura y el coeficiente de difusión:
+    \[
+    t \approx \frac{(2.0 \times 10^{-8} \text{ m})^2}{2(4.0 \times 10^{-10} \text{ m}^2\text{/s})}
+    \]
+    \[
+    t \approx \frac{4.0 \times 10^{-16}}{8.0 \times 10^{-10}} \text{ s} = 5.0 \times 10^{-7} \text{ s} = 0.5 \text{ }\mu\text{s}
+    \]
+    El tiempo necesario para cruzar la hendidura sináptica es sumamente rápido, de apenas $0.5 \text{ }\mu\text{s}$ (microsegundos), lo que permite una transmisión de impulsos químicos casi instantánea.
+
+    \vspace{0.3cm}
+    % Problema 8: Presión Osmótica (Glucosa)
+    \item \textbf{Presión Osmótica (Ecuación de van 't Hoff):} Una disolución acuosa utilizada para rehidratación contiene $5.4 \text{ g}$ de glucosa ($\text{C}_6\text{H}_{12}\text{O}_6$, masa molar $M = 180 \text{ g/mol}$) disuelta en agua hasta completar $200 \text{ mL}$ de solución a una temperatura de $27 \text{ }^{\circ}\text{C}$. Calcule la presión osmótica de esta disolución en Pascales y atmósferas. (Datos: $R = 8.314 \text{ J/(mol}\cdot\text{K)} = 0.0821 \text{ L}\cdot\text{atm/(mol}\cdot\text{K)}$).
+    
+    \textbf{Solución:}
+    La presión osmótica ($\Pi$) de una disolución no electrolítica (glucosa no se disocia, por lo que su factor de van 't Hoff es $i = 1$) se calcula con la ecuación de van 't Hoff:
+    \[
+    \Pi = M_c \cdot R \cdot T
+    \]
+    donde $M_c$ es la concentración molar (molaridad), $R$ es la constante de los gases y $T$ es la temperatura absoluta.
+    
+    1. Calculamos los moles de soluto (glucosa):
+    \[
+    n = \frac{5.4 \text{ g}}{180 \text{ g/mol}} = 0.03 \text{ mol}
+    \]
+    
+    2. Calculamos la concentración molar $M_c$:
+    El volumen de la solución en litros es $V = 200 \text{ mL} = 0.2 \text{ L}$.
+    \[
+    M_c = \frac{n}{V} = \frac{0.03 \text{ mol}}{0.2 \text{ L}} = 0.15 \text{ mol/L} = 150 \text{ mol/m}^3
+    \]
+    
+    3. Convertimos la temperatura a Kelvin:
+    \[
+    T = 27 + 273.15 = 300.15 \text{ K}
+    \]
+    
+    4. Calculamos la presión osmótica ($\Pi$):
+    - En Pascales ($S.I.$ usando $R = 8.314 \text{ J/(mol}\cdot\text{K)}$ y concentración en $\text{mol/m}^3$):
+    \[
+    \Pi = (150 \text{ mol/m}^3)(8.314 \text{ J/(mol}\cdot\text{K)})(300.15 \text{ K})
+    \]
+    \[
+    \Pi \approx 374317.07 \text{ Pa} \approx 374.32 \text{ kPa}
+    \]
+    
+    - En atmósferas (usando $R = 0.0821 \text{ L}\cdot\text{atm/(mol}\cdot\text{K)}$ y concentración en $\text{mol/L}$):
+    \[
+    \Pi_{\text{atm}} = (0.15 \text{ mol/L})(0.0821 \text{ L}\cdot\text{atm/(mol}\cdot\text{K)})(300.15 \text{ K}) \approx 3.70 \text{ atm}
+    \]
+    La presión osmótica ejercida por la disolución de glucosa es de $374.32 \text{ kPa}$ ($3.70 \text{ atm}$).
+
+    \vspace{0.3cm}
+    % Problema 9: Osmosis e Isotonicidad
+    \item \textbf{Ósmosis, Presión Osmótica y Osmolaridad en Células:} La osmolaridad interna de un glóbulo rojo (eritrocito) es de aproximadamente $0.3 \text{ Osm/L}$ (u osmoles por litro). Se colocan eritrocitos en un vaso de precipitados que contiene una solución salina de cloruro de sodio ($\text{NaCl}$) a una concentración molar de $0.09 \text{ mol/L}$ a $37 \text{ }^{\circ}\text{C}$.
+    \begin{enumerate}
+        \item Determine la osmolaridad de la solución de $\text{NaCl}$, considerando que se disocia por completo en agua ($\text{NaCl} \rightarrow \text{Na}^+ + \text{Cl}^-$, lo que da un factor de van 't Hoff de $i = 2$).
+        \item Indique si la solución externa es hipertónica, hipotónica o isotónica en comparación con el interior del eritrocito.
+        \item Explique brevemente el destino biológico de los glóbulos rojos en esta solución externa (hemólisis o plasmólisis).
+    \end{enumerate}
+    
+    \textbf{Solución:}
+    \begin{enumerate}
+        \item La osmolaridad se define como el producto de la concentración molar y el factor de disociación $i$:
+        \[
+        \text{Osmolaridad} = i \cdot M_c = 2 \cdot (0.09 \text{ mol/L}) = 0.18 \text{ Osm/L}
+        \]
+        \item La osmolaridad de la solución externa ($0.18 \text{ Osm/L}$) es menor que la osmolaridad interna de las células sanguíneas ($0.30 \text{ Osm/L}$). Por lo tanto, la solución externa es \textbf{hipotónica}.
+        \item Dado que el exterior celular posee una menor concentración de partículas de soluto (menor presión osmótica), se produce un flujo neto de agua a través de la membrana semipermeable hacia el interior del glóbulo rojo (ósmosis) en un intento de igualar las concentraciones. Al entrar agua de forma masiva, la célula se hincha (\textbf{turgencia}) y, al carecer de pared celular rígida, finalmente estalla, proceso conocido como \textbf{hemólisis}.
+    \end{enumerate}
+
+    \vspace{0.3cm}
+    % Problema 10: Ósmosis Inversa
+    \item \textbf{Ósmosis Inversa:} Se desea desalar agua de mar con fines de abastecimiento hospitalario. A $20 \text{ }^{\circ}\text{C}$ ($T = 293.15 \text{ K}$), el agua de mar se modela como una solución acuosa con una concentración osmolar total de partículas de $1.1 \text{ Osm/L}$ ($1100 \text{ mol/m}^3$).
+    \begin{enumerate}
+        \item Calcule la diferencia de presión hidrostática mínima (presión de umbral osmótico) que se debe aplicar sobre el compartimento de agua de mar para iniciar el proceso de ósmosis inversa.
+        \item Si se aplica una presión manométrica de $35 \text{ atm}$ sobre el agua de mar, ¿se logrará el paso de agua purificada hacia el compartimento de agua dulce? Justifique matemáticamente.
+    \end{enumerate}
+    
+    \textbf{Solución:}
+    \begin{enumerate}
+        \item La presión osmótica teórica del agua de mar ($\Pi$) representa el umbral mínimo que debe superarse para contrarrestar la ósmosis natural.
+        Calculamos esta presión utilizando la ecuación de van 't Hoff con la osmolaridad total ($M_{\text{osm}} = i \cdot M_c = 1100 \text{ mol/m}^3$):
+        \[
+        \Pi = M_{\text{osm}} \cdot R \cdot T
+        \]
+        Sustituyendo en unidades del S.I. ($R = 8.314 \text{ J/(mol}\cdot\text{K)}$):
+        \[
+        \Pi = (1100 \text{ mol/m}^3)(8.314 \text{ J/(mol}\cdot\text{K)})(293.15 \text{ K})
+        \]
+        \[
+        \Pi \approx 2680952 \text{ Pa} \approx 2.68 \text{ MPa}
+        \]
+        Para visualizarlo en unidades más comunes de presión manométrica, convertimos a atmósferas ($1 \text{ atm} = 1.013 \times 10^5 \text{ Pa}$):
+        \[
+        \Pi_{\text{atm}} = \frac{2680952 \text{ Pa}}{101325 \text{ Pa/atm}} \approx 26.46 \text{ atm}
+        \]
+        Se requiere una presión hidrostática superior a $2.68 \text{ MPa}$ ($26.46 \text{ atm}$) para contrarrestar el flujo osmótico natural.
+        
+        \item Si se aplica una presión manométrica externa de $P_{\text{ext}} = 35 \text{ atm}$, dado que:
+        \[
+        P_{\text{ext}} = 35 \text{ atm} > \Pi_{\text{atm}} = 26.46 \text{ atm}
+        \]
+        la fuerza hidrostática sobrepasa la presión de oposición osmótica. En consecuencia, el solvente (agua pura) será forzado a cruzar la membrana semipermeable desde el lado del agua salada hacia el lado de menor concentración de soluto (agua dulce). Por lo tanto, \textbf{sí se logrará realizar ósmosis inversa}.
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
