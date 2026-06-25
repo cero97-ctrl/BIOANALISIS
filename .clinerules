@@ -1,4 +1,4 @@
 Al iniciar a trabajar en este espacio de trabajo, lo primero que debes hacer obligatoriamente es leer y seguir las instrucciones detalladas en el archivo:
-- [.agent/instructions.md](file:///home/cero/MEGA/VS_CODE_WORKSPACE/BIOANALISIS/.agent/instructions.md)
+- [.agent/AGENT_INSTRUCTIONS.md](file:///home/cero/MEGA/VS_CODE_WORKSPACE/BIOANALISIS/.agent/AGENT_INSTRUCTIONS.md)
 
 Este archivo contiene las directrices del proyecto, el rol esperado (asistente experto en física, LaTeX y Bash), consideraciones técnicas estrictas sobre la compilación de LaTeX y la estructura del espacio de trabajo.
