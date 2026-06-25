@@ -1,0 +1,13 @@
+# Dependencias del proyecto BIOANALISIS
+
+# ── PDF Processing ──────────────────────────────────────────────────────────────
+pymupdf>=1.24.0            # Renderizado de PDF a imágenes en memoria (fitz)
+
+# ── Google Gemini API ───────────────────────────────────────────────────────────
+google-generativeai>=0.8.0 # Cliente oficial de la API de Gemini (multimodal)
+
+# ── Environment & Config ────────────────────────────────────────────────────────
+python-dotenv>=1.0.0       # Carga de variables desde .env
+
+# ── YAML ────────────────────────────────────────────────────────────────────────
+pyyaml>=6.0                # Lectura de directivas .yaml (rúbricas, etc.)

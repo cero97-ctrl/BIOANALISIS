@@ -1,0 +1,30 @@
+goal: "Plantilla base para nuevas directivas — describe el objetivo aquí"
+
+required_inputs:
+  - name: input_ejemplo
+    description: "Describe qué dato se necesita y en qué formato"
+
+steps:
+  - step: 1
+    description: "Primer paso del flujo: descripción en lenguaje natural"
+    script: "execution/script_ejemplo.py"
+    inputs:
+      argumento_cli: "{{input_ejemplo}}"
+    expected_output: "Descripción del output esperado (ej: JSON con claves X e Y)"
+
+  - step: 2
+    description: "Segundo paso: descripción en lenguaje natural"
+    script: "execution/otro_script.py"
+    inputs:
+      data: "output_del_paso_1"
+    expected_output: "Descripción del resultado final"
+
+expected_outputs:
+  - name: resultado_final
+    description: "Qué entrega este flujo al usuario o al siguiente proceso"
+
+edge_cases:
+  - case: "El script falla con código de salida 1"
+    recovery: "Revisar logs en .tmp/run_state.json, verificar inputs y reintentar (máx. 3 veces)"
+  - case: "Output no coincide con el esquema esperado"
+    recovery: "Detener flujo, diagnosticar causa raíz, corregir script o inputs antes de continuar"

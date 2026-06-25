@@ -91,3 +91,122 @@ Reemplazar `drop shadow=none` por `no shadow`, que es la opción correcta de `tc
     % ...
 \end{tcolorbox}
 ```
+## 5. Caracteres Unicode no soportados por pdflatex (U+2713, U+03C0, etc.)
+
+**Contexto:** Generación de informes LaTeX a partir de texto producido por modelos de lenguaje (Gemini). El modelo incluye en sus respuestas caracteres Unicode como `✓` (U+2713), `π` (U+03C0), `≤` (U+2264), `²` (U+00B2), etc.
+
+**El Problema:**
+
+`pdflatex` con `\usepackage[utf8]{inputenc}` soporta Latin-Extended pero **no** el rango completo de Unicode. Al encontrar caracteres fuera del soporte de `inputenc`, lanza el error:
+
+```
+LaTeX Error: Unicode character ✓ (U+2713) not set up for use with LaTeX.
+LaTeX Error: Unicode character π (U+03C0) not set up for use with LaTeX.
+```
+
+Esto ocurre incluso con `[utf8]{inputenc}` porque dicho paquete solo mapea los bloques que han sido declarados explícitamente (Latin-1, Latin Extended-A/B, etc.). Los símbolos matemáticos, letras griegas y símbolos especiales Unicode no están incluidos.
+
+**La Solución:**
+
+Existen dos enfoques:
+
+### Opción A — Cambiar a XeLaTeX o LuaLaTeX (soporte Unicode nativo)
+
+Sustituir `pdflatex` por `xelatex` o `lualatex` en la compilación. Estos motores soportan Unicode completo de forma nativa sin `inputenc`:
+
+```latex
+% Reemplazar:
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Por (para xelatex/lualatex):
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+```
+
+Compilar con:
+```bash
+xelatex informe.tex
+```
+
+### Opción B — Convertir Unicode a comandos LaTeX antes de generar el .tex (recomendada para generación programática)
+
+Cuando el `.tex` se genera desde Python, aplicar un mapa de sustitución Unicode → LaTeX **antes** de escribir el archivo. Esto mantiene compatibilidad con `pdflatex`:
+
+```python
+_UNICODE_TO_LATEX = [
+    ("π", "$\\pi$"),   ("α", "$\\alpha$"), ("β", "$\\beta$"),
+    ("Δ", "$\\Delta$"), ("θ", "$\\theta$"), ("λ", "$\\lambda$"),
+    ("μ", "$\\mu$"),   ("ω", "$\\omega$"), ("Ω", "$\\Omega$"),
+    ("≤", "$\\leq$"),  ("≥", "$\\geq$"),  ("≠", "$\\neq$"),
+    ("±", "$\\pm$"),   ("×", "$\\times$"), ("²", "$^{2}$"),
+    ("³", "$^{3}$"),   ("°", "$^{\\circ}$"),
+    ("✓", "$\\checkmark$"),  # requiere \usepackage{amssymb}
+    ("→", "$\\rightarrow$"), ("↑", "$\\uparrow$"),
+    # ... (ver execution/generar_informe.py para la lista completa)
+]
+
+def tex(s: str) -> str:
+    # Paso 1: Unicode → LaTeX
+    for char, repl in _UNICODE_TO_LATEX:
+        s = s.replace(char, repl)
+    # Paso 2: escapar chars especiales LaTeX SOLO en texto plano
+    # (respetar los bloques $…$ ya convertidos)
+    parts = s.split("$")
+    result = []
+    for i, part in enumerate(parts):
+        if i % 2 == 0:  # texto plano
+            for char, repl in _LATEX_ESCAPE:
+                part = part.replace(char, repl)
+        result.append(part)
+    return "$".join(result)
+```
+
+> **Importante:** El orden es crítico. Se debe sustituir los símbolos Unicode **antes** de escapar los caracteres especiales de LaTeX (`$`, `{`, `}`, `_`, etc.), de lo contrario los comandos LaTeX generados (`$\pi$`) quedan con sus `$` escapados como `\$\pi\$` y no funcionan.
+
+**Síntoma adicional — títulos de `tcolorbox`:**
+
+El mismo error aplica a los títulos de cajas `tcolorbox`. Los emojis o símbolos Unicode en el argumento `title={✓ Fortalezas}` también fallan. Solución: usar texto ASCII en los títulos o sustituirlos por comandos LaTeX válidos:
+
+```latex
+% Incorrecto:
+\begin{tcolorbox}[title={✓ Fortalezas}]
+
+% Correcto:
+\begin{tcolorbox}[title={Fortalezas}]
+% o con amssymb:
+\begin{tcolorbox}[title={$\checkmark$ Fortalezas}]
+```
+
+---
+
+## 6. Referencia `LastPage` indefinida en la primera compilación
+
+**Contexto:** Uso de `\usepackage{lastpage}` con `\pageref{LastPage}` en el pie de página.
+
+**El Problema:**
+
+En la primera compilación, `pdflatex` aún no ha generado el archivo `.aux` con la información del total de páginas, por lo que `\pageref{LastPage}` queda sin resolver y el compilador reporta:
+
+```
+LaTeX Warning: Reference `LastPage' on page 1 undefined on input line N.
+```
+
+`latexmk` puede detener el proceso con error al detectar referencias indefinidas.
+
+**La Solución:**
+
+Compilar **dos veces** consecutivas. La primera pasada escribe la referencia en `.aux`; la segunda la lee y la resuelve:
+
+```bash
+pdflatex informe.tex && pdflatex informe.tex
+```
+
+Con `latexmk`, usar la opción `-f` para forzar la finalización incluso con referencias pendientes:
+
+```bash
+latexmk -pdf -f informe.tex
+```
+
+> Este comportamiento es **normal** en LaTeX y no indica un error en el documento. El PDF de la primera pasada es funcional; solo el número de páginas en el pie puede aparecer como `??`.

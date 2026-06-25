@@ -1,0 +1,53 @@
+# =============================================================================
+# .gitignore — BIOANALISIS
+# =============================================================================
+
+# --- Entornos virtuales ---
+.env
+*.env
+!.env.example
+
+# --- Archivos temporales del agente ---
+.tmp/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# --- Entornos Conda / virtualenv ---
+env/
+venv/
+ENV/
+.venv/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb_checkpoint
+
+# --- IDEs ---
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Archivos de datos sensibles ---
+*.csv.secret
+*.json.secret
