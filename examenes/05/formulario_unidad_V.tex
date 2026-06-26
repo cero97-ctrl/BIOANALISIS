@@ -1,0 +1,77 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Formulario: Unidad V}\\
+    \textbf{\large Bioelectricidad y Fenómenos Electromagnéticos}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713) -- Bioanálisis}\\
+\end{center}
+
+\vspace{0.5cm}
+
+\section*{Constantes Físicas Fundamentales}
+\begin{itemize}
+    \item \textbf{Carga elemental ($e$):} $1.6 \times 10^{-19} \text{ C}$
+    \item \textbf{Constante de Coulomb en el vacío ($K_{\text{vacío}}$):} $9.0 \times 10^9 \text{ N}\cdot\text{m}^2/\text{C}^2$
+    \item \textbf{Permitividad del vacío ($\varepsilon_0$):} $8.85 \times 10^{-12} \text{ F/m}$ \textit{o} $\text{C}^2/(\text{N}\cdot\text{m}^2)$
+    \item \textbf{Constante universal de los gases ($R$):} $8.314 \text{ J/(mol}\cdot\text{K)}$
+    \item \textbf{Constante de Faraday ($F$):} $96485 \text{ C/mol}$
+    \item \textbf{Temperatura fisiológica de referencia:} $37^\circ\text{C} = 310 \text{ K}$
+\end{itemize}
+
+\vspace{0.5cm}
+
+\section*{Fórmulas y Ecuaciones Clave}
+
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\centering\arraybackslash}X|}
+\hline
+\textbf{Concepto Físico} & \textbf{Ecuación} \\
+\hline
+\textbf{Ley de Coulomb} (Fuerza electrostática entre dos cargas) & $F = K \frac{|q_1 \cdot q_2|}{r^2}$ \\
+\hline
+\textbf{Constante de Coulomb en un Medio Dieléctrico} (ej. agua, lípidos) & $K_{\text{medio}} = \frac{K_{\text{vacío}}}{\kappa}$ \\
+\hline
+\textbf{Campo Eléctrico Uniforme} (ej. a través de la membrana celular) & $E = \frac{|\Delta V|}{d}$ \\
+\hline
+\textbf{Fuerza Eléctrica} (experimentada por una carga en un campo $E$) & $F = q \cdot E$ \\
+\hline
+\textbf{Trabajo Eléctrico} (Energía para mover una carga a través de $\Delta V$) & $W = q \cdot \Delta V$ \\
+\hline
+\textbf{Capacitancia} (Definición general de almacenamiento de carga) & $C = \frac{Q}{\Delta V}$ \\
+\hline
+\textbf{Capacitancia de Placas Paralelas} (Modelo físico de la membrana) & $C = \frac{\kappa \varepsilon_0 A}{d}$ \\
+\hline
+\textbf{Capacitancia Específica} (Capacitancia normalizada por unidad de área) & $\frac{C}{A} = \frac{\kappa \varepsilon_0}{d}$ \\
+\hline
+\textbf{Ecuación de Nernst} (Potencial de equilibrio electroquímico para un ión) & $E_{\text{ion}} = \frac{RT}{zF} \ln\left( \frac{[\text{Ion}]_{\text{ext}}}{[\text{Ion}]_{\text{int}}} \right)$ \\
+\hline
+\end{tabularx}
+
+\vspace{0.5cm}
+
+\section*{Nomenclatura y Unidades (S.I.)}
+\begin{itemize}
+    \item $q, Q$: Carga eléctrica (Coulombs, $\text{C}$).
+    \item $r, d$: Distancia de separación o espesor de la membrana (metros, $\text{m}$).
+    \item $\kappa$: Constante dieléctrica o permitividad relativa del material (Adimensional).
+    \item $\Delta V$: Diferencia de potencial eléctrico, voltaje o potencial de membrana (Voltios, $\text{V}$).
+    \item $E$: Magnitud del campo eléctrico (Voltios por metro, $\text{V/m}$ ó $\text{N/C}$).
+    \item $W$: Trabajo o Energía Eléctrica (Joules, $\text{J}$).
+    \item $C$: Capacitancia (Faradios, $\text{F}$). (Conversión útil: $1 \text{ }\mu\text{F} = 10^{-6} \text{ F}$).
+    \item $A$: Área superficial de la membrana celular ($\text{m}^2$).
+    \item $z$: Valencia iónica con su respectivo signo (ej. $+1$ para $Na^+$ y $K^+$, $-1$ para $Cl^-$).
+    \item $[\text{Ion}]$: Concentración iónica extracelular ($\text{ext}$) o intracelular ($\text{int}$) en la misma unidad de molaridad ($\text{mM}$ o $\text{mol/L}$).
+\end{itemize}
+
+\end{document}

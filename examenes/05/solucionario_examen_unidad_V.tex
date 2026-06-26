@@ -1,0 +1,105 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Solucionario: Examen Unidad V}\\
+    \textbf{\large Bioelectricidad y Fenómenos Electromagnéticos}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713) -- Bioanálisis}\\
+\end{center}
+
+\vspace{0.2cm}
+
+\textbf{Nota para el Evaluador:} Este documento contiene las pautas de corrección, la argumentación del razonamiento físico-biológico y los cálculos matemáticos para cada problema planteado.
+
+\vspace{0.2cm}
+
+\begin{enumerate}[leftmargin=*]
+
+    % Solución 1: Ley de Coulomb
+    \item \textbf{Fuerza Electrostática en el Entorno Biológico:}
+    \begin{enumerate}
+        \item \textbf{Razonamiento:} El agua es un dipolo eléctrico fuerte y tiene una constante dieléctrica muy alta ($\kappa \approx 80$). Al estar sumergidos en agua, los iones quedan rodeados por una "capa de solvatación" formada por las moléculas de agua que orientan sus cargas parciales oponiéndose al campo eléctrico de los iones. Físicamente, esto reduce la intensidad del campo eléctrico efectivo y de la fuerza entre los iones por un factor de 80. Al disminuir drásticamente la fuerza de atracción de Coulomb, la energía de agitación térmica es suficiente para separarlos, permitiendo que la sal se disocie completamente.
+        \item \textbf{Cálculo:} Aplicamos la Ley de Coulomb modificada por el dieléctrico del agua.
+        \[
+        F = K_{\text{agua}} \frac{|q_1 \cdot q_2|}{r^2} = (1.125 \times 10^8 \text{ N}\cdot\text{m}^2/\text{C}^2) \frac{(1.6 \times 10^{-19} \text{ C})^2}{(5.0 \times 10^{-9} \text{ m})^2}
+        \]
+        \[
+        F = (1.125 \times 10^8) \frac{2.56 \times 10^{-38}}{25.0 \times 10^{-18}} = (1.125 \times 10^8)(1.024 \times 10^{-21}) \approx 1.15 \times 10^{-13} \text{ N}
+        \]
+        La fuerza en el medio acuoso es extremadamente débil comparada con la obtenida en el vacío ($2.3 \times 10^{-12} \text{ N}$ calculada en clases a distancias similares).
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Solución 2: Campo Eléctrico
+    \item \textbf{Campo Eléctrico y Aislamiento por Mielina:}
+    \begin{enumerate}
+        \item \textbf{Razonamiento:} En un campo eléctrico uniforme, la relación es $E = \Delta V / d$. Como el campo eléctrico es \textit{inversamente proporcional} a la distancia ($d$), un mayor espesor de la membrana disminuye directamente la magnitud del campo. Al haber un campo eléctrico muy débil a través de la mielina, la fuerza eléctrica que empuja a los iones (fugas iónicas) a través de los canales es prácticamente nula, lo que le confiere su propiedad de excelente aislante.
+        \item \textbf{Cálculo:} Aplicando la ecuación de campo eléctrico uniforme:
+        \[
+        E = \frac{|\Delta V|}{d} = \frac{|-0.070 \text{ V} - 0 \text{ V}|}{8.0 \times 10^{-6} \text{ m}} = \frac{0.070}{8.0 \times 10^{-6}} = 8750 \text{ V/m}
+        \]
+        El campo se ha reducido enormemente desde $8.75 \text{ millones de V/m}$ (membrana desnuda) a sólo $8750 \text{ V/m}$. Esto impide fugas indeseadas de corriente transmembrana a lo largo de las regiones mielinizadas (conducción saltatoria).
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Solución 3: Condensadores
+    \item \textbf{Capacitancia y Propagación del Impulso Nervioso:}
+    \begin{enumerate}
+        \item \textbf{Razonamiento:} La capacitancia para un condensador plano se define como $C = \frac{\kappa \varepsilon_0 A}{d}$. La ecuación indica que la capacitancia ($C$) es \textit{inversamente proporcional} al espesor de la capa dieléctrica ($d$). Al añadir capas de mielina (aumentar $d$), la capacitancia de la membrana disminuye drásticamente. Al tener menor capacitancia, la membrana almacena menos carga y tarda menos tiempo en despolarizarse frente a una pequeña corriente local, logrando que el potencial de acción "salte" rápidamente de un nodo de Ranvier al siguiente.
+        \item \textbf{Cálculo:}
+        \[
+        \frac{C}{A} = \frac{\kappa \varepsilon_0}{d} = \frac{(3.0)(8.85 \times 10^{-12} \text{ F/m})}{8.0 \times 10^{-6} \text{ m}} = 3.31875 \times 10^{-6} \text{ F/m}^2
+        \]
+        Convertimos a $\mu\text{F/cm}^2$:
+        \[
+        \frac{C}{A} = \left( 3.31875 \times 10^{-6} \frac{\text{F}}{\text{m}^2} \right) \times 10^2 \frac{\text{m}^2 \cdot \mu\text{F}}{\text{cm}^2 \cdot \text{F}} = 3.31875 \times 10^{-4} \text{ }\mu\text{F/cm}^2 \approx 0.00033 \text{ }\mu\text{F/cm}^2
+    \]
+    La capacitancia específica cae mil veces respecto a la membrana desnuda ($0.33 \text{ }\mu\text{F/cm}^2$), confirmando matemáticamente su optimización para mayor velocidad de propagación.
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Solución 4: Potencial de Nernst
+    \item \textbf{Potencial de Nernst y Riesgo de Hiperpotasemia:}
+    \begin{enumerate}
+        \item \textbf{Razonamiento:} El ión $K^+$ normalmente sale de la célula por su gradiente de concentración, y el potencial de Nernst negativo "jala" de él para retenerlo (gradiente eléctrico). Al aumentar patológicamente el potasio extracelular, la diferencia de concentraciones es \textit{menor}, por lo que el gradiente químico que lo impulsa a salir pierde fuerza. En consecuencia, se necesita una negatividad eléctrica \textit{menor} dentro de la célula para contrarrestarlo. El riesgo es que la célula muscular cardíaca quede más cerca de su umbral de disparo, volviéndose extremadamente excitable, pudiendo ocasionar arritmias letales.
+        \item \textbf{Cálculo:}
+        \[
+        E_K = \frac{RT}{zF} \ln\left( \frac{[K^+]_{\text{ext}}}{[K^+]_{\text{int}}} \right) = \frac{(8.314)(310)}{(1)(96485)} \ln\left( \frac{14 \text{ mM}}{140 \text{ mM}} \right)
+        \]
+        \[
+        E_K = (0.0267 \text{ V}) \ln(0.1) = (26.7 \text{ mV}) \times (-2.3025) \approx -61.5 \text{ mV}
+        \]
+        El potencial de Nernst pasó de $-89 \text{ mV}$ a $-61.5 \text{ mV}$, volviéndose notablemente menos negativo (despolarizado) por la hiperpotasemia.
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Solución 5: Bomba Na/K
+    \item \textbf{Trabajo Eléctrico de la Bomba Sodio-Potasio (Despolarización):}
+    \begin{enumerate}
+        \item \textbf{Razonamiento:} La bomba realiza un trabajo eléctrico neto al empujar cargas positivas (1 carga neta por ciclo) hacia el exterior celular. El exterior tiene potencial $0 \text{ V}$. Si el interior está a $-70 \text{ mV}$, la bomba debe superar una gran "pendiente" de $+70 \text{ mV}$. Pero si la célula se despolariza hasta $-30 \text{ mV}$, la pendiente es menor. El trabajo netamente \textit{eléctrico} se vuelve \textbf{más sencillo} de realizar, porque la repulsión electrostática a expulsar carga positiva desde el interior hacia afuera es menor cuando el interior no es tan negativo.
+        \item \textbf{Cálculo:} El trabajo eléctrico neto se calcula por $W = q_{\text{neto}} \cdot \Delta V_{\text{salida}}$.
+        \[
+        \Delta V_{\text{salida}} = V_{\text{final}} (0 \text{ V}) - V_{\text{inicial}} (-0.030 \text{ V}) = +0.030 \text{ V}
+        \]
+        \[
+        W_{\text{eléctrico}} = (+1.6 \times 10^{-19} \text{ C}) \cdot (+0.030 \text{ V}) = 4.8 \times 10^{-20} \text{ Joules}
+        \]
+        El trabajo eléctrico por ciclo es de $4.8 \times 10^{-20} \text{ J}$, comparado con $1.12 \times 10^{-19} \text{ J}$ a $-70 \text{ mV}$, confirmando matemáticamente que la carga eléctrica de la bomba consume menos energía.
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

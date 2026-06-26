@@ -1,0 +1,144 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Problemario y Soluciones: Unidad V (Bioelectricidad)}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713) -- Bioanálisis}\\
+\end{center}
+
+\vspace{0.4cm}
+
+\begin{enumerate}[leftmargin=*]
+
+    % Problema 1: Fuerza de Coulomb
+    \item \textbf{Fuerza Electrostática (Ley de Coulomb):}\\
+    Los fluidos corporales contienen iones disueltos como el Sodio ($Na^+$) y el Cloruro ($Cl^-$). Para modelar la interacción básica a nivel molecular, calcule la magnitud de la fuerza electrostática de atracción entre un ión $Na^+$ y un ión $Cl^-$ que se encuentran separados por una distancia de $1.0 \times 10^{-8} \text{ m}$ (10 nm) asumiendo que están en el vacío. 
+    (Datos: carga elemental $e = 1.6 \times 10^{-19} \text{ C}$, constante eléctrica en el vacío $K = 9.0 \times 10^9 \text{ N}\cdot\text{m}^2/\text{C}^2$).
+    
+    \textbf{Solución:}
+    El ión $Na^+$ tiene una carga neta de $q_1 = +e$ y el ión $Cl^-$ tiene una carga neta de $q_2 = -e$.
+    Aplicando la Ley de Coulomb para la magnitud de la fuerza:
+    \[
+    F = K \frac{|q_1 \cdot q_2|}{r^2}
+    \]
+    Sustituyendo los valores:
+    \[
+    F = (9.0 \times 10^9 \text{ N}\cdot\text{m}^2/\text{C}^2) \frac{(1.6 \times 10^{-19} \text{ C})(1.6 \times 10^{-19} \text{ C})}{(1.0 \times 10^{-8} \text{ m})^2}
+    \]
+    \[
+    F = (9.0 \times 10^9) \frac{2.56 \times 10^{-38}}{1.0 \times 10^{-16}} = (9.0 \times 10^9)(2.56 \times 10^{-22})
+    \]
+    \[
+    F = 2.304 \times 10^{-12} \text{ N}
+    \]
+    La fuerza de atracción electrostática entre los dos iones es de aproximadamente $2.3 \times 10^{-12} \text{ N}$.
+
+    \vspace{0.3cm}
+
+    % Problema 2: Campo Eléctrico de Membrana
+    \item \textbf{Campo Eléctrico a través de la Membrana Celular:}\\
+    En estado de reposo, el interior de una célula nerviosa (neurona) tiene un potencial eléctrico de $-70 \text{ mV}$ ($-0.070 \text{ V}$) respecto al medio extracelular que se asume como $0 \text{ V}$. Si el espesor de la membrana plasmática es de $8.0 \text{ nm}$ ($8.0 \times 10^{-9} \text{ m}$), calcule la magnitud del campo eléctrico uniforme que atraviesa la membrana.
+    
+    \textbf{Solución:}
+    Para un campo eléctrico uniforme, la relación entre el campo eléctrico ($E$), la diferencia de potencial ($\Delta V$) y la distancia ($d$) viene dada por:
+    \[
+    E = \frac{|\Delta V|}{d}
+    \]
+    Sustituyendo la diferencia de potencial transmembrana y el espesor de la membrana:
+    \[
+    E = \frac{|-0.070 \text{ V} - 0 \text{ V}|}{8.0 \times 10^{-9} \text{ m}} = \frac{0.070}{8.0 \times 10^{-9}}
+    \]
+    \[
+    E = 8.75 \times 10^6 \text{ V/m}
+    \]
+    El campo eléctrico tiene una enorme intensidad de $8.75 \text{ millones de V/m}$, lo cual es posible sin generar una ruptura dieléctrica debido a que está confinado en un espacio nanométrico.
+
+    \vspace{0.3cm}
+
+    % Problema 3: Condensador Celular
+    \item \textbf{Capacidad Eléctrica de la Membrana Lipídica:}\\
+    La membrana celular puede ser modelada físicamente como un condensador de placas paralelas, donde la bicapa lipídica actúa como material dieléctrico (aislante). Si la constante dieléctrica relativa de los lípidos es $\kappa = 3.0$ y el espesor de la membrana es de $8.0 \times 10^{-9} \text{ m}$, calcule la capacitancia específica de la membrana (es decir, la capacitancia por unidad de área, $\frac{C}{A}$) expresada en $\mu\text{F/cm}^2$. (Dato: permitividad del vacío $\varepsilon_0 = 8.85 \times 10^{-12} \text{ F/m}$).
+    
+    \textbf{Solución:}
+    La capacitancia de un condensador de placas paralelas está dada por $C = \frac{\kappa \varepsilon_0 A}{d}$.
+    Para calcular la capacitancia por unidad de área, despejamos $\frac{C}{A}$:
+    \[
+    \frac{C}{A} = \frac{\kappa \varepsilon_0}{d}
+    \]
+    Sustituyendo los valores en unidades del Sistema Internacional:
+    \[
+    \frac{C}{A} = \frac{(3.0)(8.85 \times 10^{-12} \text{ F/m})}{8.0 \times 10^{-9} \text{ m}} = \frac{26.55 \times 10^{-12}}{8.0 \times 10^{-9}} = 3.31875 \times 10^{-3} \text{ F/m}^2
+    \]
+    Convertimos este valor a $\mu\text{F/cm}^2$ usando las conversiones $(1 \text{ F} = 10^6 \text{ }\mu\text{F})$ y $(1 \text{ m}^2 = 10^4 \text{ cm}^2)$:
+    \[
+    \frac{C}{A} = \left( 3.31875 \times 10^{-3} \frac{\text{F}}{\text{m}^2} \right) \times \left( \frac{10^6 \text{ }\mu\text{F}}{1 \text{ F}} \right) \times \left( \frac{1 \text{ m}^2}{10^4 \text{ cm}^2} \right)
+    \]
+    \[
+    \frac{C}{A} = (3.31875 \times 10^{-3}) \times 10^2 \text{ }\mu\text{F/cm}^2 \approx 0.33 \text{ }\mu\text{F/cm}^2
+    \]
+    La capacitancia específica de la membrana es aproximadamente $0.33 \text{ }\mu\text{F/cm}^2$, un valor típico y biológicamente relevante para las células.
+
+    \vspace{0.3cm}
+
+    % Problema 4: Ecuación de Nernst
+    \item \textbf{Potencial de Nernst para el Ion Potasio ($K^+$):}\\
+    Calcule el potencial de equilibrio electroquímico de Nernst para el ion potasio ($K^+$) a la temperatura corporal fisiológica de $37 \text{ }^\circ\text{C}$ ($310 \text{ K}$), sabiendo que su concentración intracelular es de $140 \text{ mM}$ y su concentración extracelular es de solo $5 \text{ mM}$. 
+    (Datos: Constante de los gases $R = 8.314 \text{ J/(mol}\cdot\text{K)}$, Constante de Faraday $F = 96485 \text{ C/mol}$, valencia del potasio $z = +1$).
+    
+    \textbf{Solución:}
+    La Ecuación de Nernst para un ion a cierta temperatura determina el voltaje para el cual el gradiente eléctrico equilibra al gradiente químico:
+    \[
+    E_K = \frac{RT}{zF} \ln\left( \frac{[K^+]_{\text{ext}}}{[K^+]_{\text{int}}} \right)
+    \]
+    Calculamos el coeficiente térmico-eléctrico:
+    \[
+    \frac{RT}{zF} = \frac{(8.314 \text{ J/(mol}\cdot\text{K)})(310 \text{ K})}{(+1)(96485 \text{ C/mol})} \approx 0.0267 \text{ V} = 26.7 \text{ mV}
+    \]
+    Calculamos el factor logarítmico de concentraciones:
+    \[
+    \ln\left( \frac{5 \text{ mM}}{140 \text{ mM}} \right) = \ln(0.0357) \approx -3.332
+    \]
+    Multiplicando ambos resultados:
+    \[
+    E_K = (26.7 \text{ mV}) \times (-3.332) \approx -88.9 \text{ mV}
+    \]
+    El potencial de Nernst para el Potasio es de $-88.9 \text{ mV}$. Esto significa que el interior de la célula debe ser muy negativo para evitar que el potasio siga saliendo debido a su alta concentración interna.
+
+    \vspace{0.3cm}
+
+    % Problema 5: Trabajo de la Bomba Sodio-Potasio
+    \item \textbf{Bioelectricidad y Trabajo de la Bomba Sodio-Potasio ($Na^+$/$K^+$):}\\
+    La bomba biológica $Na^+$/$K^+$ mantiene los gradientes de concentración expulsando $3$ iones de $Na^+$ (valencia $+1$) hacia el medio extracelular y, al mismo tiempo, introduciendo $2$ iones de $K^+$ (valencia $+1$) hacia el interior en cada ciclo. Si el potencial de la membrana celular se mantiene constante en $-70 \text{ mV}$ (el interior es $0.070 \text{ V}$ más negativo que el exterior), calcule el \textbf{trabajo eléctrico neto} que realiza la bomba enzimática durante un ciclo para mover estas cargas contra el campo eléctrico de la membrana (en Joules). Exprese también el resultado ignorando el trabajo químico. (Dato: $e = 1.6 \times 10^{-19} \text{ C}$).
+    
+    \textbf{Solución:}
+    El trabajo eléctrico necesario para mover una carga $q$ a través de una diferencia de potencial es $W = q \cdot \Delta V$.
+    
+    La bomba transfiere simultáneamente cargas en sentidos opuestos, por lo que podemos analizar la transferencia neta de carga en cada ciclo:
+    Salen $3$ cargas positivas ($Na^+$) y entran $2$ cargas positivas ($K^+$). El balance neto es equivalente a expulsar $1$ carga neta positiva desde el interior al exterior.
+    
+    Carga neta transferida al exterior: $q_{\text{neto}} = +1e = +1.6 \times 10^{-19} \text{ C}$.
+    Diferencia de potencial de salida (desde adentro $-70 \text{ mV}$ hacia afuera $0 \text{ V}$):
+    \[
+    \Delta V_{\text{salida}} = V_{\text{final}} - V_{\text{inicial}} = (0 \text{ V}) - (-0.070 \text{ V}) = +0.070 \text{ V}
+    \]
+    El trabajo neto eléctrico es:
+    \[
+    W_{\text{eléctrico}} = q_{\text{neto}} \cdot \Delta V_{\text{salida}}
+    \]
+    \[
+    W_{\text{eléctrico}} = (+1.6 \times 10^{-19} \text{ C})(+0.070 \text{ V}) = +1.12 \times 10^{-20} \text{ Joules}
+    \]
+    El trabajo eléctrico positivo ($+1.12 \times 10^{-20} \text{ J}$) indica que la enzima debe \textit{invertir} energía metabólica (ATP) para empujar carga positiva neta hacia el exterior (donde el potencial ya es más alto o menos negativo).
+
+\end{enumerate}
+
+\end{document}

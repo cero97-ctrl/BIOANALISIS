@@ -1,0 +1,77 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Examen: Unidad V}\\
+    \textbf{\large Bioelectricidad y Fenómenos Electromagnéticos}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713) -- Bioanálisis}\\
+\end{center}
+
+\vspace{0.2cm}
+
+\textbf{Instrucciones:} Este examen evalúa la comprensión profunda de la bioelectricidad. Para cada pregunta, debe argumentar físicamente (razonamiento) y realizar el cálculo matemático correspondiente. Justifique sus respuestas basándose en los principios eléctricos y biológicos estudiados.
+
+\vspace{0.2cm}
+
+\begin{enumerate}[leftmargin=*]
+
+    % Pregunta 1: Ley de Coulomb y Agua
+    \item \textbf{Fuerza Electrostática en el Entorno Biológico:}\\
+    En el vacío, la fuerza electrostática entre dos cargas es bastante intensa. Sin embargo, las reacciones bioquímicas y las interacciones iónicas en el cuerpo humano ocurren en un medio acuoso.
+    \begin{enumerate}
+        \item Desde el punto de vista de las propiedades dieléctricas del agua (constante dieléctrica $\kappa \approx 80$), razone por qué las sales como el $NaCl$ se disocian fácilmente en los fluidos corporales en lugar de permanecer fuertemente unidas.
+        \item Calcule la magnitud de la fuerza electrostática de atracción entre un ión $Na^+$ ($q = +1.6 \times 10^{-19} \text{ C}$) y un ión $Cl^-$ ($q = -1.6 \times 10^{-19} \text{ C}$) separados por $5.0 \text{ nm}$ ($5.0 \times 10^{-9} \text{ m}$) si se encuentran inmersos en agua. La constante de Coulomb en el medio acuoso se reduce a $K_{\text{agua}} = \frac{K_{\text{vacío}}}{\kappa} \approx 1.125 \times 10^8 \text{ N}\cdot\text{m}^2/\text{C}^2$.
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Pregunta 2: Campo Eléctrico y Mielina
+    \item \textbf{Campo Eléctrico y Aislamiento por Mielina:}\\
+    El potencial eléctrico de reposo de un axón neuronal es de aproximadamente $-70 \text{ mV}$ respecto al exterior celular. La mielina es una estructura lipídica gruesa que envuelve el axón de ciertas neuronas, aumentando el grosor efectivo de la membrana.
+    \begin{enumerate}
+        \item Razone cómo afecta físicamente un mayor espesor de membrana a la intensidad del campo eléctrico que la atraviesa, asumiendo que el potencial de reposo se mantiene igual. ¿Por qué este efecto convierte a la mielina en un excelente aislante eléctrico biológico?
+        \item Si la membrana celular desnuda tiene un espesor de $8.0 \text{ nm}$ ($8.0 \times 10^{-9} \text{ m}$) y la vaina de mielina incrementa este espesor a $8.0 \text{ }\mu\text{m}$ ($8.0 \times 10^{-6} \text{ m}$), calcule la magnitud del campo eléctrico uniforme a través del axón mielinizado y compárelo con la magnitud del campo en el axón desnudo ($8.75 \times 10^6 \text{ V/m}$).
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Pregunta 3: Condensadores
+    \item \textbf{Capacitancia y Propagación del Impulso Nervioso:}\\
+    La membrana axonal actúa como un condensador biológico. Una baja capacitancia significa que se requiere cargar menos cantidad de electricidad para alcanzar el potencial umbral que desencadena un potencial de acción, lo que permite una transmisión más rápida del impulso nervioso.
+    \begin{enumerate}
+        \item Utilizando la ecuación del condensador de placas paralelas, explique matemáticamente cómo la presencia de la gruesa vaina de mielina altera la capacitancia de la membrana y por qué esto acelera la conducción nerviosa.
+        \item Asumiendo que la mielina tiene una constante dieléctrica relativa de $\kappa = 3.0$ y que su espesor es de $8.0 \text{ }\mu\text{m}$ ($8.0 \times 10^{-6} \text{ m}$), calcule la nueva capacitancia específica de la membrana mielinizada (en $\mu\text{F/cm}^2$). (Datos: $\varepsilon_0 = 8.85 \times 10^{-12} \text{ F/m}$).
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Pregunta 4: Potencial de Nernst
+    \item \textbf{Potencial de Nernst y Riesgo de Hiperpotasemia:}\\
+    El potencial de Nernst para el potasio ($K^+$) bajo condiciones normales es de aproximadamente $-89 \text{ mV}$. En un paciente con insuficiencia renal severa ocurre una "hiperpotasemia", condición donde la concentración extracelular de potasio aumenta patológicamente.
+    \begin{enumerate}
+        \item Razone qué ocurre con el gradiente químico del potasio al aumentar su concentración extracelular y cómo esto altera la negatividad requerida en el interior celular para mantener el equilibrio electroquímico. ¿Qué riesgo supone para la excitabilidad del músculo cardíaco?
+        \item Calcule el nuevo potencial de Nernst para el Potasio a temperatura corporal de $37^\circ\text{C}$ ($310 \text{ K}$) si la concentración extracelular se eleva de $5 \text{ mM}$ a $14 \text{ mM}$, manteniendo la intracelular constante en $140 \text{ mM}$. (Datos: $R = 8.314 \text{ J/(mol}\cdot\text{K)}$, $F = 96485 \text{ C/mol}$, $z = +1$).
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Pregunta 5: Bomba Na/K
+    \item \textbf{Trabajo Eléctrico de la Bomba Sodio-Potasio (Despolarización):}\\
+    La bomba $Na^+/K^+$ invierte energía metabólica (ATP) para expulsar 3 iones $Na^+$ e ingresar 2 iones $K^+$. Si una célula sufre una hipoxia grave que reduce el ATP, sufre una despolarización parcial de membrana (el interior se vuelve menos negativo).
+    \begin{enumerate}
+        \item Si el interior de la célula se despolariza, ¿el trabajo netamente \textit{eléctrico} que debe realizar la bomba para funcionar se vuelve más exigente o más sencillo? Justifique su respuesta basándose en el campo eléctrico.
+        \item Calcule en Joules el trabajo eléctrico neto necesario para realizar un ciclo de la bomba (expulsar carga neta $+1e$) si, debido a la hipoxia, el potencial de reposo ha subido de $-70 \text{ mV}$ hasta un valor despolarizado de $-30 \text{ mV}$ ($-$0.030 V). (Dato: $q_{\text{neto}} = +1.6 \times 10^{-19} \text{ C}$).
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

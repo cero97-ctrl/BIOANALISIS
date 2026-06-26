@@ -1,0 +1,82 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Examen: Unidad IV}\\
+    \textbf{\large Líquidos y Fenómenos de Transporte}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713) -- Bioanálisis}\\
+\end{center}
+
+\vspace{0.2cm}
+
+\textbf{Instrucciones:} Este examen evalúa la comprensión profunda y el análisis físico aplicado a fenómenos biológicos y clínicos. No basta con escribir fórmulas matemáticas; debe argumentar, analizar y justificar cada una de sus respuestas basándose en los principios físicos estudiados.
+
+\vspace{0.2cm}
+
+\begin{enumerate}[leftmargin=*]
+
+    % Pregunta 1: Calor de Vaporización
+    \item \textbf{Termorregulación y Eficiencia de la Sudoración:}\\
+    Dos pacientes, A y B, se encuentran en un ambiente cálido realizando la misma actividad física y necesitan disipar la misma cantidad total de calor para mantener su temperatura corporal constante. El paciente A tiene un mecanismo de sudoración eficiente donde casi toda el agua segregada por las glándulas se \textit{evapora} sobre la piel. Por el contrario, el paciente B presenta una alteración en la que gran parte de su sudor gotea rápidamente y cae de la piel en forma líquida antes de poder evaporarse.
+    \begin{enumerate}
+        \item Desde el punto de vista del \textit{calor latente de vaporización}, ¿qué paciente necesitará secretar un mayor volumen total de sudor para lograr disipar la misma cantidad de calor? Justifique su respuesta detallando el proceso de transferencia de energía térmica.
+        \item Si de repente la humedad relativa del ambiente aumenta drásticamente (acercándose al 100\%), ¿cómo afectará esto físicamente a la capacidad de termorregulación de ambos pacientes y qué peligro clínico (ej. golpe de calor) se puede deducir?
+        \item Calcule el calor total disipado por el paciente A si logra evaporar $150 \text{ g}$ de sudor a $37^\circ\text{C}$ (donde el calor latente es $L_v = 2.42 \times 10^6 \text{ J/kg}$). Exprese su resultado en Joules y kilocalorías ($1 \text{ kcal} = 4186 \text{ J}$).
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Pregunta 2: Ley de Laplace
+    \item \textbf{Mecánica Respiratoria y Síndrome de Dificultad Respiratoria:}\\
+    Un neonato prematuro nace con una deficiencia grave de \textit{surfactante pulmonar}. En una radiografía y evaluación clínica se observa un patrón característico: los alvéolos más pequeños tienden a colapsar por completo (atelectasia), mientras que el aire se redistribuye hacia los alvéolos más grandes, los cuales se hiperinsuflan.
+    \begin{enumerate}
+        \item Utilizando la \textit{Ley de Laplace} para la diferencia de presiones en burbujas esféricas, demuestre físicamente por qué ocurre este flujo anómalo de aire desde los alvéolos pequeños hacia los grandes cuando la tensión superficial es constante (ausencia de surfactante).
+        \item Explique cuál es el papel fisiológico y físico del surfactante pulmonar natural para evitar este colapso, detallando cómo modifica la tensión superficial en función del radio del alvéolo.
+        \item Calcule la presión interna $\Delta P$ (en Pascales) requerida para mantener abierto un alvéolo pequeño de radio $r = 5.0 \times 10^{-5} \text{ m}$ si carece de surfactante y presenta una tensión superficial similar al agua ($\gamma = 0.070 \text{ N/m}$).
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Pregunta 3: Ley de Fick
+    \item \textbf{Optimización en Hemodiálisis (Primera Ley de Fick):}\\
+    En el desarrollo de un nuevo dializador (riñón artificial) para limpiar la sangre de urea, un equipo de ingenieros biomédicos propone cambiar la membrana semipermeable. Deciden utilizar un nuevo material que permite reducir el \textit{espesor} de la membrana a la \textbf{mitad} ($\Delta x_{nuevo} = \frac{1}{2} \Delta x_{original}$). Sin embargo, debido a limitaciones geométricas del cartucho, la \textit{superficie total de contacto} de esta nueva membrana es un \textbf{30\% menor} que la del modelo anterior ($A_{nuevo} = 0.70 A_{original}$).
+    \begin{enumerate}
+        \item Basándose estrictamente en la \textit{Primera Ley de Fick}, determine matemáticamente si la tasa de transporte de masa de urea ($\frac{\Delta m}{\Delta t}$) será mayor, menor o igual con el nuevo diseño en comparación con el original (asumiendo que el coeficiente de difusión y el gradiente de concentraciones se mantienen constantes).
+        \item Aparte del análisis matemático, discuta brevemente qué riesgo mecánico o estructural podría implicar en la práctica clínica hacer la membrana de diálisis cada vez más delgada.
+        \item Si la membrana original tiene un área $A = 1.5 \text{ m}^2$, espesor $\Delta x = 2.0 \times 10^{-5} \text{ m}$, el gradiente de concentración de urea es $\Delta C = 2.0 \times 10^{-3} \text{ kg/m}^3$ y su coeficiente de difusión es $D = 1.2 \times 10^{-9} \text{ m}^2\text{/s}$, calcule la tasa original de transporte de masa $\left(\frac{\Delta m}{\Delta t}\right)$ en kg/s.
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Pregunta 4: Ósmosis
+    \item \textbf{Errores de Infusión Intravenosa y Ósmosis:}\\
+    Durante una guardia hospitalaria, por un error de etiquetado, a un paciente deshidratado se le administra una infusión rápida e intravenosa de \textit{agua destilada pura} en lugar de la solución salina isotónica prescrita ($0.9\%$ NaCl). 
+    \begin{enumerate}
+        \item Utilizando el concepto de \textit{presión osmótica} y analizando las osmolaridades intra y extracelulares, describa el flujo neto de solvente a través de la membrana de los eritrocitos. ¿Qué fenómeno fisiopatológico ocurrirá con los glóbulos rojos del paciente como consecuencia directa?
+        \item Si el equipo médico detecta el error minutos después e intenta "compensarlo" administrando inmediatamente una solución fuertemente \textit{hipertónica} (ej. NaCl al 5\%), ¿cómo reaccionarán los eritrocitos que aún sobreviven en el torrente sanguíneo ante este cambio drástico? Justifique físicamente.
+        \item Calcule la presión osmótica teórica (en atmósferas) de la solución salina isotónica prescrita ($0.9\%$ NaCl), sabiendo que equivale a una concentración de $0.154 \text{ mol/L}$, con un factor de van 't Hoff $i = 2$ a la temperatura corporal de $37^\circ\text{C}$ ($310 \text{ K}$). Utilice $R = 0.0821 \text{ L}\cdot\text{atm/(mol}\cdot\text{K)}$.
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Pregunta 5: Capilaridad
+    \item \textbf{Capilaridad y Toma de Muestras Sanguíneas:}\\
+    En un laboratorio clínico, se utilizan tubos capilares de vidrio para la extracción de micromuestras de sangre. Un lote defectuoso de tubos ha sido recubierto accidentalmente en su interior con un material hidrofóbico, lo que altera significativamente el ángulo de contacto entre la sangre y la pared interna del tubo (el ángulo pasa a ser $\theta > 90^\circ$).
+    \begin{enumerate}
+        \item Basándose en la \textit{Ley de Jurin}, analice qué ocurrirá con la columna de sangre al poner en contacto el extremo del tubo con la gota de sangre. ¿Ascenderá o descenderá respecto al nivel de la gota original? Justifique su respuesta prestando atención a las fuerzas de cohesión y adhesión.
+        \item Si en lugar del lote defectuoso, se utiliza un tubo capilar de vidrio perfectamente limpio y mojable ($\theta \approx 0^\circ$), pero con un \textit{diámetro interno mucho menor} (microcapilar), ¿cómo afectaría esto a la altura alcanzada por la sangre y por qué representa una ventaja física para obtener la muestra de forma eficiente?
+        \item Calcule la altura máxima $h$ que ascenderá la sangre en un tubo capilar de vidrio limpio ($\theta = 0^\circ$) cuyo radio interno es $r = 2.0 \times 10^{-4} \text{ m}$. (Datos de la sangre: $\gamma = 0.058 \text{ N/m}$, $\rho = 1060 \text{ kg/m}^3$ y $g = 9.8 \text{ m/s}^2$).
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

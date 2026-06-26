@@ -1,0 +1,96 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Solucionario: Examen Unidad IV}\\
+    \textbf{\large Líquidos y Fenómenos de Transporte}\\
+    \vspace{0.2cm}
+    \textbf{Física para Ciencias de la Salud (005-1713) -- Bioanálisis}\\
+\end{center}
+
+\vspace{0.2cm}
+
+\textbf{Nota para el Evaluador:} Este documento contiene las pautas de corrección y respuestas esperadas para las preguntas de razonamiento analítico. Se debe valorar la correcta aplicación de los principios físicos a la fisiología humana.
+
+\vspace{0.2cm}
+
+\begin{enumerate}[leftmargin=*]
+
+    % Solución 1: Calor de Vaporización
+    \item \textbf{Termorregulación y Eficiencia de la Sudoración:}
+    \begin{enumerate}
+        \item \textbf{Respuesta Esperada:} El \textbf{paciente B} necesitará secretar un volumen de sudor mucho mayor. Desde el punto de vista físico, la mayor parte de la energía térmica se disipa durante el cambio de fase de líquido a gas, debido al alto calor latente de vaporización del agua ($L_v$). Si el sudor simplemente gotea en estado líquido (paciente B), solo se pierde el calor sensible utilizado para calentar el líquido, lo cual es despreciable. El paciente A, al evaporar el sudor, aprovecha todo el calor latente, logrando una transferencia de energía mucho más eficiente.
+        \item \textbf{Respuesta Esperada:} Una humedad relativa cercana al 100\% implica que el aire ambiente está saturado de vapor de agua. Esto anula el gradiente de presiones de vapor entre la piel y el entorno, haciendo físicamente imposible que el sudor se evapore (el aire no admite más vapor). Por lo tanto, el mecanismo de enfriamiento por evaporación falla en \textbf{ambos pacientes}. El sudor simplemente goteará sin enfriar el cuerpo, lo que eleva drásticamente el riesgo de hipertermia o \textit{golpe de calor}.
+        \item \textbf{Cálculo:} El calor disipado se calcula con la fórmula $Q = m \cdot L_v$. Convertimos la masa a kg: $m = 150 \text{ g} = 0.15 \text{ kg}$. Sustituyendo:
+        \[ Q = (0.15 \text{ kg}) \cdot (2.42 \times 10^6 \text{ J/kg}) = 3.63 \times 10^5 \text{ J} \]
+        Para convertir a kilocalorías:
+        \[ Q = \frac{3.63 \times 10^5 \text{ J}}{4186 \text{ J/kcal}} \approx 86.7 \text{ kcal} \]
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Solución 2: Ley de Laplace
+    \item \textbf{Mecánica Respiratoria y Síndrome de Dificultad Respiratoria:}
+    \begin{enumerate}
+        \item \textbf{Respuesta Esperada:} De acuerdo con la Ley de Laplace para una burbuja, la diferencia de presión está dada por $\Delta P = \frac{2\gamma}{r}$. Si la tensión superficial ($\gamma$) es constante, la presión interna es \textit{inversamente proporcional} al radio ($r$). Por lo tanto, los alvéolos más pequeños tienen una presión de aire mayor que los alvéolos grandes. Al estar interconectados por las vías respiratorias, el aire fluye a favor del gradiente de presión: desde los alvéolos pequeños (mayor presión) hacia los grandes (menor presión), causando el colapso de los primeros y la dilatación excesiva de los segundos.
+        \item \textbf{Respuesta Esperada:} El surfactante pulmonar tiene la propiedad mecánica de disminuir la tensión superficial del líquido alveolar ($\gamma$) a medida que la superficie se comprime. En alvéolos pequeños, las moléculas de surfactante se acercan, disminuyendo $\gamma$ de forma muy pronunciada. Al reducir el numerador ($\gamma$) a la par que el denominador ($r$), la presión interna $\Delta P$ se estabiliza y se iguala a la de los alvéolos grandes, evitando el colapso respiratorio.
+        \item \textbf{Cálculo:} Usando la Ley de Laplace para una interfase esférica (modelo de burbuja para el alvéolo): $\Delta P = \frac{2\gamma}{r}$.
+        \[ \Delta P = \frac{2(0.070 \text{ N/m})}{5.0 \times 10^{-5} \text{ m}} = \frac{0.14}{5.0 \times 10^{-5}} = 2800 \text{ Pa} \]
+        Esta es una presión muy elevada, lo que explica por qué sin surfactante el alvéolo colapsa.
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Solución 3: Ley de Fick
+    \item \textbf{Optimización en Hemodiálisis (Primera Ley de Fick):}
+    \begin{enumerate}
+        \item \textbf{Respuesta Esperada:} La tasa neta de transporte según Fick es $\frac{\Delta m}{\Delta t} = D \cdot A \frac{\Delta C}{\Delta x}$. 
+        Para el nuevo diseño: el área es el 70\% del original ($A_{nuevo} = 0.70 A$) y el espesor es el 50\% ($\Delta x_{nuevo} = 0.5 \Delta x$).
+        Sustituyendo:
+        \[
+        \left(\frac{\Delta m}{\Delta t}\right)_{nuevo} = D \cdot (0.70 A) \frac{\Delta C}{(0.5 \Delta x)} = \frac{0.70}{0.50} \left( D \cdot A \frac{\Delta C}{\Delta x} \right) = 1.4 \left(\frac{\Delta m}{\Delta t}\right)_{original}
+        \]
+        La tasa de transporte será un \textbf{40\% mayor} (factor de 1.4). El diseño mejora la eficiencia de la difusión.
+        \item \textbf{Respuesta Esperada:} Desde el punto de vista estructural, una membrana excesivamente delgada pierde resistencia mecánica. En un equipo de diálisis, la sangre fluye bajo presión hidrostática (impulsada por bombas). Si la membrana es muy delgada, existe un alto riesgo de \textbf{ruptura} por las gradientes de presión transmurales, lo que mezclaría la sangre con el líquido dializante, causando la pérdida masiva de sangre, hemólisis y un alto riesgo de infección para el paciente.
+        \item \textbf{Cálculo:} Aplicando la Primera Ley de Fick: $\frac{\Delta m}{\Delta t} = D \cdot A \frac{\Delta C}{\Delta x}$.
+        \[ \frac{\Delta m}{\Delta t} = (1.2 \times 10^{-9} \text{ m}^2\text{/s}) \cdot (1.5 \text{ m}^2) \frac{2.0 \times 10^{-3} \text{ kg/m}^3}{2.0 \times 10^{-5} \text{ m}} \]
+        \[ \frac{\Delta m}{\Delta t} = (1.8 \times 10^{-9}) \cdot (100) = 1.8 \times 10^{-7} \text{ kg/s} = 0.18 \text{ mg/s} \]
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Solución 4: Ósmosis
+    \item \textbf{Errores de Infusión Intravenosa y Ósmosis:}
+    \begin{enumerate}
+        \item \textbf{Respuesta Esperada:} El agua destilada carece de solutos, por lo que es un medio \textbf{fuertemente hipotónico} comparado con el citoplasma del eritrocito ($\sim 0.3 \text{ Osm/L}$). Al existir un gradiente de concentración a través de la membrana semipermeable, el agua fluirá netamente desde el medio menos concentrado (exterior) hacia el más concentrado (interior del eritrocito) para intentar igualar la presión osmótica. Esto causa que las células se hinchen por turgencia hasta romper su membrana, un proceso conocido como \textbf{hemólisis}.
+        \item \textbf{Respuesta Esperada:} Al inyectar una solución fuertemente hipertónica (NaCl 5\%), se invierte violentamente el gradiente. Ahora el medio extracelular está mucho más concentrado que el intracelular. Por lo tanto, el agua intracelular de los eritrocitos sobrevivientes saldrá por ósmosis hacia el plasma. Los eritrocitos se deshidratarán y encogerán (fenómeno de \textbf{plasmólisis} o \textbf{crenación}). Clínicamente, esto es grave porque los glóbulos crenados pierden flexibilidad y pueden aglomerarse y obstruir la microcirculación (capilares).
+        \item \textbf{Cálculo:} La presión osmótica se calcula con la ecuación de van 't Hoff: $\Pi = i \cdot M_c \cdot R \cdot T$.
+        \[ \Pi = (2) \cdot (0.154 \text{ mol/L}) \cdot (0.0821 \text{ L}\cdot\text{atm/(mol}\cdot\text{K)}) \cdot (310 \text{ K}) \]
+        \[ \Pi = (0.308) \cdot (25.451) \approx 7.84 \text{ atm} \]
+        La presión osmótica de la solución es de aproximadamente $7.84 \text{ atm}$.
+    \end{enumerate}
+
+    \vspace{0.2cm}
+
+    % Solución 5: Capilaridad
+    \item \textbf{Capilaridad y Toma de Muestras Sanguíneas:}
+    \begin{enumerate}
+        \item \textbf{Respuesta Esperada:} Si la pared interna es hidrofóbica, las fuerzas de cohesión de la sangre superan a las de adhesión al tubo, lo que se traduce en un ángulo de contacto $\theta > 90^\circ$. Según la Ley de Jurin ($h = \frac{2\gamma \cos \theta}{\rho g r}$), dado que el coseno de un ángulo mayor a $90^\circ$ es \textit{negativo}, la altura $h$ también será negativa. Por lo tanto, la columna de sangre no solo no ascenderá, sino que formará un menisco convexo y experimentará una \textbf{depresión capilar} (descenderá respecto al nivel de la gota original), impidiendo la toma de la muestra.
+        \item \textbf{Respuesta Esperada:} En un capilar limpio ($\theta \approx 0^\circ, \cos \theta \approx 1$), el ascenso capilar ($h$) es \textit{inversamente proporcional} al radio ($r$) del tubo ($h \propto \frac{1}{r}$). Al utilizar un diámetro mucho menor (microcapilar), la proporción entre la fuerza de superficie ascendente y el peso de la columna fluida es mucho mayor. Físicamente, esto causa que la sangre \textbf{ascienda a una mayor altura}. La ventaja clínica es que permite succionar la sangre de forma eficiente y espontánea utilizando un volumen extremadamente pequeño de sangre extraída del paciente.
+        \item \textbf{Cálculo:} Utilizamos la Ley de Jurin: $h = \frac{2\gamma \cos \theta}{\rho \cdot g \cdot r}$. Como $\theta = 0^\circ$, $\cos(0^\circ) = 1$.
+        \[ h = \frac{2(0.058 \text{ N/m})(1)}{(1060 \text{ kg/m}^3)(9.8 \text{ m/s}^2)(2.0 \times 10^{-4} \text{ m})} \]
+        \[ h = \frac{0.116}{2.0776} \approx 0.0558 \text{ m} = 5.58 \text{ cm} \]
+        La sangre alcanzará una altura de $5.58 \text{ cm}$.
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
