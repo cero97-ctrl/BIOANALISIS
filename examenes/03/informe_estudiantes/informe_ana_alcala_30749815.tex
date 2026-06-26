@@ -1,0 +1,212 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small ana alcala 30749815}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries ana alcala 30749815}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & ana alcala 30749815  &
+  \textbf{Fecha:}       & 2026-06-25 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{ana\_alcala\_30749815.pdf}  &
+  \textbf{Páginas:}     & 3 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_bueno,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_bueno} 7.6/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_bueno} Bueno}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra una comprensión sólida de los principios fundamentales de la física de fluidos aplicados a contextos bioanalíticos. Logra identificar y aplicar correctamente las fórmulas en la mayoría de los casos. Sin embargo, se observan errores procedimentales y de cálculo que afectan la precisión de los resultados finales, así como la omisión de una parte de una pregunta.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Correcta identificación y aplicación de fórmulas físicas en la mayoría de los problemas.
+  \item Habilidad para organizar los datos y realizar conversiones de unidades de manera adecuada.
+  \item Buen entendimiento de los principios de presión hidrostática, continuidad y la ley de Poiseuille.
+  \item Capacidad para despejar variables en las ecuaciones.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Atención al detalle en los cálculos aritméticos, especialmente con potencias y operaciones combinadas.
+  \item Asegurarse de responder a todas las partes de una pregunta.
+  \item Revisión de los pasos en análisis proporcionales para evitar errores de omisión en las divisiones.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Presión Hidrostática y Venosa} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante identificó la fórmula adecuada, sustituyó los valores correctamente, realizó el cálculo de manera precisa y presentó el resultado con las unidades y el redondeo apropiados. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Principio de Arquímedes} & 1.0/2.0 & El estudiante calculó correctamente la fuerza de empuje y el volumen de la muestra ósea. Sin embargo, omitió calcular la densidad del tejido óseo, que era una parte explícita de la pregunta. & \textit{Omisión de cálculo de la densidad del tejido óseo.} \\
+    \midrule
+    \textbf{Pregunta 3: Hemodinámica (Continuidad y Bernoulli)} & 1.8/2.0 & El estudiante aplicó correctamente la ecuación de continuidad para hallar la velocidad en la zona estrecha. La aplicación de la ecuación de Bernoulli y el despeje de la presión final son correctos, pero se detecta un pequeño error aritmético en la resta final (14000 - 675 = 13325, no 13284.5). & \textit{Error aritmético menor en el cálculo final de la presión (P2).} \\
+    \midrule
+    \textbf{Pregunta 4: Ley de Poiseuille (Análisis Proporcional)} & 0.8/2.0 & El estudiante identificó correctamente cómo cambian el radio (disminuye 20\%) y la viscosidad (aumenta 20\%). También planteó la relación de proporcionalidad para el caudal (Qf/Qi). Sin embargo, al realizar el cálculo de la proporción, cometió un error significativo al no dividir por el factor de aumento de la viscosidad (1.2), lo que llevó a un resultado porcentual incorrecto. & \textit{Error procedimental en el cálculo de la proporción del caudal, al no incluir el factor de cambio de la viscosidad en la división.} \\
+    \midrule
+    \textbf{Pregunta 5: Flujo Viscoso y Resistencia} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante identificó la fórmula de Poiseuille, realizó las conversiones de unidades necesarias (diámetro a radio, mm a m), sustituyó los valores de manera precisa y obtuvo el resultado final correcto con las unidades adecuadas. & \textit{---} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\textit{Ninguno identificado.}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Omisión de una parte de la pregunta (cálculo de la densidad del tejido óseo en la Pregunta 2).
+  \item Error aritmético menor en la resta final de la Pregunta 3.
+  \item Error significativo en el cálculo de la proporción en la Pregunta 4, al no dividir por el factor de cambio de la viscosidad.
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: ana alcala 30749815}]
+Estimado estudiante, tu desempeño muestra una buena base en los principios de la física de fluidos. Para mejorar, te recomiendo revisar cuidadosamente todas las partes de cada pregunta para asegurarte de que has respondido a todo lo solicitado, como en la pregunta 2 donde faltó calcular la densidad del tejido óseo. Presta mayor atención a los cálculos aritméticos, especialmente cuando trabajas con potencias y divisiones, como se observó en las preguntas 3 y 4. Un pequeño error puede llevar a un resultado final incorrecto. Practica más los problemas de análisis proporcional para asegurarte de que todos los factores de cambio se aplican correctamente en las relaciones. ¡Sigue practicando!
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante demuestra una buena comprensión de los principios físicos de la fluidodinámica. Los errores son principalmente de índole procedimental y de atención al detalle en los cálculos, así como la omisión de una parte de la pregunta 2. Sería útil reforzar la importancia de la revisión final de los cálculos y de asegurar que todas las partes de una pregunta han sido abordadas. El error en la Pregunta 4 es de cálculo en la aplicación de la proporción, no un error conceptual de la Ley de Poiseuille en sí.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-06-25 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

@@ -1,0 +1,208 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small maria frontado 32747212}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries maria frontado 32747212}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & maria frontado 32747212  &
+  \textbf{Fecha:}       & 2026-06-26 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{maria\_frontado\_32747212.pdf}  &
+  \textbf{Páginas:}     & 5 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_excelente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_excelente} 9.0/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_excelente} Excelente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra un excelente dominio de los principios de la física de fluidos aplicados al bioanálisis. La mayoría de las preguntas fueron resueltas de manera correcta, aplicando las fórmulas adecuadas y realizando los cálculos con precisión. Se observa una buena organización y claridad en el desarrollo de las respuestas. El único error significativo se presentó en la pregunta de Arquímedes, donde se utilizó un volumen incorrecto para el cálculo final de la densidad del tejido, a pesar de haber calculado correctamente la fuerza de empuje y el volumen inicial.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente comprensión de los principios de presión hidrostática, continuidad, Bernoulli y Ley de Poiseuille.
+  \item Habilidad para aplicar fórmulas correctamente y realizar cálculos precisos.
+  \item Buen manejo de unidades y consistencia en los cálculos.
+  \item Claridad y organización en la presentación de las soluciones.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Revisión cuidadosa de los valores intermedios utilizados en cálculos posteriores para evitar errores de arrastre o transcripción.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{1. Presión Hidrostática y Venosa} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante aplicó la fórmula de presión hidrostática (P = $\rho$gh) de manera adecuada, despejó la altura (h) y realizó la sustitución de valores y el cálculo con precisión. Las unidades son correctas y la conversión a centímetros es apropiada. & \textit{---} \\
+    \midrule
+    \textbf{2. Principio de Arquímedes} & 1.0/2.0 & El estudiante calculó correctamente la fuerza de empuje (2.40 N) y la utilizó para determinar el volumen del tejido (2.446 x 10$^{-}$$^{4}$ m$^{3}$). Sin embargo, al calcular la densidad del tejido, se utilizó un valor de volumen diferente (7.45 x 10$^{-}$$^{4}$ m$^{3}$) que no corresponde al calculado previamente, lo que llevó a un resultado final incorrecto para la densidad. Hay un error en la transcripción o uso del volumen calculado. & \textit{Error procedimental: Uso de un valor de volumen incorrecto (7.45x10$^{-}$$^{4}$ m$^{3}$) para el cálculo de la densidad del tejido, a pesar de haber calculado correctamente el volumen previamente (2.446x10$^{-}$$^{4}$ m$^{3}$).} \\
+    \midrule
+    \textbf{3. Hemodinámica (Continuidad y Bernoulli)} & 2.0/2.0 & La solución es impecable. El estudiante aplicó correctamente la ecuación de continuidad para calcular la velocidad en la zona estrechada y luego utilizó la ecuación de Bernoulli (para flujo horizontal) para determinar la presión en dicha zona. Todos los cálculos son precisos y las unidades son consistentes. & \textit{---} \\
+    \midrule
+    \textbf{4. Ley de Poiseuille (Análisis Proporcional)} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante comprendió la dependencia del caudal con la cuarta potencia del radio según la Ley de Poiseuille y realizó el análisis proporcional de manera excelente, obteniendo el porcentaje exacto de caudal restante. & \textit{---} \\
+    \midrule
+    \textbf{5. Flujo Viscoso y Resistencia} & 2.0/2.0 & La resolución es correcta. El estudiante aplicó la Ley de Poiseuille para calcular la diferencia de presión necesaria, sustituyendo todos los valores correctamente y realizando los cálculos con precisión. El manejo de las potencias de diez y las unidades es adecuado. & \textit{---} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\textit{Ninguno identificado.}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item En la Pregunta 2, se utilizó un valor de volumen incorrecto en el cálculo final de la densidad del tejido, a pesar de haber calculado el volumen correctamente en un paso previo.
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: maria frontado 32747212}]
+¡Excelente trabajo! Has demostrado un sólido entendimiento de los principios de la física de fluidos y su aplicación en el contexto del bioanálisis. Tu capacidad para aplicar fórmulas y realizar cálculos es muy buena. Para mejorar aún más, te sugiero prestar especial atención a la revisión de los valores intermedios que utilizas en pasos posteriores de un problema, como ocurrió en la Pregunta 2. Asegúrate de que el número que usas en un cálculo sea exactamente el que obtuviste en el paso anterior. Continúa practicando y manteniendo este nivel de rigor.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante presenta un desempeño muy sólido. El único punto a considerar es el error en la Pregunta 2, donde el estudiante calculó correctamente el volumen pero luego usó un valor diferente para el cálculo final de la densidad. Esto podría ser un error de transcripción o un descuido, más que una falta de comprensión conceptual. El resto del examen está resuelto con gran precisión y claridad.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-06-26 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

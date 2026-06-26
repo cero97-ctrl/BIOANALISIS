@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-flujo_completo.py — Orquestador del flujo de evaluación de exámenes (Layer 2)
+evaluar_examen.py — Orquestador del flujo de evaluación de exámenes (Layer 2)
 
 Ejecuta el flujo completo definido en la directiva evaluar_examen_estudiante.yaml:
   1. evaluar_examen.py  → Lee el PDF y obtiene evaluación de Gemini (JSON)
@@ -8,9 +8,9 @@ Ejecuta el flujo completo definido en la directiva evaluar_examen_estudiante.yam
   3. alert_user.py      → Notifica al usuario con alerta audible
 
 Uso:
-    python3 flujo_completo.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
-    python3 flujo_completo.py --pdf <ruta> [--modelo gemini-2.5-flash] [--dpi 250]
-    python3 flujo_completo.py --pdf <ruta> [--output-dir <carpeta>] [--rubrica <yaml>]
+    python3 evaluar_examen.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
+    python3 evaluar_examen.py --pdf <ruta> [--modelo gemini-2.5-flash] [--dpi 250]
+    python3 evaluar_examen.py --pdf <ruta> [--output-dir <carpeta>] [--rubrica <yaml>]
 
 El informe .tex se guarda en la misma carpeta del PDF por defecto.
 """
@@ -87,6 +87,7 @@ def flujo_completo(
     dpi: int,
     rubrica: str | None,
     output_dir: Path,
+    api_backend: str = "gemini",
 ) -> int:
     """
     Ejecuta los 3 pasos del flujo. Retorna 0 si todo salió bien, >0 si hubo error.
@@ -114,12 +115,12 @@ def flujo_completo(
 
     total_pasos = 3
 
-    # ══ PASO 1: Evaluar examen con Gemini ══════════════════════════════════════
+    # ══ PASO 1: Evaluar examen con LLM ═══════════════════════════════════════════
     print_step(1, total_pasos, f"Evaluando examen con {modelo}...")
     print(f"  PDF: {pdf_path}")
 
     cmd_evaluar = [PYTHON, str(EVALUAR), "--pdf", str(pdf_path),
-                   "--modelo", modelo, "--dpi", str(dpi)]
+                   "--modelo", modelo, "--dpi", str(dpi), "--api-backend", api_backend]
     if rubrica:
         cmd_evaluar += ["--rubrica", rubrica]
 
@@ -227,17 +228,18 @@ def parse_args():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Ejemplos:
-  python3 flujo_completo.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
-  python3 flujo_completo.py --pdf examenes/02/examen_estudiantes/Juan_Perez.pdf --modelo gemini-1.5-pro
-  python3 flujo_completo.py --pdf <ruta> --dpi 300 --output-dir informes/
+  python3 evaluar_examen.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
+  python3 evaluar_examen.py --pdf examenes/02/examen_estudiantes/Juan_Perez.pdf --modelo gemini-1.5-pro
+  python3 evaluar_examen.py --pdf <ruta> --dpi 300 --output-dir informes/
         """,
     )
     parser.add_argument("--pdf", required=True,
                         help="Ruta al PDF del examen del estudiante.")
     parser.add_argument("--modelo", default="gemini-2.5-flash",
-                        choices=["gemini-2.5-flash", "gemini-2.0-flash",
-                                 "gemini-1.5-pro", "gemini-1.5-flash"],
-                        help="Modelo Gemini (default: gemini-2.5-flash).")
+                        help="Modelo a usar (default: gemini-2.5-flash). Con --api-backend openrouter usa IDs de OpenRouter (ej: qwen/qwen-2.5-vl-72b-instruct:free).")
+    parser.add_argument("--api-backend", default="gemini",
+                        choices=["gemini", "openrouter"],
+                        help="Backend de API: gemini (Google) u openrouter (OpenRouter). (default: gemini).")
     parser.add_argument("--dpi", type=int, default=250,
                         help="DPI de renderizado del PDF (default: 250).")
     parser.add_argument("--rubrica", default=None,
@@ -263,7 +265,8 @@ def main():
     print(f"{'═'*56}")
     print(f"  Directiva : evaluar_examen_estudiante.yaml")
     print(f"  Estudiante: {pdf_path.stem.replace('_', ' ')}")
-    print(f"  Modelo    : {args.modelo}  |  DPI: {args.dpi}")
+    print(f"  Modelo    : {args.modelo}")
+    print(f"  Backend   : {args.api_backend}  |  DPI: {args.dpi}")
     print(f"{'═'*56}")
 
     code = flujo_completo(
@@ -272,6 +275,7 @@ def main():
         dpi=args.dpi,
         rubrica=args.rubrica,
         output_dir=output_dir,
+        api_backend=args.api_backend,
     )
     sys.exit(code)
 

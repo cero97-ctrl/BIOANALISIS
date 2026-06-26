@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-evaluar_examen.py — Evaluación preliminar de exámenes con Gemini (Layer 3: Execution)
+evaluar_examen.py — Evaluación preliminar de exámenes con LLM multimodal (Layer 3: Execution)
 
 Lee un PDF de examen de estudiante, renderiza cada página como imagen de alta resolución
-en memoria y se las envía en bloque al modelo Gemini para una evaluación académica
-estructurada usando su capacidad multimodal nativa.
+en memoria y se las envía en bloque a un modelo multimodal (Gemini o OpenRouter) para una
+evaluación académica estructurada.
 
 Uso:
     python3 execution/evaluar_examen.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
@@ -59,26 +59,34 @@ except ImportError:
     sys.exit(1)
 
 try:
-    from google import genai
-    from google.genai import types as genai_types
-    _SDK = "new"
-except ImportError:
-    try:
-        import google.generativeai as _genai_legacy
-        from google.generativeai import types as _genai_legacy_types
-        _SDK = "legacy"
-    except ImportError:
-        print(json.dumps({
-            "status": "error", "code": 1,
-            "message": "SDK de Gemini no instalado. Ejecuta: pip install google-genai"
-        }))
-        sys.exit(1)
-
-try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
     pass  # .env opcional si la variable ya está en el entorno
+
+# ── SDKs de LLMs (importación según backend) ────────────────────────────────────
+_GEMINI_AVAILABLE = False
+_GENAI_SDK = None
+try:
+    from google import genai
+    from google.genai import types as genai_types
+    _GEMINI_AVAILABLE = True
+    _GENAI_SDK = "new"
+except ImportError:
+    try:
+        import google.generativeai as _genai_legacy
+        from google.generativeai import types as _genai_legacy_types
+        _GEMINI_AVAILABLE = True
+        _GENAI_SDK = "legacy"
+    except ImportError:
+        pass
+
+_OPENROUTER_AVAILABLE = False
+try:
+    from openai import OpenAI
+    _OPENROUTER_AVAILABLE = True
+except ImportError:
+    pass
 
 
 # ── System Instruction ─────────────────────────────────────────────────────────
@@ -304,6 +312,78 @@ def evaluar_con_sdk_legacy(
     return response.text, tokens
 
 
+# ── Pipeline con OpenRouter (API compatible con OpenAI) ─────────────────────────
+
+def evaluar_con_openrouter(
+    images_bytes: list[bytes],
+    modelo: str,
+    system_instruction: str,
+    api_key: str,
+) -> tuple[str, dict]:
+    """Evalúa usando OpenRouter (API compatible con OpenAI)."""
+    import base64
+
+    client = OpenAI(
+        api_key=api_key,
+        base_url="https://openrouter.ai/api/v1",
+    )
+
+    user_content = []
+    for i, img_bytes in enumerate(images_bytes, start=1):
+        b64 = base64.b64encode(img_bytes).decode("utf-8")
+        user_content.append({
+            "type": "text",
+            "text": f"--- Página {i} de {len(images_bytes)} ---",
+        })
+        user_content.append({
+            "type": "image_url",
+            "image_url": {
+                "url": f"data:image/png;base64,{b64}",
+                "detail": "high",
+            },
+        })
+    user_content.append({
+        "type": "text",
+        "text": "Analiza el examen completo mostrado en las imágenes anteriores y responde con el JSON de evaluación.",
+    })
+
+    messages = [
+        {"role": "system", "content": system_instruction},
+        {"role": "user", "content": user_content},
+    ]
+
+    response = client.chat.completions.create(
+        model=modelo,
+        messages=messages,
+        temperature=0.2,
+        max_tokens=8192,
+        extra_headers={
+            "HTTP-Referer": "https://github.com/cerobio/bioanalisis",
+            "X-Title": "BIOANALISIS - Evaluacion de Examenes",
+        },
+    )
+
+    tokens = {}
+    try:
+        if hasattr(response, 'usage') and response.usage:
+            tokens = {
+                "prompt": response.usage.prompt_tokens,
+                "respuesta": response.usage.completion_tokens,
+                "total": response.usage.total_tokens,
+            }
+    except (AttributeError, TypeError):
+        pass
+
+    if not response or not hasattr(response, 'choices') or not response.choices:
+        raise RuntimeError(f"El modelo no devolvió una respuesta válida. Es probable que no soporte imágenes o esté caído en OpenRouter.")
+
+    choice = response.choices[0]
+    if not choice.message or choice.message.content is None:
+        raise RuntimeError(f"El modelo devolvió un mensaje vacío. Verifica si el modelo '{modelo}' soporta multimodalidad (visión) en OpenRouter.")
+
+    return choice.message.content, tokens
+
+
 # ── Orquestador principal ──────────────────────────────────────────────────────
 
 def evaluar_examen(
@@ -312,6 +392,7 @@ def evaluar_examen(
     dpi: int,
     rubrica_path: str | None,
     api_key: str,
+    api_backend: str = "gemini",
 ) -> dict:
     """Orquesta el pipeline completo de evaluación."""
 
@@ -327,8 +408,12 @@ def evaluar_examen(
         rubrica_content = rubrica_path_obj.read_text(encoding="utf-8")
         system_instruction += f"\n\n## Rúbrica específica de este examen\n{rubrica_content}"
 
-    # ── 3. Llamar al modelo ────────────────────────────────────────────────────
-    if _SDK == "new":
+    # ── 3. Llamar al modelo según backend ──────────────────────────────────────
+    if api_backend == "openrouter":
+        response_text, tokens = evaluar_con_openrouter(
+            images_bytes, modelo, system_instruction, api_key
+        )
+    elif _GENAI_SDK == "new":
         response_text, tokens = evaluar_con_nuevo_sdk(
             images_bytes, modelo, system_instruction, api_key
         )
@@ -350,7 +435,7 @@ def evaluar_examen(
 
     result = {
         "status": "ok",
-        "sdk": _SDK,
+        "api_backend": api_backend,
         "estudiante": nombre_estudiante,
         "archivo": str(Path(pdf_path).resolve()),
         "modelo": modelo,
@@ -370,13 +455,13 @@ def evaluar_examen(
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Evalúa exámenes de Física para Bioanalistas con Gemini multimodal.",
+        description="Evalúa exámenes de Física para Bioanalistas con LLM multimodal.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Ejemplos:
   python3 execution/evaluar_examen.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
   python3 execution/evaluar_examen.py --pdf <ruta> --modelo gemini-1.5-pro --dpi 300
-  python3 execution/evaluar_examen.py --pdf <ruta> --rubrica directives/rubrica_parcial1.yaml
+  python3 execution/evaluar_examen.py --pdf <ruta> --api-backend openrouter --modelo qwen/qwen-2.5-vl-72b-instruct:free
         """,
     )
     parser.add_argument(
@@ -387,8 +472,13 @@ Ejemplos:
     parser.add_argument(
         "--modelo",
         default="gemini-2.5-flash",
-        choices=["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-pro", "gemini-1.5-flash"],
-        help="Modelo Gemini a usar (default: gemini-2.5-flash).",
+        help="Modelo a usar (default: gemini-2.5-flash). Con --api-backend openrouter usa IDs de OpenRouter (ej: qwen/qwen-2.5-vl-72b-instruct:free).",
+    )
+    parser.add_argument(
+        "--api-backend",
+        default="gemini",
+        choices=["gemini", "openrouter"],
+        help="Backend de API a usar: gemini (Google) u openrouter (OpenRouter). (default: gemini).",
     )
     parser.add_argument(
         "--dpi",
@@ -431,13 +521,35 @@ def main():
         }))
         sys.exit(1)
 
-    # ── Obtener API Key ────────────────────────────────────────────────────────
-    api_key = os.getenv("GOOGLE_API_KEY")
+    # ── Validar SDK según backend ──────────────────────────────────────────────
+    if args.api_backend == "openrouter":
+        if not _OPENROUTER_AVAILABLE:
+            print(json.dumps({
+                "status": "error", "code": 1,
+                "message": "SDK de OpenAI no instalado. Ejecuta: pip install openai"
+            }))
+            sys.exit(1)
+    elif args.api_backend == "gemini":
+        if not _GEMINI_AVAILABLE:
+            print(json.dumps({
+                "status": "error", "code": 1,
+                "message": "SDK de Gemini no instalado. Ejecuta: pip install google-genai"
+            }))
+            sys.exit(1)
+
+    # ── Obtener API Key según backend ──────────────────────────────────────────
+    if args.api_backend == "openrouter":
+        api_key = os.getenv("OPENROUTER_API_KEY")
+        key_name = "OPENROUTER_API_KEY"
+    else:
+        api_key = os.getenv("GOOGLE_API_KEY")
+        key_name = "GOOGLE_API_KEY"
+
     if not api_key:
         print(json.dumps({
             "status": "error", "code": 2,
             "message": (
-                "API key no encontrada. Define GOOGLE_API_KEY "
+                f"API key no encontrada. Define {key_name} "
                 "en tu archivo .env o como variable de entorno."
             )
         }))
@@ -451,6 +563,7 @@ def main():
             dpi=args.dpi,
             rubrica_path=args.rubrica,
             api_key=api_key,
+            api_backend=args.api_backend,
         )
         print(json.dumps(result, ensure_ascii=False, indent=2))
         sys.exit(0)

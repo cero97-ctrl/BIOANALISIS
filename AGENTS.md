@@ -18,7 +18,7 @@ BIOANALISIS/
 │   ├── evaluar_examen.py         # Evalúa PDFs con Gemini multimodal
 │   ├── generar_informe.py        # Convierte JSON de evaluación a informe .tex
 │   └── alert_user.py             # Alertas audibles (success/waiting/error)
-├── flujo_completo.py             # Layer 2: Orquestador del flujo de evaluación
+├── evaluar_examen.py             # Layer 2: Orquestador del flujo de evaluación
 ├── examenes/                     # Exámenes organizados por unidad
 │   ├── 01/                       # Unidad I
 │   │   ├── examen_estudiantes/   # PDFs de exámenes de estudiantes (30)
@@ -45,7 +45,7 @@ BIOANALISIS/
 
 1. **Layer 1 — Directives (`directives/`)**: SOPs en YAML que definen _qué_ hacer. Cada archivo describe un flujo de trabajo repetible con objetivo, inputs, pasos, outputs esperados y casos límite.
 
-2. **Layer 2 — Orchestration (`flujo_completo.py` o el agente)**: Toma de decisiones. Lee la directiva, elige scripts, ejecuta flujos multietapa, valida entradas/salidas, gestiona errores y guarda estado en `.tmp/run_state.json`.
+2. **Layer 2 — Orchestration (`evaluar_examen.py` o el agente)**: Toma de decisiones. Lee la directiva, elige scripts, ejecuta flujos multietapa, valida entradas/salidas, gestiona errores y guarda estado en `.tmp/run_state.json`.
 
 3. **Layer 3 — Execution (`execution/`)**: Scripts Python deterministas con una sola responsabilidad. Entradas por CLI, secretos en `.env`, salidas JSON por stdout. Códigos de salida: 0=éxito, 1+=fallo.
 
@@ -73,7 +73,7 @@ BIOANALISIS/
 ## Flujo de Evaluación de Exámenes
 
 ```
-flujo_completo.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
+evaluar_examen.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
   ├── Paso 1: evaluar_examen.py → renderiza PDF a imágenes → Gemini → JSON
   ├── Paso 2: generar_informe.py → JSON → informe LaTeX (.tex)
   └── Paso 3: alert_user.py success → notificación audible

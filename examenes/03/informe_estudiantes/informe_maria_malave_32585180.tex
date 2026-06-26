@@ -1,0 +1,209 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small maria malave 32585180}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries maria malave 32585180}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & maria malave 32585180  &
+  \textbf{Fecha:}       & 2026-06-26 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{maria\_malave\_32585180.pdf}  &
+  \textbf{Páginas:}     & 3 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_excelente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_excelente} 9.0/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_excelente} Excelente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra un excelente dominio de los principios de la física de fluidos aplicados al bioanálisis. Ha resuelto correctamente la mayoría de los problemas, mostrando una comprensión sólida de los conceptos y una aplicación precisa de las fórmulas. Solo se detectó un error menor de cálculo en la última pregunta.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente comprensión conceptual de la hidrostática, el principio de Arquímedes, la ecuación de continuidad, la ecuación de Bernoulli y la ley de Poiseuille.
+  \item Habilidad para identificar y aplicar las fórmulas correctas en cada problema.
+  \item Manejo adecuado de unidades y conversiones (mm a m).
+  \item Desarrollo lógico y organizado de las soluciones.
+  \item Precisión en la mayoría de los cálculos.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Revisión cuidadosa de los cálculos numéricos, especialmente con potencias de diez, para evitar errores procedimentales.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Presión Hidrostática y Venosa} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante aplicó la fórmula de presión hidrostática de manera adecuada y realizó el cálculo sin errores. Las unidades son consistentes y el resultado final es correcto. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Principio de Arquímedes} & 2.0/2.0 & La solución es impecable. El estudiante calculó correctamente la fuerza de empuje, el volumen del objeto y su densidad real, aplicando el principio de Arquímedes de forma precisa. Todos los pasos y cálculos son correctos, y las unidades son adecuadas. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 3: Hemodinámica (Continuidad y Bernoulli)} & 2.0/2.0 & Excelente resolución. El estudiante aplicó correctamente las ecuaciones de continuidad y Bernoulli para determinar la velocidad en la estenosis y la presión resultante. Todos los pasos y cálculos son correctos, y las unidades son consistentes. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Ley de Poiseuille (Análisis Proporcional)} & 2.0/2.0 & Respuesta correcta y concisa. El estudiante comprendió la relación de proporcionalidad de la Ley de Poiseuille con el radio a la cuarta potencia y calculó el porcentaje de flujo remanente de forma precisa. El análisis proporcional es correcto. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 5: Flujo Viscoso y Resistencia} & 1.0/2.0 & El planteamiento de la fórmula de Poiseuille para la diferencia de presión es correcto, y la sustitución de los valores es adecuada. Sin embargo, se detecta un error en el cálculo del denominador ($\pi$R$^{4}$), específicamente en la potencia de diez (se usó 10$^{-}$$^{1}$$^{3}$ en lugar de 10$^{-}$$^{1}$$^{4}$), lo que lleva a un resultado final incorrecto. El error es de cálculo, no conceptual. & \textit{Error procedimental en el cálculo del denominador (potencia de diez incorrecta en $\pi$R$^{4}$).} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\textit{Ninguno identificado.}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Error en el cálculo de la potencia de diez en el denominador de la Ley de Poiseuille (Pregunta 5).
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: maria malave 32585180}]
+Estimado estudiante, tu desempeño en este examen es sobresaliente. Demuestras una comprensión muy sólida de los principios de la física de fluidos y su aplicación en el contexto del bioanálisis. Has resuelto la gran mayoría de los problemas de manera impecable. Tu principal área de mejora es la revisión minuciosa de los cálculos numéricos, especialmente cuando trabajas con potencias de diez, como se observó en la última pregunta. Un pequeño error en un exponente puede cambiar significativamente el resultado. Sigue practicando y prestando atención a estos detalles para alcanzar la perfección.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante ha demostrado un nivel de comprensión y aplicación de los conceptos de física de fluidos excepcionalmente alto. Todos los problemas fueron abordados con las fórmulas y principios correctos. El único error significativo se encuentra en la Pregunta 5, donde un error en la potencia de diez en el cálculo del denominador ($\pi$R$^{4}$) llevó a un resultado final incorrecto. Este es un error procedimental menor en un contexto de un desempeño general excelente. Sugiero un puntaje de 9.0/10.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-06-26 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

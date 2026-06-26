@@ -1,0 +1,207 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small luisannys garcia 33141963}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries luisannys garcia 33141963}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & luisannys garcia 33141963  &
+  \textbf{Fecha:}       & 2026-06-26 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{luisannys\_garcia\_33141963.pdf}  &
+  \textbf{Páginas:}     & 5 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_excelente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_excelente} 10.0/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_excelente} Excelente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra un dominio excepcional de los principios de la física de fluidos aplicados al bioanálisis. Ha resuelto correctamente todos los problemas planteados, mostrando una comprensión profunda de los conceptos, una aplicación precisa de las fórmulas y un desarrollo matemático impecable. La presentación es clara y organizada.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente comprensión conceptual de la física de fluidos (hidrostática, Arquímedes, continuidad, Bernoulli, Poiseuille).
+  \item Habilidad sobresaliente para identificar y aplicar las fórmulas correctas y realizar despejes algebraicos precisos.
+  \item Precisión en los cálculos numéricos, incluyendo el manejo de notación científica y el redondeo de resultados.
+  \item Clara organización y presentación de las soluciones, incluyendo datos, fórmulas, sustituciones y respuestas finales.
+  \item Consistencia y corrección en el manejo de unidades a lo largo de todas las soluciones.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item No se identifican áreas de mejora significativas en esta evaluación. El desempeño es ejemplar.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Presión Hidrostática y Venosa} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante identificó los datos, aplicó la fórmula de presión hidrostática (P=$\rho$gh) correctamente, despejó la altura y realizó los cálculos con precisión. La respuesta final es coherente y bien redondeada. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Principio de Arquímedes} & 2.0/2.0 & La solución es impecable. El estudiante siguió una secuencia lógica de pasos para calcular el empuje, el volumen del objeto y finalmente su densidad, utilizando el principio de Arquímedes y la definición de densidad. Todos los cálculos y despejes son correctos. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 3: Hemodinámica (Continuidad y Bernoulli)} & 2.0/2.0 & La resolución de este problema es excelente. El estudiante aplicó correctamente la ecuación de continuidad para determinar la velocidad en la zona estrecha y luego la ecuación de Bernoulli para calcular la presión final, asumiendo correctamente un flujo horizontal. Los cálculos son precisos y el resultado final es correcto. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Ley de Poiseuille (Análisis Proporcional)} & 2.0/2.0 & La respuesta es correcta. El estudiante comprendió la relación de proporcionalidad Q $\propto$ r$^{4}$ de la Ley de Poiseuille y la aplicó para determinar que el caudal se reduce al 40.96\% del caudal original cuando el radio disminuye un 20\%. La interpretación de la pregunta sobre 'el porcentaje que se mantendrá circulando' es adecuada. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 5: Flujo Viscoso (Poiseuille)} & 2.0/2.0 & La solución es completamente correcta. El estudiante aplicó la Ley de Poiseuille para calcular la diferencia de presión necesaria, realizando correctamente el despeje de la fórmula y sustituyendo los valores con precisión. El manejo de las unidades y la notación científica es excelente. & \textit{---} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\textit{Ninguno identificado.}
+
+\subsection*{Errores procedimentales}
+\textit{Ninguno identificado.}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: luisannys garcia 33141963}]
+¡Felicidades por un desempeño sobresaliente en este examen! Has demostrado una comprensión profunda y una aplicación experta de los principios de la física de fluidos. Tu trabajo es claro, organizado y preciso en cada paso, lo que refleja un excelente dominio de la materia. Continúa manteniendo este nivel de excelencia en tus estudios.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante 'Luisannys García' ha presentado un examen impecable. Todas las preguntas fueron resueltas de manera correcta, con un excelente entendimiento conceptual y una ejecución procedimental sin errores. La organización y claridad de las respuestas facilitan enormemente la revisión. Se sugiere una calificación máxima.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-06-26 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

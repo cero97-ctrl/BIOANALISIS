@@ -210,3 +210,23 @@ latexmk -pdf -f informe.tex
 ```
 
 > Este comportamiento es **normal** en LaTeX y no indica un error en el documento. El PDF de la primera pasada es funcional; solo el número de páginas en el pie puede aparecer como `??`.
+
+## 7. Letras Griegas y Símbolos Matemáticos Unicode en texto plano (ej. `η`, `∝`)
+
+**Contexto:**
+Durante la compilación de un informe, puede aparecer un error relacionado con caracteres griegos o símbolos matemáticos sin escapar, por ejemplo:
+```
+! LaTeX Error: Unicode character η (U+03B7) not set up for use with LaTeX.
+! LaTeX Error: Unicode character ∝ (U+221D) not set up for use with LaTeX.
+```
+
+**El Problema:**
+Este error ocurre cuando caracteres Unicode correspondientes a letras griegas (como `η`, `α`, `β`, etc.) o símbolos matemáticos (como `∝`) se insertan directamente en el texto del documento `.tex` en lugar de utilizar su comando en modo matemático. `pdflatex` configurado con `utf8` no soporta la representación directa de estos caracteres.
+
+**La Solución:**
+1. **Corrección manual:** Buscar el carácter conflictivo en el archivo `.tex` y reemplazarlo por su equivalente en modo matemático. En este caso, cambiar `η` por `$\eta$` o `∝` por `$\propto$`.
+2. **Prevención programática:** Asegurarse de que el script en Python que genera el documento (ej. `generar_informe.py`) incluya el mapeo correspondiente en su lista de conversiones `_UNICODE_TO_LATEX` para interceptarlo antes de escribir el archivo:
+```python
+    ("η", "$\\eta$"),
+    ("∝", "$\\propto$"),
+```

@@ -1,0 +1,214 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small barbara marcano 31729255}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries barbara marcano 31729255}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & barbara marcano 31729255  &
+  \textbf{Fecha:}       & 2026-06-25 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{barbara\_marcano\_31729255.pdf}  &
+  \textbf{Páginas:}     & 6 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_bueno,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_bueno} 7.6/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_bueno} Bueno}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra un buen entendimiento de los principios de la mecánica de fluidos, aplicando correctamente las ecuaciones de presión hidrostática, continuidad y Bernoulli. Sin embargo, se observan algunas imprecisiones en la interpretación de los datos del problema y en la aplicación completa de las leyes físicas, especialmente en el análisis proporcional de Poiseuille y la selección de la viscosidad correcta en el último problema.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Correcta aplicación de la ecuación de presión hidrostática.
+  \item Excelente manejo de la ecuación de continuidad y Bernoulli.
+  \item Buena capacidad para identificar datos y convertir unidades.
+  \item Claridad en la presentación de los pasos de resolución.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Atención a la lectura detallada de los enunciados para seleccionar los datos correctos.
+  \item Aplicación completa de todas las variables en las relaciones proporcionales.
+  \item Precisión en la escritura de fórmulas (ej. $\rho$ vs P).
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Presión Hidrostática y Venosa} & 1.9/2.0 & La respuesta es correcta. El estudiante identificó los datos, aplicó la fórmula adecuada y realizó los cálculos correctamente, incluyendo la conversión de unidades a centímetros. & \textit{Pequeño error de escritura en la fórmula `h = P / Pg` (la 'P' en el denominador debería ser '$\rho$').} \\
+    \midrule
+    \textbf{Pregunta 2: Principio de Arquímedes} & 1.7/2.0 & El estudiante calculó correctamente la fuerza de empuje, la masa del objeto y la densidad final. Sin embargo, al calcular el volumen, escribió incorrectamente la densidad del agua como `3000 kg/m$^{3}$` en la fórmula, aunque el resultado del volumen (`2.45 x 10\textasciicircum{}-4 m$^{3}$`) sugiere que usó `1000 kg/m$^{3}$` en la calculadora, lo cual es correcto según el enunciado. & \textit{Error de escritura en la densidad del agua (`3000 kg/m$^{3}$` en lugar de `1000 kg/m$^{3}$`) al plantear la fórmula para el volumen.} \\
+    \midrule
+    \textbf{Pregunta 3: Hemodinámica (Continuidad y Bernoulli)} & 2.0/2.0 & La resolución es excelente. El estudiante aplicó correctamente la ecuación de continuidad para encontrar la velocidad en la constricción y luego utilizó la ecuación de Bernoulli para calcular la presión final, considerando que la arteria es horizontal. Todos los cálculos y unidades son correctos. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Ley de Poiseuille (Análisis Proporcional)} & 0.5/2.0 & El estudiante identificó correctamente la relación de Poiseuille y el efecto del cambio de radio. Sin embargo, omitió por completo el efecto del aumento de la viscosidad en el cálculo final, lo que llevó a un resultado incorrecto para el porcentaje de disminución del caudal. Solo consideró la reducción del radio. & \textit{Error conceptual al no incluir el cambio de viscosidad en el cálculo proporcional del caudal.; Cálculo incompleto del factor de cambio de caudal.} \\
+    \midrule
+    \textbf{Pregunta 5: Flujo Viscoso y Resistencia} & 1.5/2.0 & El estudiante aplicó correctamente la Ley de Poiseuille despejando la diferencia de presión. Sin embargo, utilizó la viscosidad inicial (`2.5 x 10$^{-}$$^{3}$ Pa$\cdot$s`) en lugar de la viscosidad 'después del tratamiento' (`2.0 x 10$^{-}$$^{3}$ Pa$\cdot$s`) que era la relevante para la pregunta. & \textit{Error de interpretación del enunciado al seleccionar el valor de la viscosidad (usó la inicial en lugar de la del tratamiento).} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item En la Pregunta 4, el estudiante no consideró el efecto de la viscosidad en el cambio de caudal, aplicando solo la dependencia del radio, lo que es una omisión importante del principio de Poiseuille.
+\end{itemize}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item En la Pregunta 1, un pequeño error de escritura en la fórmula (P en lugar de $\rho$).
+  \item En la Pregunta 2, un error de escritura en la densidad del agua al calcular el volumen, aunque el valor numérico final del volumen parece haber sido calculado con la densidad correcta.
+  \item En la Pregunta 5, la selección incorrecta del valor de la viscosidad (usó la inicial en lugar de la del tratamiento) lo que llevó a un resultado numérico incorrecto.
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: barbara marcano 31729255}]
+Estimado estudiante, tu desempeño en este examen demuestra una sólida comprensión de los principios fundamentales de la mecánica de fluidos, especialmente en la aplicación de las ecuaciones de continuidad y Bernoulli. Es crucial que prestes mayor atención a la lectura detallada de los enunciados de los problemas para asegurarte de utilizar todos los datos relevantes y las condiciones específicas (como la viscosidad 'después del tratamiento' o los múltiples factores que afectan el caudal). Revisa cuidadosamente tus fórmulas y asegúrate de que cada variable esté correctamente representada. Practica más los problemas de análisis proporcional para asegurarte de incluir todos los factores que influyen en el resultado final. ¡Sigue así, tienes una buena base!
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante muestra un buen nivel general. En la Pregunta 2, hay una inconsistencia entre la densidad del agua escrita (`3000 kg/m$^{3}$`) y el resultado del volumen, que parece haber sido calculado con la densidad correcta (`1000 kg/m$^{3}$`). Sugiero verificar si fue un error de transcripción o si el estudiante corrigió el valor mentalmente. El error más significativo es en la Pregunta 4, donde se omite completamente el efecto de la viscosidad. En la Pregunta 5, el error es de interpretación al elegir la viscosidad. El resto de las resoluciones son muy buenas.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-06-25 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

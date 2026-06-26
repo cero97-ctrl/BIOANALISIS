@@ -13,7 +13,7 @@ BIOANALISIS/
 ├── tareas/                   # Infografías y problemas individuales
 ├── docs/                     # Programa de asignatura y propuestas
 ├── curso/                    # Archivos del curso (PDF + Excel)
-├── flujo_completo.py         # Orquestador del flujo de evaluación
+├── evaluar_examen.py         # Orquestador del flujo de evaluación
 ├── clean_latex.py            # Limpiador de archivos auxiliares LaTeX
 └── AGENTS.md                 # Guía para agentes de IA
 ```
@@ -21,7 +21,7 @@ BIOANALISIS/
 ## Arquitectura de 3 Capas
 
 1. **Directivas** (`directives/`) — SOPs en YAML que definen qué hacer.
-2. **Orquestación** (`flujo_completo.py`) — Toma de decisiones y ejecución multietapa.
+2. **Orquestación** (`evaluar_examen.py`) — Toma de decisiones y ejecución multietapa.
 3. **Ejecución** (`execution/`) — Scripts Python deterministas con una sola responsabilidad.
 
 ## Evaluación de Exámenes con IA
@@ -29,7 +29,7 @@ BIOANALISIS/
 El flujo principal evalúa exámenes en PDF usando Gemini multimodal:
 
 ```bash
-python3 flujo_completo.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
+python3 evaluar_examen.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
 ```
 
 Esto ejecuta: evaluar PDF → obtener JSON de evaluación → generar informe LaTeX.

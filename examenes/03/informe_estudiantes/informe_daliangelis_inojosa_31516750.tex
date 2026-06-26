@@ -1,0 +1,210 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small daliangelis inojosa 31516750}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries daliangelis inojosa 31516750}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & daliangelis inojosa 31516750  &
+  \textbf{Fecha:}       & 2026-06-25 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{daliangelis\_inojosa\_31516750.pdf}  &
+  \textbf{Páginas:}     & 6 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_bueno,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_bueno} 8.8/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_bueno} Bueno}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra un sólido entendimiento de los principios de la mecánica de fluidos aplicados al bioanálisis. Ha resuelto la mayoría de los problemas de manera correcta, aplicando las fórmulas adecuadas y manejando las unidades de forma consistente. Los errores son principalmente de cálculo o de presentación menor, sin evidenciar fallas conceptuales graves.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente comprensión conceptual de los principios de la mecánica de fluidos (hidrostática, Arquímedes, continuidad, Bernoulli, Poiseuille).
+  \item Correcta identificación y conversión de unidades al Sistema Internacional en la mayoría de los casos.
+  \item Habilidad para seleccionar y aplicar las fórmulas adecuadas para cada problema.
+  \item Claridad y organización en la presentación de los datos y las respuestas en la mayoría de los ítems.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Revisión cuidadosa de los cálculos numéricos, especialmente con potencias y notación científica.
+  \item Mayor precisión en la escritura de los pasos intermedios para evitar ambigüedades.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Presión Hidrostática y Venosa} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante aplicó correctamente el principio de presión hidrostática para determinar la altura mínima requerida, manejando adecuadamente las unidades y realizando el cálculo sin errores. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Principio de Arquímedes} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante aplicó de forma impecable el Principio de Arquímedes para calcular la fuerza de empuje, el volumen del hueso y, posteriormente, su densidad. Todos los pasos y cálculos son correctos. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 3: Hemodinámica (Continuidad y Bernoulli)} & 1.8/2.0 & La respuesta es mayormente correcta. El estudiante aplicó correctamente las ecuaciones de continuidad y Bernoulli para calcular la velocidad en la estenosis y la presión final. El cálculo numérico es correcto. Sin embargo, hay una línea en la que parece igualar P$_{2}$ a P$_{1}$ (14000 Pa) antes de realizar el cálculo correcto, lo cual genera una pequeña ambigüedad en la presentación, aunque el resultado final es el esperado. & \textit{Ambigüedad en la presentación de un paso intermedio de la ecuación de Bernoulli.} \\
+    \midrule
+    \textbf{Pregunta 4: Ley de Poiseuille (Análisis Proporcional)} & 2.0/2.0 & La respuesta es completamente correcta. El estudiante demostró un excelente entendimiento de la Ley de Poiseuille y su dependencia con la cuarta potencia del radio. La interpretación de la reducción del 20\% y el cálculo del porcentaje de caudal final son precisos. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 5: Flujo Viscoso y Resistencia} & 1.0/2.0 & El estudiante identificó correctamente la Ley de Poiseuille y los datos del problema, incluyendo la conversión de unidades. Sin embargo, se detecta un error procedimental significativo en el cálculo del término r$^{4}$ en el denominador, lo que llevó a un valor numérico incorrecto para la diferencia de presión. Aunque la fórmula y el planteamiento son correctos, el error de cálculo afecta el resultado final. & \textit{Error en el cálculo de la potencia del radio (r$^{4}$) en el denominador de la Ley de Poiseuille.} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\textit{Ninguno identificado.}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Error en el cálculo de (4.0 x 10$^{-}$$^{4}$)$^{4}$ en la Pregunta 5, lo que afectó el resultado final.
+  \item Ambigüedad menor en la presentación de un paso en la Pregunta 3.
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: daliangelis inojosa 31516750}]
+¡Hola! Has demostrado un excelente dominio de los conceptos de la mecánica de fluidos y su aplicación en el campo del bioanálisis. Tus respuestas son claras y organizadas, y has manejado muy bien las unidades. Para alcanzar un desempeño aún más alto, te sugiero que prestes especial atención a los detalles en tus cálculos numéricos, especialmente cuando trabajes con potencias y notación científica, como se observó en la Pregunta 5. Una doble verificación de estos pasos puede ayudarte a evitar errores. También, intenta ser lo más explícito posible en cada paso de tus desarrollos para que tu razonamiento sea siempre inequívoco. ¡Sigue así, vas por muy buen camino!
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante presenta un desempeño general muy bueno, con un sólido entendimiento conceptual de todos los temas evaluados. Los errores detectados son principalmente de índole procedimental (cálculo de potencias en Q5) o de una menor ambigüedad en la presentación (Q3), pero no reflejan una falta de comprensión de los principios físicos. El puntaje sugerido refleja la penalización por el error de cálculo en Q5, que es el más significativo. Se recomienda reforzar la importancia de la revisión de cálculos numéricos.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-06-25 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

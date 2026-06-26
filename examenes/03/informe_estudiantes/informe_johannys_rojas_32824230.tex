@@ -1,0 +1,218 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small johannys rojas 32824230}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries johannys rojas 32824230}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & johannys rojas 32824230  &
+  \textbf{Fecha:}       & 2026-06-26 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{johannys\_rojas\_32824230.pdf}  &
+  \textbf{Páginas:}     & 3 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_bueno,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_bueno} 8.5/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_bueno} Bueno}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante mostró un buen entendimiento de los conceptos físicos aplicados a la bioanálisis, con cálculos matemáticos correctos en la mayoría de los casos. Sin embargo, hubo errores procedimentales en algunas partes y falta de claridad en la presentación de algunas respuestas.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Correcta aplicación del principio de Arquímedes y cálculo del volumen de muestra
+  \item Uso adecuado de la ecuación de Bernoulli para determinar presión en arterias
+  \item Comprensión del concepto de presión hidrostática y cálculo de altura mínima de bolsa de fluido
+  \item Correcta aplicación de la ley de Poiseuille en comparación de radios arteriales
+  \item Uso correcto de la fórmula de resistencia al flujo viscoso
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Falta de unidades en algunas partes de los cálculos
+  \item Errores procedimentales en el cálculo de presión en la zona estrechada de la arteria
+  \item Presentación poco clara de algunas fórmulas y resultados
+  \item Errores en el cálculo de presión usando la ecuación de Bernoulli
+  \item Falta de justificación analítica en algunas respuestas
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{1. Presión Hidrostática y Venosa} & 2.0/2.0 & Respuesta correcta y completa. El estudiante aplicó correctamente la fórmula de presión hidrostática y calculó la altura mínima de la bolsa de fluido. & \textit{---} \\
+    \midrule
+    \textbf{2. Principio de Arquímedes} & 2.0/2.0 & Respuesta correcta. El estudiante calculó correctamente el volumen de muestra usando el principio de Arquímedes. & \textit{---} \\
+    \midrule
+    \textbf{3. Hemodinámica (Continuidad y Bernoulli)} & 1.5/2.0 & La respuesta es parcialmente correcta. El estudiante aplicó correctamente la ecuación de continuidad, pero cometió errores en la aplicación de la ecuación de Bernoulli para calcular la presión en la zona estrechada. & \textit{Cálculo incorrecto de la presión en la zona estrechada; Falta de unidades en algunas partes del cálculo} \\
+    \midrule
+    \textbf{4. Ley de Poiseuille (Análisis Proporcional)} & 2.0/2.0 & Respuesta correcta. El estudiante comparó adecuadamente los radios arteriales originales y modificados. & \textit{---} \\
+    \midrule
+    \textbf{5. Flujo Viscoso y Resistencia} & 2.0/2.0 & Respuesta correcta. El estudiante calculó adecuadamente la diferencia de presión necesaria para mantener el caudal. & \textit{---} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item En la pregunta 3, el estudiante no consideró correctamente la relación entre velocidad y presión en la ecuación de Bernoulli
+  \item Falta de comprensión en algunas partes sobre la relación entre presión y radio en la ley de Poiseuille
+\end{itemize}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Cálculo incorrecto de la presión en la zona estrechada de la arteria en la pregunta 3
+  \item Falta de unidades en algunas partes de los cálculos
+  \item Errores en la presentación de fórmulas y resultados
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: johannys rojas 32824230}]
+El estudiante debería practicar más la aplicación de las ecuaciones físicas en contextos clínicos, prestando especial atención a la consistencia de unidades y la claridad en la presentación de los cálculos. También sería útil revisar los pasos intermedios en los cálculos para evitar errores procedimentales.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El examen cubre adecuadamente los temas de física aplicada a la bioanálisis. Sin embargo, algunas preguntas podrían requerir más claridad en la formulación para evitar ambigüedades. Se recomienda revisar cuidadosamente los cálculos de presión en la pregunta 3, ya que contiene errores procedimentales que podrían afectar la calificación final.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (nvidia/nemotron-nano-12b-v2-vl:free) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-06-26 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

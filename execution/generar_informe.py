@@ -366,10 +366,11 @@ def generar_latex(data: dict) -> str:
 \vspace{12pt}
 \begin{center}
   \footnotesize\color{gray}
-  Informe generado automáticamente por el sistema de evaluación con IA (""" + tex(modelo) + r"""). \\
-  Este documento es una evaluación \textbf{preliminar} y debe ser revisado por el profesor antes de ser entregado al estudiante. \\
-  Generado el """ + tex(fecha_str) + r""" \textbullet\ BIOANALISIS Academic Evaluation System
-\end{center}
+  Informe generado automáticamente por el sistema de evaluación con IA (""" + tex(modelo) + r""") y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el """ + tex(fecha_str) + r""" \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
 
 \end{document}
 """

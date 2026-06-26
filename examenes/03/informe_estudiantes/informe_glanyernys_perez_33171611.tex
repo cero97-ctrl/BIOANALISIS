@@ -1,0 +1,214 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small glanyernys perez 33171611}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries glanyernys perez 33171611}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & glanyernys perez 33171611  &
+  \textbf{Fecha:}       & 2026-06-25 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{glanyernys\_perez\_33171611.pdf}  &
+  \textbf{Páginas:}     & 4 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_suficiente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_suficiente} 6.8/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_suficiente} Suficiente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra una comprensión adecuada y aplicación correcta de los principios de la presión hidrostática, la ecuación de continuidad y el principio de Bernoulli, así como la ley de Poiseuille en un cálculo directo. Sin embargo, presenta errores conceptuales significativos en la aplicación del Principio de Arquímedes y en el análisis proporcional de la Ley de Poiseuille, lo que indica áreas de mejora importantes en la comprensión profunda de estos conceptos.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Correcta aplicación de la fórmula de presión hidrostática (P=$\rho$gh).
+  \item Excelente aplicación de las ecuaciones de continuidad y Bernoulli para calcular la presión en una constricción arterial.
+  \item Correcta aplicación de la Ley de Poiseuille para calcular la diferencia de presión requerida.
+  \item Buen manejo de unidades y notación científica en los problemas resueltos correctamente.
+  \item Claridad y organización en el desarrollo de los problemas donde el concepto fue bien comprendido.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Comprensión del Principio de Arquímedes, específicamente el cálculo de la fuerza de empuje.
+  \item Aplicación completa de la Ley de Poiseuille en análisis proporcionales, considerando todas las variables relevantes.
+  \item Precisión en la identificación y etiquetado de variables al inicio de cada problema.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Presión Hidrostática y Venosa} & 1.8/2.0 & El estudiante aplica correctamente la fórmula de presión hidrostática para determinar la altura mínima. La identificación de la densidad como 'P' al inicio es una pequeña imprecisión en la notación, pero el valor se usa correctamente como densidad en el cálculo. El resultado final es correcto y bien interpretado. & \textit{Error menor de notación al etiquetar la densidad como 'P' en los datos iniciales.} \\
+    \midrule
+    \textbf{Pregunta 2: Principio de Arquímedes} & 0.5/2.0 & El estudiante comete un error conceptual fundamental al calcular el volumen. Utiliza el peso aparente (2.70 N) en lugar de la fuerza de empuje (peso en aire - peso aparente) para determinar el volumen del objeto. Aunque el cálculo de la masa a partir del peso en el aire es correcto y la densidad se calcula correctamente a partir de su masa y su volumen (incorrecto), el error inicial invalida gran parte de la respuesta. & \textit{Error conceptual: Confusión entre peso aparente y fuerza de empuje para calcular el volumen.; Cálculo incorrecto del volumen debido al error conceptual.} \\
+    \midrule
+    \textbf{Pregunta 3: Hemodinámica (Continuidad y Bernoulli)} & 2.0/2.0 & El estudiante aplica correctamente la ecuación de continuidad para calcular la velocidad en la zona estrecha y luego utiliza la ecuación de Bernoulli para determinar la presión en esa zona. Los cálculos son precisos y el resultado es correcto. La notación de 'r1' y 'r2' con valores de diámetro es un poco ambigua, pero el uso de la relación de diámetros al cuadrado es correcto para la continuidad. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Ley de Poiseuille (Análisis Proporcional)} & 0.5/2.0 & El estudiante solo considera el cambio en el radio (diámetro) en la Ley de Poiseuille para el análisis proporcional, ignorando por completo el cambio en la viscosidad. Esto representa un error conceptual significativo al no aplicar la ley de manera integral. El cálculo de la proporción basada solo en el radio es correcto, pero la respuesta es incompleta y, por lo tanto, incorrecta en su totalidad. & \textit{Error conceptual: Omisión de la variable de viscosidad en el análisis proporcional de la Ley de Poiseuille.; Respuesta incompleta debido a la omisión de una variable clave.} \\
+    \midrule
+    \textbf{Pregunta 5: Flujo Viscoso y Resistencia} & 2.0/2.0 & El estudiante aplica correctamente la Ley de Poiseuille para calcular la diferencia de presión. Todos los datos se utilizan adecuadamente, las unidades se manejan correctamente y el cálculo es preciso. La conversión del diámetro a radio y su uso en la fórmula es impecable. & \textit{---} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Confusión entre el peso aparente y la fuerza de empuje en el Principio de Arquímedes (Pregunta 2).
+  \item Omisión de la variable de viscosidad en el análisis proporcional de la Ley de Poiseuille (Pregunta 4).
+\end{itemize}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Cálculo incorrecto del volumen en la Pregunta 2 debido al error conceptual en la fuerza de empuje.
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: glanyernys perez 33171611}]
+Estimado estudiante, has demostrado un buen dominio en la aplicación de varias leyes fundamentales de la física de fluidos. Sin embargo, es crucial que revises a fondo los principios detrás de cada fórmula. En el Principio de Arquímedes, recuerda que la fuerza de empuje es la diferencia entre el peso real y el peso aparente, y es esta fuerza la que se usa para calcular el volumen. Para la Ley de Poiseuille, especialmente en análisis proporcionales, asegúrate de considerar todas las variables que influyen en el flujo (radio, longitud, viscosidad y diferencia de presión). Presta atención a la precisión en la identificación de tus datos iniciales para evitar confusiones. Un entendimiento más profundo de los conceptos te ayudará a evitar errores en problemas más complejos o de análisis.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante muestra un desempeño mixto. Resuelve con solvencia problemas directos de aplicación de fórmulas (Q1, Q3, Q5), lo que sugiere una buena capacidad para seguir procedimientos. Sin embargo, los errores conceptuales en Q2 (Arquímedes) y Q4 (Poiseuille proporcional) son significativos y sugieren que necesita reforzar la comprensión teórica de los principios físicos, más allá de la memorización de las ecuaciones. Sería beneficioso enfocarse en la interpretación de las fuerzas y las relaciones entre variables en lugar de solo la aplicación mecánica de fórmulas.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-06-25 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}
