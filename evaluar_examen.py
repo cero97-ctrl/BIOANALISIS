@@ -12,7 +12,7 @@ Uso:
     python3 evaluar_examen.py --pdf <ruta> [--modelo gemini-2.5-flash] [--dpi 250]
     python3 evaluar_examen.py --pdf <ruta> [--output-dir <carpeta>] [--rubrica <yaml>]
 
-El informe .tex se guarda en la misma carpeta del PDF por defecto.
+El informe .tex se guarda en ../informe_examenes/ por defecto.
 """
 
 import argparse
@@ -257,7 +257,7 @@ def main():
         print_err(f"PDF no encontrado: {args.pdf}")
         sys.exit(1)
 
-    output_dir = Path(args.output_dir) if args.output_dir else pdf_path.parent
+    output_dir = Path(args.output_dir) if args.output_dir else pdf_path.parent.parent / "informe_examenes"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"\n{'═'*56}")
