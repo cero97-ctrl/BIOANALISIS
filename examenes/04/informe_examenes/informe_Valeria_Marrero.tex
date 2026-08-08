@@ -1,0 +1,212 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small Valeria Marrero}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries Valeria Marrero}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & Valeria Marrero  &
+  \textbf{Fecha:}       & 2026-08-08 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{Valeria\_Marrero.pdf}  &
+  \textbf{Páginas:}     & 5 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_excelente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_excelente} 8.9/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_excelente} Excelente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+Valeria demuestra un dominio sobresaliente de los conceptos físicos aplicados a los sistemas biológicos y clínicos. Sus explicaciones cualitativas son rigurosas, coherentes y están perfectamente fundamentadas en los principios físicos estudiados. Además, muestra una excelente destreza en el desarrollo matemático, la conversión de unidades y la resolución de problemas numéricos. El único inconveniente notable se presenta en la pregunta 5, donde omitió una sección y rotuló incorrectamente otra.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente capacidad de argumentación y justificación física de los fenómenos biológicos (termorregulación, mecánica respiratoria y ósmosis).
+  \item Impecable desarrollo matemático, uso correcto de fórmulas y manejo preciso de unidades en todos los problemas de cálculo.
+  \item Presentación sumamente ordenada, limpia y con excelente caligrafía, lo que facilita enormemente la lectura y corrección.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Atención al responder la totalidad de los incisos del examen para evitar pérdidas innecesarias de puntaje (omisión de la pregunta 5b).
+  \item Cuidado en la rotulación de las respuestas para que coincidan con la estructura del examen.
+  \item Profundizar en la descripción microscópica solicitada (fuerzas de cohesión y adhesión en capilaridad).
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Termorregulación y Eficiencia de la Sudoración} & 2.0/2.0 & Respuestas teóricas impecables. Explica con precisión la importancia del calor latente de vaporización para el paciente A y el riesgo de golpe de calor ante un 100\% de humedad relativa. El cálculo numérico del calor disipado y su conversión a kilocalorías es totalmente correcto. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Mecánica Respiratoria y Ley de Laplace} & 2.0/2.0 & Demostración física muy clara de la inestabilidad alveolar usando la Ley de Laplace. Explica correctamente el papel dinámico del surfactante pulmonar. El cálculo de la diferencia de presión es exacto (2800 Pa) y presenta las unidades correctas. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 3: Optimización en Hemodiálisis y Primera Ley de Fick} & 2.0/2.0 & Excelente análisis matemático de la tasa de transporte de masa, demostrando el incremento del 40\% (factor 1.40). Identifica correctamente el riesgo mecánico de ruptura de la membrana por presión hidrostática. El cálculo de la tasa original es impecable. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Errores de Infusión Intravenosa y Ósmosis} & 2.0/2.0 & Describe con precisión los fenómenos de hemólisis (medio hipotónico) y crenación/deshidratación (medio hipertónico). El cálculo de la presión osmótica de la solución salina es totalmente correcto (7.84 atm). & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas} & 0.9/2.0 & La estudiante rotuló como 'b)' lo que correspondía al análisis de la pregunta 'a)' (pared hidrófoba y descenso de la columna), omitiendo además la explicación física basada en las fuerzas de cohesión y adhesión. La pregunta 'b)' real (efecto de la reducción del diámetro) fue completamente omitida. El cálculo de la altura en el inciso 'c)' es correcto (5.58 cm). & \textit{Omisión completa del inciso b.; Falta de justificación basada en fuerzas de cohesión y adhesión en el inciso a.; Error de transcripción en la lista de datos del inciso c (escribió 'r = 0,58 N/m' en lugar de usar el símbolo gamma y el valor correcto de 0.058 N/m, aunque en la fórmula sí aplicó el valor correcto).} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Ninguno detectado. La estudiante demuestra una comprensión conceptual sólida y madura de todos los temas.
+\end{itemize}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Mala rotulación de los incisos en la pregunta 5.
+  \item Error de transcripción de datos en la pregunta 5c (escribió 'r = 0,58 N/m' en su lista de datos, confundiendo el radio con la tensión superficial y errando en un factor de 10, aunque lo resolvió bien en la sustitución de la fórmula).
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: Valeria Marrero}]
+¡Excelente examen, Valeria! Has demostrado un dominio brillante de la física aplicada a las ciencias de la salud. Tus explicaciones son claras, coherentes y muy bien fundamentadas en los principios físicos. Para futuros exámenes, asegúrate de leer con mucho cuidado cada inciso para no dejar preguntas sin responder (como ocurrió con la 5b) y revisa que la rotulación de tus respuestas coincida exactamente con la del examen. ¡Sigue así, tienes un excelente nivel!
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+La estudiante omitió por completo la pregunta 5b y rotuló la respuesta de la 5a como 'b)'. A pesar de este descuido en la última pregunta, el examen es de una calidad excepcional, mostrando un entendimiento profundo y cálculos impecables en el resto de las secciones. Se sugiere aplicar la penalización correspondiente en la pregunta 5, pero reconocer el excelente desempeño global.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-3.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-08-08 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

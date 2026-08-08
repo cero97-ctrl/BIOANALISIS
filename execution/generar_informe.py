@@ -54,7 +54,7 @@ _UNICODE_TO_LATEX = [
     ("∫", "$\\int$"), ("∂", "$\\partial$"),
     ("→", "$\\rightarrow$"), ("←", "$\\leftarrow$"),
     ("↔", "$\\leftrightarrow$"),
-    ("·", "$\\cdot$"),
+    ("·", "$\\cdot$"), ("∝", "$\\propto$"),
     # Superíndices Unicode frecuentes en física
     ("⁻", "$^{-}$"), ("⁰", "$^{0}$"),
     ("¹", "$^{1}$"), ("²", "$^{2}$"), ("³", "$^{3}$"),

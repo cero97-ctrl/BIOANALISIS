@@ -356,7 +356,7 @@ def evaluar_con_openrouter(
         model=modelo,
         messages=messages,
         temperature=0.2,
-        max_tokens=8192,
+        max_tokens=3000,
         extra_headers={
             "HTTP-Referer": "https://github.com/cerobio/bioanalisis",
             "X-Title": "BIOANALISIS - Evaluacion de Examenes",

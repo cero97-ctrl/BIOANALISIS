@@ -1,0 +1,207 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small Daniela Rivero}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries Daniela Rivero}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & Daniela Rivero  &
+  \textbf{Fecha:}       & 2026-08-08 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{Daniela\_Rivero.pdf}  &
+  \textbf{Páginas:}     & 7 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_excelente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_excelente} 10.0/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_excelente} Excelente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante ha demostrado un dominio excepcional de los principios de la física aplicados a fenómenos biológicos y clínicos. Todas las preguntas fueron respondidas con precisión conceptual, justificación física rigurosa y cálculos correctos. La claridad y organización de las respuestas son excelentes, cumpliendo a cabalidad con los criterios de evaluación cualitativos y cuantitativos.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Comprensión profunda y precisa de los principios físicos subyacentes en cada problema.
+  \item Habilidad sobresaliente para aplicar fórmulas correctamente y realizar cálculos precisos, incluyendo el manejo de unidades y conversiones.
+  \item Excelente capacidad para argumentar, analizar y justificar las respuestas cualitativas, conectando los fenómenos físicos con sus implicaciones biológicas y clínicas.
+  \item Claridad, coherencia y organización impecable en la exposición de las ideas y el desarrollo de los problemas.
+  \item Ausencia total de errores conceptuales o procedimentales significativos.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item No se identifican áreas de mejora significativas en este examen, el desempeño es sobresaliente.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Termorregulación y Eficiencia de la Sudoración} & 2.0/2.0 & La respuesta es impecable. El estudiante identifica correctamente al paciente B y justifica la necesidad de mayor sudoración basándose en el calor latente de vaporización. La explicación del efecto de la humedad relativa al 100\% es precisa, detallando el cese de la evaporación y el riesgo clínico. El cálculo del calor disipado es correcto, con unidades y conversión adecuadas. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Mecánica Respiratoria y Síndrome de Dificultad Respiratoria} & 2.0/2.0 & La explicación de la Ley de Laplace y su aplicación al colapso alveolar es excelente, demostrando una comprensión profunda del fenómeno. El papel del surfactante pulmonar está descrito con gran detalle, enfatizando cómo modifica la tensión superficial en función del radio para igualar presiones. El cálculo de la diferencia de presión es exacto y bien presentado. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 3: Optimización en Hemodiálisis y Primera Ley de Fick} & 2.0/2.0 & La aplicación matemática de la Primera Ley de Fick para determinar el cambio en la tasa de transporte es completamente correcta, con una justificación clara del aumento de eficiencia. La discusión sobre el riesgo mecánico de una membrana delgada es pertinente y bien argumentada, mencionando la ruptura y sus consecuencias clínicas. El cálculo de la tasa de transporte es preciso y con las unidades correctas. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Errores de Infusión Intravenosa y Ósmosis} & 2.0/2.0 & Las descripciones de los efectos fisiológicos de la infusión de agua destilada (hemólisis) y NaCl al 5\% (crenación) son exactas y bien fundamentadas en los principios de la ósmosis y los gradientes de concentración. El cálculo de la presión osmótica es correcto, utilizando la fórmula adecuada y los valores proporcionados. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas} & 2.0/2.0 & La explicación del efecto de las paredes hidrofóbicas en la capilaridad, utilizando la Ley de Jurin y el ángulo de contacto, es muy clara y precisa. La justificación de por qué un radio menor es ventajoso para la toma de muestras es correcta. El cálculo de la altura de ascenso capilar es exacto, con la fórmula y unidades apropiadas. & \textit{---} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\textit{Ninguno identificado.}
+
+\subsection*{Errores procedimentales}
+\textit{Ninguno identificado.}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: Daniela Rivero}]
+¡Felicidades por un desempeño excepcional! Has demostrado una comprensión profunda y una capacidad analítica sobresaliente en todos los temas evaluados. Tu habilidad para conectar los principios físicos con sus aplicaciones en el bioanálisis es ejemplar. Continúa cultivando este nivel de rigor y excelencia en tus estudios. ¡Excelente trabajo!
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+Este examen es un ejemplo de un desempeño sobresaliente. El estudiante no solo resolvió los problemas correctamente, sino que también proporcionó justificaciones físicas detalladas y análisis clínicos pertinentes, cumpliendo a cabalidad con el criterio fundamental de evaluación. No se requiere revisión manual adicional.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-08-08 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

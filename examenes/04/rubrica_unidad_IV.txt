@@ -1,0 +1,31 @@
+Criterios de Evaluación Específicos para Examen Unidad IV (Líquidos y Fenómenos de Transporte):
+- El examen consta de 5 problemas/preguntas. Cada problema tiene un valor máximo de 2.0 puntos (Total: 10.0 puntos).
+- CRITERIO FUNDAMENTAL DE EVALUACIÓN: "Este examen evalúa la comprensión profunda y el análisis físico aplicado a fenómenos biológicos y clínicos. No basta con escribir fórmulas matemáticas; debe argumentar, analizar y justificar cada una de sus respuestas basándose en los principios físicos estudiados."
+- Respuestas que solo incluyan cálculos numéricos o fórmulas sin la adecuada argumentación, explicación física o justificación cualitativa del fenómeno biológico deben ser penalizadas severamente en su puntaje parcial.
+
+Soluciones de referencia y asignación de puntaje por pregunta (2.0 pts cada una):
+
+Pregunta 1: Termorregulación y Eficiencia de la Sudoración (2.0 pts)
+a) Mayor sudoración requerida en el paciente B porque el sudor que solo gotea no aprovecha el calor latente de vaporización (L_v) del agua, disipando únicamente calor sensible (despreciable). El paciente A disipa calor eficientemente por cambio de fase líquido-gas.
+b) Con 100% de humedad relativa, el aire está saturado de vapor de agua. El gradiente de presión de vapor es cero y la evaporación se detiene en ambos pacientes, aumentando drásticamente el riesgo de hipertermia/golpe de calor.
+c) Cálculo de calor disipado: Q = m * L_v = 0.15 kg * 2.42x10^6 J/kg = 3.63x10^5 J = 86.7 kcal.
+
+Pregunta 2: Mecánica Respiratoria y Ley de Laplace (2.0 pts)
+a) Ley de Laplace ΔP = 2γ/r. Si la tensión superficial γ es constante, los alvéolos más pequeños tienen mayor presión interna que los grandes, provocando flujo de aire hacia los alvéolos grandes y el colapso de los pequeños.
+b) El surfactante disminuye γ de forma más pronunciada a medida que el radio r disminuye (en alvéolos pequeños), igualando la presión interna ΔP entre alvéolos de distinto tamaño y evitando el colapso pulmonar.
+c) Cálculo de la diferencia de presión: ΔP = 2(0.070 N/m) / (5.0x10^-5 m) = 2800 Pa.
+
+Pregunta 3: Optimización en Hemodiálisis y Primera Ley de Fick (2.0 pts)
+a) Primera Ley de Fick: Δm/Δt = D * A * (ΔC / Δx). Con A_nuevo = 0.70 A y Δx_nuevo = 0.50 Δx, la nueva tasa es (0.70/0.50) = 1.4 veces la original (aumento del 40% en la eficiencia de difusión).
+b) Reducir excesivamente el espesor compromete la resistencia mecánica estructural de la membrana. Bajo la presión hidrostática de las bombas de sangre, se corre el riesgo de ruptura de la membrana, lo cual mezcla la sangre con el dializado, produciendo hemólisis e infección.
+c) Cálculo de la tasa de transporte: Δm/Δt = (1.2x10^-9 m^2/s) * (1.5 m^2) * (2.0x10^-3 kg/m^3 / 2.0x10^-5 m) = 1.8x10^-7 kg/s = 0.18 mg/s.
+
+Pregunta 4: Errores de Infusión Intravenosa y Ósmosis (2.0 pts)
+a) El agua destilada es fuertemente hipotónica en comparación con el citoplasma del eritrocito (~0.3 Osm/L). Por gradiente osmótico, entra agua masivamente a la célula hasta causar turgencia y ruptura celular (hemólisis).
+b) El NaCl 5% es hipertónico. Provoca salida neta de agua intracelular por ósmosis, deshidratando y encogiendo los eritrocitos (plasmólisis / crenación). Los eritrocitos crenados pierden flexibilidad y se aglomeran, pudiendo obstruir la microcirculación capilar.
+c) Cálculo de la presión osmótica: Π = i * M_c * R * T = 2 * (0.154 mol/L) * (0.0821 L atm / mol K) * (310 K) = 7.84 atm.
+
+Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas (2.0 pts)
+a) Paredes hidrofóbicas -> fuerzas de cohesión mayores que de adhesión, ángulo de contacto θ > 90°, por lo que cos(θ) < 0. Según la Ley de Jurin (h = 2γ cosθ / (ρ g r)), la altura h es negativa, causando una depresión capilar en lugar de un ascenso.
+b) En tubos hidrofílicos (θ ≈ 0°), h es inversamente proporcional al radio r (h ∝ 1/r). Reducir el radio incrementa significativamente la altura de ascenso capilar espontáneo, permitiendo tomar muestras rápida y eficientemente con un volumen sanguíneo mínimo.
+c) Cálculo de la altura de ascenso: h = 2(0.058 N/m)(1) / ((1060 kg/m^3)(9.8 m/s^2)(2.0x10^-4 m)) = 0.0558 m = 5.58 cm.

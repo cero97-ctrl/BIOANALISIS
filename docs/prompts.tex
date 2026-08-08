@@ -1,0 +1,103 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{promptbox}[1]{
+    colback=blue!5!white,
+    colframe=blue!75!black,
+    fonttitle=\bfseries,
+    title=#1,
+    breakable,
+    arc=2mm
+}
+
+\newtcolorbox{autobox}{
+    colback=green!5!white,
+    colframe=green!50!black,
+    fonttitle=\bfseries,
+    title={Lo que el Agente hará automáticamente tras recibir tu prompt},
+    breakable,
+    arc=2mm
+}
+
+\title{\textbf{Guía de Prompts y Flujo de Trabajo para Evaluación de Exámenes en Lote}\\[0.3em]
+\large Física para Ciencias de la Salud (005-1713) --- Bioanálisis}
+\author{Universidad de Oriente --- Núcleo de Sucre}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+Este documento contiene la guía estandarizada de \textit{prompts} e instrucciones para la evaluación automática y masiva de exámenes de la asignatura \textbf{Física para Ciencias de la Salud} mediante agentes de IA. Está diseñado para ser reutilizado en nuevos semestres y asignaturas afines.
+
+\section{Plantillas de Prompts para Evaluación en Lote}
+
+\begin{promptbox}{Opción 1: Prompt General para una Unidad Completa (Recomendado)}
+Por favor evalúa en lote todos los exámenes contenidos en la carpeta \texttt{examenes/05/examen\_estudiantes}. Son [N] preguntas con un valor de [X] ptos cada una. Utiliza la rúbrica/solucionario de \texttt{examenes/05/solucionario\_examen\_unidad\_V.tex}. Al finalizar, compila los informes en PDF, limpia los archivos auxiliares de LaTeX y muéstrame la tabla consolidada de resultados.
+\end{promptbox}
+
+\vspace{0.5em}
+
+\begin{promptbox}{Opción 2: Prompt con Criterios Específicos de Evaluación}
+Vamos a evaluar en lote la carpeta \texttt{examenes/03/examen\_estudiantes}. Consta de [N] problemas con un valor de [X] ptos cada uno. Sigue estas instrucciones de corrección: ``\textit{Este examen evalúa la comprensión profunda y el análisis físico aplicado a fenómenos biológicos y clínicos. No basta con escribir fórmulas matemáticas; debe argumentar, analizar y justificar cada una de sus respuestas basándose en los principios físicos estudiados}''. Usa el modelo \texttt{gemini-3.5-flash} y compila los informes PDF limpiando los archivos temporales.
+\end{promptbox}
+
+\vspace{0.5em}
+
+\begin{promptbox}{Opción 3: Prompt Mínimo / Rápido}
+Evalúa en lote los exámenes de \texttt{examenes/02/examen\_estudiantes} usando el solucionario de esa unidad. Genera los informes PDF y limpia los archivos auxiliares.
+\end{promptbox}
+
+\section{Flujo Automático del Agente}
+
+\begin{autobox}
+Al recibir cualquiera de los \textit{prompts} anteriores, el agente ejecutará de forma autónoma el siguiente flujo multietapa:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Construcción / Lectura de la Rúbrica:}
+    Extrae los criterios de corrección, respuestas cuantitativas de referencia y deducciones físicas cualitativas requeridas a partir del solucionario máster (\texttt{.tex}) de la unidad.
+
+    \item \textbf{Evaluación Multimodal con Conmutación Dinámica de Modelos:}
+    Itera secuencialmente sobre los archivos PDF de la carpeta \texttt{examen\_estudiantes/}, convirtiendo las páginas manuscritas a imágenes para analizarlas con el modelo multimodal. Si un modelo agota su cuota diaria o de frecuencia (\texttt{429 RESOURCE\_EXHAUSTED}), el script conmuta automáticamente en cascada a un modelo secundario (\texttt{gemini-2.5-flash} $\rightarrow$ \texttt{gemini-3.5-flash} $\rightarrow$ \texttt{gemini-3.6-flash}) sin detener la ejecución.
+
+    \item \textbf{Persistencia en JSON:}
+    Almacena los puntajes desglosados por pregunta, observaciones pedagógicas, errores detectados y nivel de desempeño en un archivo JSON en \texttt{.tmp/evaluacion\_[Estudiante].json}.
+
+    \item \textbf{Generación e Integración del Informe LaTeX:}
+    Convierte el resultado JSON en un documento LaTeX individual estandarizado (\texttt{informe\_[Estudiante].tex}) ubicado en \texttt{informe\_examenes/}.
+
+    \item \textbf{Compilación y Limpieza de Auxiliares:}
+    Compila el informe a PDF usando \texttt{pdflatex} / \texttt{latexmk} y ejecuta el script determinista \texttt{clean\_latex.py} para eliminar archivos auxiliares (\texttt{.aux}, \texttt{.log}, \texttt{.out}, \texttt{.fls}, \texttt{.fdb\_latexmk}).
+
+    \item \textbf{Presentación de Resultados Consolidados:}
+    Muestra la tabla estadística final con los puntajes de cada estudiante, promedio del curso, porcentaje por niveles de desempeño y enlaces directos a cada informe PDF generado.
+\end{enumerate}
+\end{autobox}
+
+\section{Estructura Recomendada de Archivos para Nuevos Semestres}
+
+\begin{verbatim}
+examenes/
++-- XX/                          # Número de Unidad (ej. 01, 02, ..., 05)
+    |-- examen_estudiantes/      # PDFs de exámenes entregados por los estudiantes
+    |-- solucionario_unidad_XX.tex# Solucionario máster en LaTeX
+    |-- rubrica_unidad_XX.txt    # Rúbrica detallada (opcional)
+    +-- informe_examenes/        # Informes PDF individuales producidos
+\end{verbatim}
+
+\end{document}

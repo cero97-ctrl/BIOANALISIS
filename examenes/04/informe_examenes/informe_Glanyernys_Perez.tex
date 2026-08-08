@@ -1,0 +1,217 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small Glanyernys Perez}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries Glanyernys Perez}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & Glanyernys Perez  &
+  \textbf{Fecha:}       & 2026-08-08 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{Glanyernys\_Perez.pdf}  &
+  \textbf{Páginas:}     & 5 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_bueno,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_bueno} 7.8/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_bueno} Bueno}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra un buen entendimiento de los principios físicos fundamentales aplicados a fenómenos biológicos y clínicos. Las explicaciones cualitativas son claras, precisas y bien argumentadas en la mayoría de los casos. Sin embargo, se observan deficiencias recurrentes en la precisión de los cálculos numéricos y en la completitud de las respuestas, incluyendo un error conceptual significativo en el uso de la temperatura corporal para un cálculo de presión osmótica y una pregunta sin responder.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente comprensión conceptual de la termorregulación por sudoración y el efecto de la humedad (Pregunta 1a, 1b).
+  \item Dominio claro de la Ley de Laplace aplicada a la mecánica respiratoria y el rol del surfactante (Pregunta 2a, 2b).
+  \item Correcta aplicación de la Primera Ley de Fick para optimización en hemodiálisis, tanto en el análisis de eficiencia como en el cálculo (Pregunta 3a, 3b, 3c).
+  \item Comprensión sólida de los efectos de soluciones hipotónicas en eritrocitos (Pregunta 4a).
+  \item Buen entendimiento de la capilaridad en superficies hidrofóbicas e hidrofílicas (Pregunta 5a, 5b).
+  \item Claridad y organización en la presentación de las respuestas cualitativas.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Precisión en los cálculos numéricos y verificación de resultados finales.
+  \item Atención al detalle en el uso de constantes físicas y biológicas (ej. temperatura corporal).
+  \item Completitud de las respuestas, asegurando que todas las partes de una pregunta sean abordadas.
+  \item Presentación de resultados finales con unidades correctas y consistentes.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Termorregulación y Eficiencia de la Sudoración} & 1.6/2.0 & Las explicaciones cualitativas (a y b) son excelentes, demostrando una comprensión profunda de los mecanismos de termorregulación y el impacto de la humedad. En el cálculo (c), la fórmula y la sustitución son correctas, pero el estudiante no completa el cálculo final en Joules ni realiza la conversión a Kcal, solo anota el factor de conversión. & \textit{Cálculo incompleto en la parte (c).; Falta de resultado numérico final con unidades en la parte (c).} \\
+    \midrule
+    \textbf{Pregunta 2: Mecánica Respiratoria y Ley de Laplace} & 1.7/2.0 & Las explicaciones cualitativas (a y b) son muy buenas, detallando correctamente la Ley de Laplace y el papel del surfactante. En el cálculo (c), la fórmula y la sustitución son correctas, pero se presenta un error numérico en el resultado final (28000 Pa en lugar de 2800 Pa). & \textit{Error de cálculo en la parte (c) (un orden de magnitud).} \\
+    \midrule
+    \textbf{Pregunta 3: Optimización en Hemodiálisis y Primera Ley de Fick} & 2.0/2.0 & Todas las partes de esta pregunta están respondidas de manera excelente. La explicación del impacto de la modificación de la membrana (a) y los riesgos clínicos (b) son precisas. El cálculo de la tasa de transporte (c) es correcto en fórmula, sustitución y resultado final con unidades. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Errores de Infusión Intravenosa y Ósmosis} & 1.0/2.0 & La explicación sobre el agua destilada (a) es correcta y completa. Sin embargo, la parte (b) sobre el NaCl 5\% está en blanco. En el cálculo de la presión osmótica (c), la fórmula es correcta, pero el estudiante utiliza una temperatura incorrecta (370 K en lugar de 310 K para la temperatura corporal), aunque el resultado numérico para esa temperatura errónea es el que se esperaba en la solución de referencia (lo que sugiere una posible memorización del resultado o una coincidencia). & \textit{Pregunta (b) sin responder.; Error conceptual/procedimental en el uso de la temperatura corporal (370 K en lugar de 310 K) en la parte (c).} \\
+    \midrule
+    \textbf{Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas} & 1.5/2.0 & Las explicaciones cualitativas (a y b) son correctas, demostrando un buen entendimiento de la Ley de Jurin y sus implicaciones. En el cálculo (c), la fórmula y la sustitución son correctas, pero se cometen errores significativos en la aritmética del numerador y en el resultado final, así como una inconsistencia en la conversión a centímetros. & \textit{Error de cálculo en el numerador de la parte (c).; Error de cálculo en el resultado final de la parte (c).; Inconsistencia en la conversión de metros a centímetros en la parte (c).} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Uso de una temperatura incorrecta (370 K en lugar de 310 K) para la temperatura corporal en el cálculo de la presión osmótica (Pregunta 4c), lo que indica una falta de precisión en la aplicación de constantes biológicas en un contexto físico.
+\end{itemize}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Cálculos incompletos o con errores aritméticos en las Preguntas 1c, 2c y 5c.
+  \item Falta de presentación de resultados finales con unidades consistentes y correctas (Pregunta 1c, 5c).
+  \item Una pregunta (4b) fue dejada en blanco.
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: Glanyernys Perez}]
+Tu desempeño en las explicaciones conceptuales es muy bueno, lo que indica que comprendes los principios físicos. Sin embargo, es crucial que prestes más atención a la fase de cálculo y verificación. Asegúrate de completar todos los pasos numéricos, presentar los resultados finales con las unidades correctas y, lo más importante, utilizar los valores correctos para las constantes en el contexto del problema (como la temperatura corporal). No dejes preguntas en blanco; intenta siempre abordar cada parte del examen. Revisa tus cálculos con calma y precisión.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante demuestra una sólida base conceptual. Los errores principales radican en la ejecución de los cálculos y la atención al detalle. La Pregunta 4b fue omitida. En la Pregunta 4c, el uso de 370 K en lugar de 310 K es un error conceptual importante, aunque el resultado numérico coincide con el esperado si se hubiera usado 310K, lo que podría indicar una memorización del resultado final o una coincidencia numérica. Se recomienda enfatizar la importancia de la precisión en los datos de entrada y en los cálculos.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-08-08 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

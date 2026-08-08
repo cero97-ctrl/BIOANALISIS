@@ -1,0 +1,210 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small Estefani Santoya}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries Estefani Santoya}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & Estefani Santoya  &
+  \textbf{Fecha:}       & 2026-08-08 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{Estefani\_Santoya.pdf}  &
+  \textbf{Páginas:}     & 6 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_excelente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_excelente} 9.3/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_excelente} Excelente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra una comprensión sólida y profunda de los principios físicos evaluados en el examen, así como su aplicación en contextos bioanalíticos y clínicos. Las explicaciones cualitativas son claras, precisas y bien fundamentadas, reflejando un excelente dominio conceptual. Los cálculos son mayormente correctos, aunque se detectó una omisión en el cálculo final de un problema y la falta de una unidad en otro.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente comprensión conceptual de la termorregulación, la Ley de Laplace en mecánica respiratoria, la Ley de Fick en difusión, la ósmosis y la capilaridad.
+  \item Capacidad destacada para argumentar y justificar respuestas cualitativas de manera rigurosa y con terminología física apropiada.
+  \item Correcta aplicación de fórmulas y manejo de unidades en la mayoría de los cálculos numéricos.
+  \item Claridad y organización en la presentación de las respuestas, lo que facilita su lectura y evaluación.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Asegurarse de completar todos los pasos de los problemas numéricos, incluyendo el cálculo final cuando se solicitan explícitamente.
+  \item Prestar atención a la inclusión de unidades en todas las respuestas numéricas finales para garantizar la completitud y precisión.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Termorregulación y Eficiencia de la Sudoración} & 2.0/2.0 & La respuesta es excelente. El estudiante explica correctamente el principio de la disipación de calor por evaporación, la ineficiencia del sudor que gotea y las consecuencias de la alta humedad relativa en la termorregulación. El cálculo es preciso y las unidades son correctas y bien convertidas. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Mecánica Respiratoria y Síndrome de Dificultad Respiratoria} & 2.0/2.0 & La explicación de la Ley de Laplace y el papel del surfactante es muy clara y precisa, demostrando una comprensión profunda del mecanismo respiratorio y cómo el surfactante previene el colapso alveolar. El cálculo es correcto y bien presentado. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 3: Optimización en Hemodiálisis y Primera Ley de Fick} & 1.4/2.0 & La explicación de la Ley de Fick y la justificación de la optimización de la membrana son correctas y demuestran un buen entendimiento de la relación entre los parámetros. Sin embargo, en la parte c), el estudiante solo lista los datos y no realiza el cálculo final de la tasa de transporte de masa, lo cual es una omisión importante. & \textit{Omisión del cálculo numérico final en la parte c), solo se listaron los datos.} \\
+    \midrule
+    \textbf{Pregunta 4: Errores de Infusión Intravenosa y Ósmosis} & 1.9/2.0 & Las explicaciones sobre los efectos del agua destilada (hipotónica) y la solución de NaCl al 5\% (hipertónica) en los eritrocitos son correctas y completas, detallando los fenómenos de hemólisis y crenación. El cálculo de la presión osmótica es numéricamente correcto, pero se omitió la unidad final (atmósferas). & \textit{Omisión de la unidad final (atmósferas) en el cálculo de la presión osmótica.} \\
+    \midrule
+    \textbf{Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas} & 2.0/2.0 & Las explicaciones sobre el comportamiento de los líquidos en capilares hidrofóbicos e hidrofílicos son correctas y bien fundamentadas, incluyendo la relación inversa con el radio. El cálculo de la altura de ascenso capilar es preciso y las unidades son correctas, con una buena conversión a centímetros. & \textit{---} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\textit{Ninguno identificado.}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Omisión del cálculo numérico final en la Pregunta 3c.
+  \item Omisión de la unidad final en el cálculo de la presión osmótica en la Pregunta 4c.
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: Estefani Santoya}]
+¡Felicidades! Has demostrado un excelente dominio de los conceptos de Física aplicados al Bioanálisis. Tus explicaciones son muy claras y demuestran una comprensión profunda de los fenómenos. Para alcanzar la perfección en futuros exámenes, recuerda siempre completar todos los pasos de los cálculos numéricos, mostrando el resultado final, y asegurarte de incluir las unidades correctas en todas tus respuestas finales. ¡Sigue con este nivel de dedicación y análisis!
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante ha realizado un examen de muy alto nivel, demostrando una comprensión conceptual sobresaliente y una excelente capacidad de argumentación. La única penalización significativa es la omisión del cálculo final en la Pregunta 3c. La omisión de unidades en 4c es un error menor. El resto de las respuestas son ejemplares en su argumentación y corrección, cumpliendo a cabalidad con el criterio fundamental de evaluación.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-08-08 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

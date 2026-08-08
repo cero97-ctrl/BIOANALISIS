@@ -1,0 +1,216 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small Maria Melendez}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries Maria Melendez}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & Maria Melendez  &
+  \textbf{Fecha:}       & 2026-08-08 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{Maria\_Melendez.pdf}  &
+  \textbf{Páginas:}     & 5 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_suficiente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_suficiente} 6.7/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_suficiente} Suficiente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra una comprensión adecuada de las fórmulas y la capacidad para realizar cálculos numéricos correctos en la mayoría de los problemas. Sin embargo, su desempeño es deficiente en la argumentación, el análisis físico y la justificación de las respuestas, especialmente en la conexión de los principios físicos con las consecuencias biológicas y clínicas, un criterio fundamental de evaluación. Varias partes de las preguntas quedaron en blanco o con explicaciones incompletas.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Habilidad para aplicar fórmulas matemáticas correctamente en problemas de cálculo.
+  \item Precisión en los cálculos numéricos y manejo consistente de unidades.
+  \item Identificación correcta de los datos relevantes para los cálculos.
+  \item Comprensión básica de algunos principios físicos como la Ley de Laplace, la Ley de Fick y la presión osmótica.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Profundizar en la explicación conceptual y la justificación física de los fenómenos.
+  \item Conectar explícitamente los principios físicos con las implicaciones biológicas y clínicas, como se enfatiza en la rúbrica.
+  \item Asegurarse de responder todas las partes de cada pregunta, evitando dejar secciones en blanco.
+  \item Mejorar la articulación de las respuestas cualitativas, proporcionando un análisis más completo y detallado.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Termorregulación y Eficiencia de la Sudoración} & 2.0/2.0 & El estudiante responde correctamente a todas las partes de la pregunta. La explicación de la diferencia entre la sudoración que gotea y la que se evapora es precisa, así como el efecto de la humedad relativa del 100\%. El cálculo del calor disipado es exacto y las unidades son correctas. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Mecánica Respiratoria y Ley de Laplace} & 1.4/2.0 & a) La fórmula de la Ley de Laplace es correcta, pero la explicación de la consecuencia (colapso de alvéolos pequeños y flujo de aire a los grandes) es incompleta. b) Se describe correctamente el mecanismo de acción del surfactante (reducción de la tensión superficial), pero se omite la explicación crucial de cómo este mecanismo estabiliza los alvéolos de diferentes tamaños. c) El cálculo de la diferencia de presión es correcto y bien desarrollado. & \textit{Error conceptual: Explicación incompleta de las consecuencias de la Ley de Laplace en alvéolos (parte a).; Error conceptual: Explicación incompleta del mecanismo de estabilización del surfactante en alvéolos de distinto tamaño (parte b).} \\
+    \midrule
+    \textbf{Pregunta 3: Optimización en Hemodiálisis y Primera Ley de Fick} & 0.8/2.0 & a) y b) Ambas partes de la pregunta están en blanco, lo que representa una omisión significativa de la respuesta. c) El cálculo de la tasa de transporte de masa es correcto, incluyendo la identificación de datos, la aplicación de la fórmula y las unidades finales. & \textit{Error procedimental: Partes a) y b) de la pregunta en blanco.} \\
+    \midrule
+    \textbf{Pregunta 4: Errores de Infusión Intravenosa y Ósmosis} & 1.5/2.0 & a) La explicación de la hipotonia del agua destilada y el movimiento del agua por ósmosis es correcta, pero se omite la consecuencia clínica más importante: la hemólisis. b) Se identifica correctamente la hipertonicidad de la solución de NaCl al 5\% y el aumento de la presión osmótica, pero no se describe el efecto sobre los eritrocitos (crenación) ni sus implicaciones clínicas. c) El cálculo de la presión osmótica es correcto, con la fórmula, datos y resultado precisos. & \textit{Error conceptual: Omisión de la consecuencia clínica (hemólisis) en la infusión de agua destilada (parte a).; Error conceptual: Omisión del efecto sobre los eritrocitos (crenación) y sus implicaciones clínicas en la infusión de NaCl 5\% (parte b).} \\
+    \midrule
+    \textbf{Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas} & 1.0/2.0 & a) Se indica correctamente que la columna de sangre descenderá, pero se omite la justificación física detallada (fuerzas de cohesión/adhesión, ángulo de contacto, Ley de Jurin). b) La parte b) de la pregunta está en blanco. c) El cálculo de la altura de ascenso capilar es correcto, con la fórmula, datos y resultado precisos. & \textit{Error conceptual: Omisión de la justificación física para la depresión capilar (parte a).; Error procedimental: Parte b) de la pregunta en blanco.} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Falta de explicación detallada sobre las consecuencias de la Ley de Laplace en la estabilidad alveolar.
+  \item Explicación incompleta del mecanismo de acción del surfactante en la estabilización de alvéolos de diferentes tamaños.
+  \item Omisión de las consecuencias biológicas/clínicas clave (hemólisis, crenación) en los problemas de ósmosis.
+  \item Ausencia de justificación física detallada para el fenómeno de depresión capilar.
+\end{itemize}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Dejar en blanco varias partes de las preguntas (Q3a, Q3b, Q5b).
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: Maria Melendez}]
+Estimado estudiante, demuestras una buena base en la aplicación de fórmulas y en la realización de cálculos. Sin embargo, para alcanzar un nivel de excelencia en Física para Bioanalistas, es crucial que profundices en la comprensión conceptual y en la capacidad de análisis. No basta con obtener el número correcto; debes ser capaz de explicar el 'por qué' y el 'cómo' de cada fenómeno físico, y, lo más importante, relacionarlo con sus implicaciones biológicas y clínicas. Te sugiero revisar los temas donde tus explicaciones fueron incompletas, prestando especial atención a las consecuencias en el cuerpo humano. Practica la redacción de respuestas completas que incluyan la justificación física y el impacto biológico. Asegúrate siempre de responder a todas las partes de cada pregunta.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante muestra una competencia sólida en la resolución de problemas numéricos. Sin embargo, hay una debilidad recurrente en la profundidad del análisis conceptual y en la conexión explícita de los principios físicos con las aplicaciones biológicas y clínicas, lo cual es un criterio fundamental de este examen. Las omisiones en las explicaciones cualitativas y las respuestas en blanco en varias sub-preguntas son los principales factores que afectan su puntaje. Sería beneficioso reforzar la importancia de la argumentación y el análisis crítico en el contexto de la bioanálisis.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-08-08 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

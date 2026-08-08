@@ -1,0 +1,210 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small Daniersy Ramos}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries Daniersy Ramos}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & Daniersy Ramos  &
+  \textbf{Fecha:}       & 2026-08-08 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{Daniersy\_Ramos.pdf}  &
+  \textbf{Páginas:}     & 11 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_suficiente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_suficiente} 6.6/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_suficiente} Suficiente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra una comprensión sólida de los principios físicos en las preguntas que abordó, especialmente en termorregulación y mecánica respiratoria. Sin embargo, la falta de respuesta en varias secciones, particularmente en la pregunta 5 completa y una parte de la pregunta 4, así como un error procedimental en la interpretación de la Ley de Fick, limitan el desempeño general. Es fundamental abordar todas las partes de las preguntas y revisar la interpretación de los resultados cuantitativos.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente comprensión de la termorregulación por sudoración y sus implicaciones bajo alta humedad.
+  \item Correcta aplicación y explicación de la Ley de Laplace en la mecánica respiratoria, incluyendo el papel del surfactante.
+  \item Buen entendimiento de la ósmosis y sus efectos en los eritrocitos en soluciones hipotónicas.
+  \item Habilidad para aplicar fórmulas y realizar cálculos numéricos con unidades correctas en las preguntas abordadas.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Necesidad de abordar todas las partes de las preguntas para obtener el puntaje completo.
+  \item Revisar la interpretación de los resultados de los cálculos, como se vio en la Ley de Fick.
+  \item Reforzar los conceptos de capilaridad y sus aplicaciones, así como los efectos de soluciones hipertónicas en células biológicas.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Termorregulación y Eficiencia de la Sudoración} & 2.0/2.0 & La respuesta es excelente. El estudiante demuestra una comprensión profunda de los mecanismos de termorregulación, la importancia del calor latente de vaporización y el impacto de la humedad relativa. Los cálculos son correctos y bien presentados, incluyendo la conversión de unidades. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 2: Mecánica Respiratoria y Ley de Laplace} & 1.9/2.0 & Muy buena respuesta. La explicación de la Ley de Laplace y el colapso alveolar es clara y precisa. El papel del surfactante está bien descrito en su función de estabilizar la presión, aunque la explicación de cómo reduce diferencialmente la tensión superficial en alvéolos pequeños podría ser un poco más explícita. El cálculo es correcto y las unidades son consistentes. & \textit{Ligera falta de claridad en la explicación del mecanismo diferencial del surfactante en alvéolos de distinto tamaño.} \\
+    \midrule
+    \textbf{Pregunta 3: Optimización en Hemodiálisis y Primera Ley de Fick} & 1.5/2.0 & La formulación de la Ley de Fick y el cálculo final son correctos. La identificación de los riesgos mecánicos de la membrana también es acertada. Sin embargo, en la parte (a), el estudiante comete un error al interpretar el factor de cambio (0.7/0.5 = 1.4, no 0.7), lo que lleva a una conclusión incorrecta sobre la eficiencia de difusión (debería ser un aumento del 40\%, no una disminución del 30\%). & \textit{Error procedimental en la interpretación del factor de cambio en la eficiencia de difusión (0.7/0.5 = 1.4, no 0.7).; Conclusión incorrecta sobre el porcentaje de cambio en la eficiencia de difusión.} \\
+    \midrule
+    \textbf{Pregunta 4: Errores de Infusión Intravenosa y Ósmosis} & 1.2/2.0 & La parte (a) sobre la infusión de agua destilada y la hemólisis es muy buena, explicando correctamente el fenómeno osmótico. La parte (c) sobre el cálculo de la presión osmótica también es correcta, aplicando la ecuación de van 't Hoff adecuadamente. Sin embargo, la parte (b) sobre la infusión de NaCl al 5\% está en blanco, lo que representa una omisión significativa. & \textit{Pregunta (b) en blanco.} \\
+    \midrule
+    \textbf{Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas} & 0.0/2.0 & La pregunta está completamente en blanco. No se presenta ninguna respuesta para las partes (a), (b) o (c). & \textit{Pregunta (a) en blanco.; Pregunta (b) en blanco.; Pregunta (c) en blanco.} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\textit{Ninguno identificado.}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Error en el cálculo e interpretación del factor de cambio en la eficiencia de difusión en la Pregunta 3 (a).
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: Daniersy Ramos}]
+Estimado estudiante, has demostrado una buena comprensión de varios principios fundamentales de la física aplicada a la bioanalítica, especialmente en termorregulación y mecánica respiratoria. Tus explicaciones son claras y tus cálculos, en general, son precisos. Sin embargo, es crucial que intentes responder a todas las partes de cada pregunta, ya que las omisiones, como en la Pregunta 4(b) y la Pregunta 5 completa, afectan significativamente tu puntaje. Además, presta especial atención a la interpretación de tus resultados numéricos, como se observó en la Pregunta 3(a), donde un error en el factor de cambio llevó a una conclusión incorrecta. Revisa los temas de capilaridad y los efectos de soluciones hipertónicas para fortalecer esas áreas. Continúa practicando la resolución de problemas y la argumentación física para mejorar tu desempeño.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante presenta un desempeño mixto. Demuestra una comprensión sólida en las preguntas 1 y 2, con explicaciones detalladas y cálculos correctos. En la pregunta 3, el entendimiento conceptual es bueno, pero hay un error procedimental en la interpretación del factor de cambio en la parte (a). La pregunta 4 tiene una omisión importante en la parte (b). La pregunta 5 está completamente en blanco. Se sugiere enfatizar la importancia de abordar todas las partes de las preguntas y revisar la interpretación de los resultados cuantitativos. El nivel de argumentación física es adecuado en las partes respondidas.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-08-08 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

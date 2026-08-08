@@ -8,7 +8,7 @@ required_inputs:
   - name: pdf_examen
     description: >
       Ruta al archivo PDF del examen del estudiante.
-      Ejemplo: examenes/01/evaluacion_Ana_Alcala.pdf
+      Ejemplo: examenes/01/evaluacion_estudiante_01.pdf
   - name: modelo
     description: >
       Modelo Gemini a utilizar. Opciones: gemini-2.5-flash (default, más rápido y económico),

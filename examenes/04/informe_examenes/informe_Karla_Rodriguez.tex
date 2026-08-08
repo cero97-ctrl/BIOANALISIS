@@ -1,0 +1,216 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small Karla Rodriguez}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries Karla Rodriguez}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & Karla Rodriguez  &
+  \textbf{Fecha:}       & 2026-08-08 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{Karla\_Rodriguez.pdf}  &
+  \textbf{Páginas:}     & 5 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_deficiente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_deficiente} 5.5/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_deficiente} Deficiente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+El estudiante demuestra un conocimiento parcial de los principios de Física aplicados a fenómenos biológicos y clínicos. Si bien logra aplicar correctamente fórmulas y realizar cálculos en varias secciones, presenta deficiencias conceptuales significativas en áreas clave como la termorregulación, la función del surfactante y los efectos osmóticos en las células sanguíneas. La omisión de una pregunta completa y la falta de justificación física detallada en algunas respuestas impactan negativamente el desempeño general.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Correcta aplicación de la Primera Ley de Fick para calcular la tasa de difusión y analizar la eficiencia en hemodiálisis (Pregunta 3).
+  \item Cálculos numéricos precisos para la disipación de calor por sudoración (Pregunta 1c), la diferencia de presión alveolar (Pregunta 2c) y la presión osmótica (Pregunta 4c).
+  \item Buena comprensión del efecto de la alta humedad relativa en la termorregulación (Pregunta 1b).
+  \item Explicación adecuada del mecanismo de colapso alveolar en ausencia de surfactante, basado en la Ley de Laplace (Pregunta 2a).
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Profundizar en la comprensión conceptual de la eficiencia de la termorregulación por sudoración.
+  \item Completar todas las partes de las preguntas, incluyendo explicaciones cualitativas y análisis de fenómenos.
+  \item Clarificar la distinción entre los efectos de soluciones hipotónicas e hipertónicas en los eritrocitos (hemólisis vs. crenación).
+  \item Mejorar la argumentación y justificación física de las respuestas, más allá de la mera aplicación de fórmulas.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Termorregulación y Eficiencia de la Sudoración} & 1.3/2.0 & En la parte (a), el estudiante invierte la conclusión sobre qué paciente necesita secretar mayor volumen de sudor, aunque la explicación para el paciente B es correcta. En la parte (b), la explicación sobre el efecto de la humedad relativa es muy buena y completa. La parte (c) presenta un cálculo correcto y bien justificado, incluyendo la conversión de unidades. & \textit{Error conceptual en la parte (a): Confusión sobre qué paciente requiere mayor volumen de sudor.} \\
+    \midrule
+    \textbf{Pregunta 2: Mecánica Respiratoria y Ley de Laplace} & 1.3/2.0 & La parte (a) explica correctamente la Ley de Laplace y el mecanismo de colapso alveolar en ausencia de surfactante. Sin embargo, la parte (b) sobre la función del surfactante no fue respondida. La parte (c) muestra un cálculo correcto de la diferencia de presión. & \textit{Omisión de la respuesta a la parte (b).} \\
+    \midrule
+    \textbf{Pregunta 3: Optimización en Hemodiálisis y Primera Ley de Fick} & 2.0/2.0 & Esta pregunta está excelentemente respondida. La parte (a) aplica correctamente la Ley de Fick y calcula el aumento de eficiencia. La parte (b) identifica adecuadamente los riesgos de reducir el espesor de la membrana. La parte (c) presenta un cálculo preciso y bien estructurado. Demuestra una comprensión sólida de este tema. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Errores de Infusión Intravenosa y Ósmosis} & 0.9/2.0 & En la parte (a), el estudiante identifica correctamente que el agua destilada es hipotónica y que el agua entra a los eritrocitos, pero omite la consecuencia crítica de la hemólisis. En la parte (b), comete un error conceptual grave al afirmar que la administración de NaCl al 5\% causa 'Hemólisis', aunque luego describe correctamente la crenación. La parte (c) presenta un cálculo de presión osmótica correcto y completo. & \textit{Error conceptual en la parte (a): Omisión de la consecuencia de hemólisis.; Error conceptual en la parte (b): Confusión entre hemólisis y crenación para una solución hipertónica.} \\
+    \midrule
+    \textbf{Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas} & 0.0/2.0 & La pregunta 5 no fue respondida por el estudiante. & \textit{Pregunta sin respuesta.} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Confusión sobre la eficiencia de la sudoración y la cantidad de sudor requerida para la termorregulación (Pregunta 1a).
+  \item Omisión de la explicación sobre la función del surfactante pulmonar (Pregunta 2b).
+  \item Incompleta descripción de las consecuencias de la infusión de agua destilada (hipotónica), omitiendo la hemólisis (Pregunta 4a).
+  \item Confusión entre los fenómenos de hemólisis y crenación al describir los efectos de una solución hipertónica (NaCl 5\%) en los eritrocitos (Pregunta 4b).
+\end{itemize}
+
+\subsection*{Errores procedimentales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Omisión completa de la Pregunta 5.
+\end{itemize}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: Karla Rodriguez}]
+Estimado estudiante, su examen muestra un buen dominio en la aplicación de fórmulas y en la realización de cálculos para algunos problemas, como en la hemodiálisis y la presión osmótica. Sin embargo, es crucial que profundice en la comprensión conceptual de los fenómenos físicos. Revise cuidadosamente los principios de termorregulación y la eficiencia de la sudoración, así como los efectos de las soluciones hipotónicas e hipertónicas en las células sanguíneas, prestando especial atención a la distinción entre hemólisis y crenación. Es fundamental que responda a todas las partes de cada pregunta y que justifique sus respuestas con una explicación física completa, no solo con cálculos. La omisión de una pregunta completa afecta significativamente su desempeño. Le animo a repasar estos temas y a practicar la argumentación física de sus respuestas.
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+El estudiante demuestra fortalezas en la aplicación matemática de las leyes físicas (Fick, Laplace, Osmótica) y en la ejecución de cálculos. Sin embargo, presenta deficiencias conceptuales importantes en termorregulación (Q1a), la función del surfactante (Q2b, no respondida), y los efectos osmóticos en eritrocitos (Q4a y Q4b, donde confunde hemólisis con crenación para soluciones hipertónicas). La pregunta 5 fue completamente omitida. El puntaje sugerido refleja una evaluación rigurosa de estos errores conceptuales y omisiones, en línea con el criterio de penalizar severamente la falta de argumentación o errores conceptuales.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-2.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-08-08 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}

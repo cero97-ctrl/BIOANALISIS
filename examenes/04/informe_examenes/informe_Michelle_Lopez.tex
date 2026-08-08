@@ -1,0 +1,208 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.8cm, right=2.8cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+
+% ── Tablas ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ── Cabeceras y pies de página ────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textbf{Informe de Evaluación} --- Física para Bioanalistas}
+\fancyhead[R]{\small Michelle Lopez}
+\fancyfoot[C]{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores personalizados ─────────────────────────────────────────
+\definecolor{desempeno_excelente}{HTML}{1A6B2F}
+\definecolor{desempeno_bueno}{HTML}{2E5A9C}
+\definecolor{desempeno_suficiente}{HTML}{8B6914}
+\definecolor{desempeno_deficiente}{HTML}{C0392B}
+\definecolor{desempeno_insuficiente}{HTML}{7B241C}
+\definecolor{grisFondo}{HTML}{F5F5F5}
+\definecolor{azulTitulo}{HTML}{1B2A6B}
+\definecolor{verdeFortaleza}{HTML}{1A6B2F}
+\definecolor{naranjaMejora}{HTML}{A04000}
+
+% ── Estilos de cajas ─────────────────────────────────────────────────────────
+\tcbset{
+  cajaTitulo/.style={
+    enhanced, breakable,
+    colback=azulTitulo!8, colframe=azulTitulo,
+    fonttitle=\bfseries\large, coltitle=white,
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=azulTitulo},
+    top=6pt, bottom=6pt, left=8pt, right=8pt,
+  },
+  cajaFortaleza/.style={
+    enhanced, breakable,
+    colback=verdeFortaleza!6, colframe=verdeFortaleza!60,
+    fonttitle=\bfseries, coltitle=verdeFortaleza,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaMejora/.style={
+    enhanced, breakable,
+    colback=naranjaMejora!6, colframe=naranjaMejora!60,
+    fonttitle=\bfseries, coltitle=naranjaMejora,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+  cajaRecomendacion/.style={
+    enhanced, breakable,
+    colback=grisFondo, colframe=gray!50,
+    fonttitle=\bfseries, coltitle=black,
+    top=4pt, bottom=4pt, left=8pt, right=8pt,
+  },
+}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ PORTADA ══════════════════════════════════════════════════════════════════
+\begin{center}
+  {\Large\bfseries\color{azulTitulo} Universidad de Oriente/Núcleo Sucre --- Física para Bioanalistas}\\[4pt]
+  {\large Informe de Evaluación Preliminar}\\[12pt]
+  \rule{\linewidth}{1.2pt}\\[6pt]
+  {\LARGE\bfseries Michelle Lopez}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+% ══ FICHA TÉCNICA ════════════════════════════════════════════════════════════
+\vspace{4pt}
+\begin{tcolorbox}[cajaTitulo, title=Datos del informe]
+\begin{tabular}{@{}llll@{}}
+  \textbf{Estudiante:}  & Michelle Lopez  &
+  \textbf{Fecha:}       & 2026-08-08 \\[4pt]
+  \textbf{Archivo PDF:} & \texttt{Michelle\_Lopez.pdf}  &
+  \textbf{Páginas:}     & 7 \\
+\end{tabular}
+\end{tcolorbox}
+
+% ══ RESULTADO GLOBAL ═════════════════════════════════════════════════════════
+\vspace{6pt}
+\begin{center}
+  \begin{tcolorbox}[
+    enhanced,
+    colback=white, colframe=desempeno_excelente,
+    width=0.62\linewidth,
+    boxrule=2pt,
+    halign=center, valign=center,
+    top=8pt, bottom=8pt,
+  ]
+    \centering
+    {\large\bfseries Puntaje sugerido}\\[6pt]
+    {\Huge\bfseries\color{desempeno_excelente} 9.5/10}\\[6pt]
+    {\large Nivel de desempeño: \textbf{\color{desempeno_excelente} Excelente}}
+  \end{tcolorbox}
+\end{center}
+
+% ══ RESUMEN GENERAL ══════════════════════════════════════════════════════════
+\section*{Resumen general}
+La estudiante demuestra un dominio sobresaliente de los conceptos de física aplicados a las ciencias de la salud. Resuelve con precisión todos los problemas numéricos, utilizando correctamente las fórmulas, unidades y conversiones. Sus explicaciones cualitativas son sumamente claras, coherentes y bien fundamentadas en los principios físicos, con una única y leve omisión de justificación detallada en la primera pregunta.
+
+% ══ FORTALEZAS Y ÁREAS DE MEJORA ════════════════════════════════════════════
+\vspace{4pt}
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaFortaleza, title={Fortalezas}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Excelente manejo procedimental y matemático en todos los cálculos numéricos.
+  \item Uso impecable de las unidades del Sistema Internacional y conversiones correctas (ej. gramos a kilogramos, Joules a kilocalorías, metros a centímetros).
+  \item Comprensión profunda de los fenómenos biofísicos, como la Ley de Laplace en alvéolos, la ósmosis en eritrocitos y la capilaridad.
+  \item Presentación sumamente organizada, limpia y legible de los desarrollos.
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \begin{tcolorbox}[cajaMejora, title={Areas de mejora}]
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Profundizar en la justificación física de los fenómenos cualitativos cuando se solicita explícitamente (como detallar el papel del calor latente de vaporización frente al calor sensible en la sudoración del Paciente B).
+\end{itemize}
+  \end{tcolorbox}
+\end{minipage}
+
+% ══ OBSERVACIONES POR PREGUNTA ═══════════════════════════════════════════════
+\section*{Observaciones por pregunta}
+
+\begin{longtable}{>{\bfseries}p{2.8cm} p{1.6cm} p{7.0cm} p{2.8cm}}
+  \toprule
+  \textbf{Pregunta} & \textbf{Puntaje} & \textbf{Evaluación} & \textbf{Errores detectados} \\
+  \midrule
+  \endhead
+  \bottomrule
+  \endfoot
+    \textbf{Pregunta 1: Termorregulación y Eficiencia de la Sudoración} & 1.5/2.0 & En el inciso a), la estudiante identifica correctamente al Paciente B como el que requiere mayor sudoración, pero omite por completo la justificación física basada en el calor latente de vaporización (cambio de fase líquido-gas) frente al goteo de sudor (calor sensible). Los incisos b) y c) están completamente correctos, con un cálculo impecable del calor disipado y su conversión a kcal. & \textit{Falta de justificación física detallada en el inciso a) sobre el mecanismo de transferencia de calor por evaporación.} \\
+    \midrule
+    \textbf{Pregunta 2: Mecánica Respiratoria y Síndrome de Dificultad Respiratoria} & 2.0/2.0 & Excelente resolución. Explica con claridad la Ley de Laplace y por qué ocurre el flujo de aire de alvéolos pequeños a grandes en ausencia de surfactante. Describe de forma precisa el rol del surfactante y realiza el cálculo de la diferencia de presión de manera impecable, obteniendo 2800 Pa. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 3: Optimización en Hemodiálisis (Primera Ley de Fick)} & 2.0/2.0 & Resolución perfecta. Aplica correctamente la Primera Ley de Fick para determinar que la tasa de transporte aumenta un 40\% (1.4 veces). Identifica con precisión los riesgos mecánicos de una membrana excesivamente delgada y calcula correctamente la tasa original de transporte de masa como 1.8x10\textasciicircum{}-7 kg/s. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 4: Errores de Infusión Intravenosa y Ósmosis} & 2.0/2.0 & Excelente desempeño. Describe con precisión los fenómenos de hemólisis (medio hipotónico) y crenación (medio hipertónico) en los eritrocitos. El cálculo de la presión osmótica es totalmente correcto, obteniendo 7.84 atm con un desglose de operaciones muy claro. & \textit{---} \\
+    \midrule
+    \textbf{Pregunta 5: Capilaridad y Toma de Muestras Sanguíneas} & 2.0/2.0 & Resolución impecable. Explica correctamente el comportamiento de la sangre en un tubo hidrofóbico (predominio de cohesión, descenso capilar) y el efecto de reducir el radio en un tubo hidrofílico. El cálculo de la altura de ascenso capilar es exacto (0.056 m o 5.58 cm) con un desglose detallado de numerador y denominador. & \textit{---} \\
+    \midrule
+\end{longtable}
+
+% ══ ERRORES DETECTADOS ═══════════════════════════════════════════════════════
+\section*{Análisis de errores}
+
+\subsection*{Errores conceptuales}
+\begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+  \item Omisión de la explicación del calor latente de vaporización como el mecanismo principal de enfriamiento eficiente en la sudoración (Pregunta 1a).
+\end{itemize}
+
+\subsection*{Errores procedimentales}
+\textit{Ninguno identificado.}
+
+% ══ RECOMENDACIONES AL ESTUDIANTE ════════════════════════════════════════════
+\section*{Retroalimentación para el estudiante}
+\begin{tcolorbox}[cajaRecomendacion, title={Dirigido a: Michelle Lopez}]
+¡Excelente examen, Michelle! Tu nivel de comprensión de la física y su aplicación clínica es sobresaliente. Tus cálculos son sumamente ordenados, precisos y con un manejo impecable de las unidades. Como única recomendación, asegúrate de responder detalladamente a todas las partes de una pregunta; en la pregunta 1a se te pedía justificar detallando el proceso de transferencia de energía térmica (mencionar el calor latente de vaporización y cómo el cambio de fase absorbe calor del cuerpo), lo cual omitiste a pesar de dar la respuesta correcta. ¡Sigue así!
+\end{tcolorbox}
+
+% ══ NOTA PARA EL PROFESOR ════════════════════════════════════════════════════
+\section*{Nota para el profesor}
+\begin{tcolorbox}[
+  enhanced, breakable,
+  colback=yellow!8, colframe=yellow!60!black,
+  fonttitle=\bfseries, coltitle=black,
+  title={Observaciones para revisión manual},
+  top=4pt, bottom=4pt, left=8pt, right=8pt,
+]
+La estudiante muestra un desempeño excepcional. Solo se penalizó 0.5 puntos en la Pregunta 1a debido a que no justificó físicamente su respuesta (solo indicó 'Paciente B' sin explicar el mecanismo de transferencia de calor latente). El resto del examen es perfecto, con un orden y claridad dignos de destacar.
+\end{tcolorbox}
+
+% ══ PIE DE INFORME ════════════════════════════════════════════════════════════
+\vspace{12pt}
+\begin{center}
+  \footnotesize\color{gray}
+  Informe generado automáticamente por el sistema de evaluación con IA (gemini-3.5-flash) y soporte LaTex. \\
+  Este documento es una evaluación \textbf{preliminar} para ser revisado por el profesor antes de ser entregado al 
+  estudiante. \\
+  Generado el 2026-08-08 \textbullet\ BIOANALISIS Sistema Académico de Evaluación.
+  \end{center}
+
+\end{document}
