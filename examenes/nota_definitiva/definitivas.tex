@@ -1,0 +1,195 @@
+\documentclass[12pt,letterpaper]{article}
+
+% ── Codificación y fuentes ────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish]{babel}
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% ── Matemáticas ───────────────────────────────────────────────────────
+\usepackage{amsmath}
+
+% ── Geometría y espaciado ─────────────────────────────────────────────
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage{parskip}
+\usepackage{enumitem}
+
+% ── Colores y cajas ───────────────────────────────────────────────────
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+
+% ── Dibujo ────────────────────────────────────────────────────────────
+\usepackage{tikz}
+\usetikzlibrary{babel}
+
+% ── Cabeceras y pies ──────────────────────────────────────────────────
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{grisMedio}\textbf{Nota Definitiva} --- Física para Bioanalistas}
+\fancyhead[R]{\small\color{grisMedio}Sección 43 --- Lic. en Bioanálisis}
+\fancyfoot[C]{\small\color{grisMedio}Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{azulOscuro}\leaders\hrule height \headrulewidth\hfill}}
+
+% ── Hiperenlaces ──────────────────────────────────────────────────────
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue]{hyperref}
+
+% ── Paleta de colores (infografía) ────────────────────────────────────
+\definecolor{azulOscuro}{HTML}{1B2A6B}
+\definecolor{azulU1}{HTML}{2E5A9C}
+\definecolor{verdeU2}{HTML}{1A6B2F}
+\definecolor{naranjaU3}{HTML}{A04000}
+\definecolor{tealU4}{HTML}{0E6B6E}
+\definecolor{marronU5}{HTML}{6D3B8E}
+\definecolor{promoColor}{HTML}{C0392B}
+\definecolor{grisMedio}{HTML}{555555}
+\definecolor{grisFondo}{HTML}{F4F6F8}
+
+% ── Barra de progreso ─────────────────────────────────────────────────
+% #1 = nota (0..10), #2 = color
+\newcommand{\barnota}[2]{%
+\begin{tikzpicture}[x=0.62cm,y=0.62cm]
+  \draw[rounded corners=1.5mm, fill=#2!12] (0,0) rectangle (10,1);
+  \draw[rounded corners=1.5mm, fill=#2] (0,0) rectangle (#1,1);
+  \node[white, font=\bfseries\small] at (5,0.5) {#1 / 10};
+\end{tikzpicture}}
+
+% ── Tarjeta de unidad ─────────────────────────────────────────────────
+\newcommand{\tarjetaUnidad}[4]{% #1 título #2 nota #3 nivel #4 color
+\begin{tcolorbox}[enhanced, breakable,
+  colback=white, colframe=#4, boxrule=1.1pt, arc=3mm,
+  colbacktitle=#4, coltitle=white, fonttitle=\bfseries,
+  attach boxed title to top left={yshift=-2.2mm, xshift=3mm},
+  boxed title style={arc=2mm,boxrule=0pt},
+  top=10pt, bottom=8pt, left=8pt, right=8pt]
+  {\small\color{grisMedio}#1}\\[3pt]
+  {\Huge\bfseries\color{#4}#2}
+  \hfill
+  \raisebox{0.35em}{\small\color{grisMedio}Nivel: \textbf{\color{#4}#3}}
+  \par\vspace{3pt}
+  \barnota{#2}{#4}
+\end{tcolorbox}}
+
+% ─────────────────────────────────────────────────────────────────────
+\begin{document}
+
+% ══ ENCABEZADO INSTITUCIONAL ══════════════════════════════════════════
+\begin{center}
+  {\LARGE\bfseries\color{azulOscuro} UNIVERSIDAD DE ORIENTE}\\[2pt]
+  {\large\color{azulOscuro} Núcleo de Sucre}\\[2pt]
+  {\large\color{azulOscuro} Departamento de Física}\\[4pt]
+  \rule{\linewidth}{1.5pt}\\[4pt]
+  {\large\bfseries Física para Ciencias de la Salud (005-1713)}\\[2pt]
+  {\normalsize Semestre I-2026}\\[2pt]
+  {\normalsize\bfseries\color{grisMedio} Profesor: César Rodríguez \quad\textbullet\quad C.I: 5.701.716}\\[4pt]
+  \rule{\linewidth}{0.6pt}
+\end{center}
+
+\vspace{8pt}
+
+% ══ BANDA DE TÍTULO ══════════════════════════════════════════════════
+\begin{tcolorbox}[enhanced, colback=azulOscuro, colframe=azulOscuro,
+  arc=4mm, boxrule=0pt, left=12pt, right=12pt, top=12pt, bottom=12pt]
+  \begin{minipage}{0.68\linewidth}
+    {\color{white}\sffamily\LARGE\bfseries Nota Definitiva}\\[2pt]
+    {\color{white!80}\large Física para Bioanalistas --- Universidad de Oriente/Núcleo Sucre}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.28\linewidth}
+    \raggedleft
+    {\color{white}\large\bfseries Sección 43}\\
+    {\color{white!80}\small Semestre I-2026}
+  \end{minipage}
+\end{tcolorbox}
+
+\vspace{10pt}
+
+% ══ TABLA DE DEFINITIVAS (SECCIÓN 43) ═════════════════════════════════
+\begin{tcolorbox}[enhanced, breakable, colback=grisFondo, colframe=azulOscuro!60,
+  boxrule=1pt, arc=3mm, colbacktitle=azulOscuro, coltitle=white,
+  fonttitle=\bfseries,
+  title={Relación de notas definitivas --- Lic. en Bioanálisis, Sección 43}]
+% TABLA_DEFINITIVAS_START
+\rowcolors{2}{azulU1!8}{white}
+\setlength{\tabcolsep}{5pt}
+\begin{longtable}{>{\centering\arraybackslash}p{0.8cm}
+                  >{\RaggedRight}p{4.8cm}
+                  >{\centering\arraybackslash}p{1.7cm}
+                  >{\centering\arraybackslash}p{1.0cm}
+                  >{\centering\arraybackslash}p{1.0cm}
+                  >{\centering\arraybackslash}p{1.0cm}
+                  >{\centering\arraybackslash}p{1.0cm}
+                  >{\centering\arraybackslash}p{0.95cm}}
+\hline
+\rowcolor{azulOscuro}
+{\color{white}\bfseries N.} & {\color{white}\bfseries Apellidos y Nombres} &
+{\color{white}\bfseries C.I.} & {\color{white}\bfseries U. I} &
+{\color{white}\bfseries U. II} & {\color{white}\bfseries U. III} &
+{\color{white}\bfseries U. IV} & {\color{white}\bfseries Nota}\\
+\hline
+\endfirsthead
+\hline
+\rowcolor{azulOscuro}
+{\color{white}\bfseries N.} & {\color{white}\bfseries Apellidos y Nombres} &
+{\color{white}\bfseries C.I.} & {\color{white}\bfseries U. I} &
+{\color{white}\bfseries U. II} & {\color{white}\bfseries U. III} &
+{\color{white}\bfseries U. IV} & {\color{white}\bfseries Nota}\\
+\hline
+\endhead
+ 1 & ACUÑA VELÁSQUEZ ANAMERC DE LOURDES & 33279962 & 8 & 8 & 9 & 10 & 9 \\
+ 2 & ALCALA ESPINOZA ANA VIRGINIA & 30749815 & 8 & 10 & 7,6 & 9,9 & 9 \\
+ 3 & BRAVO RAMOS KRISCHEL NAZARETH & 32449538 & 9 & 10 & 8,5 & 9,4 & 9 \\
+ 4 & CABRERA FRANCO CAMILA ISABEL & 32937064 & 9 & 7,5 & 9,8 & 0 & 7 \\
+ 5 & ECHEZURIA RODRÍGUEZ DÉBORA AURORA & 32585229 & 9 & 6,5 & 6 & 6,4 & 7 \\
+ 6 & ESCRIBANO GONZALEZ DANIELA VALENTINA & 32031568 & 10 & 9 & 10 & 6,8 & 9 \\
+ 7 & FRONTADO MARCANO MARIA FERNANDA DEL VALLE & 32747212 & 8 & 10 & 9 & 10 & 9 \\
+ 8 & GARCÍA GARCÍA LUISANNYS CAROLINA & 33141963 & 9 & 8,5 & 10 & 10 & 9 \\
+ 9 & INOJOSA GARCÍA DELIANGELIS ANGELICA & 31516750 & 8 & 9,5 & 8,8 & 7,5 & 8 \\
+10 & LOPEZ TOCUYO MICHELLE GABRIELA & 33483425 & 10 & 10 & 10 & 9,5 & 10 \\
+11 & MALAVÉ GOICETTY MARÍA FERNANDA & 32585180 & 10 & 5,5 & 9 & 9,7 & 9 \\
+12 & MARCANO ASTUDILLO BARBARA VALENTINA & 31729255 & 9 & 6,5 & 7,6 & 5,9 & 7 \\
+13 & MARIBAO CELIS YBRANMARIS ALIANA & 36150392 & 5 & 10 & 7,7 & 7,4 & 8 \\
+14 & MARIN CALZADILLA LUISIELIS DEL VALLE & 33627901 & 7 & 10 & 10 & 7,6 & 9 \\
+15 & MARRERO DIAZ VALERIA VALENTINA & 34264392 & 7 & 10 & 7,3 & 8,9 & 8 \\
+16 & MELENDEZ RODRIGUEZ MARIA VIRGINIA & 33685873 & 8 & 9,5 & 8 & 6,7 & 8 \\
+17 & NARANJO BETANCOURT YILSELYS SARAI & 33385584 & 9 & 9 & 8,3 & 6,7 & 8 \\
+18 & PÉREZ GONZÁLEZ GLANYERNYS ESMERALDA & 33171611 & 8 & 8 & 6,8 & 7,8 & 8 \\
+19 & RAMOS HERNANDEZ DANIERSY ALEJANDRA & 34254529 & 8 & 10 & 9,3 & 6,6 & 8 \\
+20 & RIVERO DE LA CRUZ DANIELA ALEJANDRA & 31435612 & 8 & 10 & 9 & 10 & 9 \\
+21 & RODRIGUEZ DIAZ KARLA PATRICIA & 33628014 & 9 & 10 & 8,5 & 5,5 & 8 \\
+22 & RODRÍGUEZ LÓPEZ FRANYERIKA DEL VALLE & 33278284 & 8 & 10 & 8,9 & 9,7 & 9 \\
+23 & RODRIGUEZ ORTIZ BARBARA ANGELINA & 32640760 & 9 & 5,5 & 9,8 & 6,4 & 8 \\
+24 & ROJAS MENDÉZ MARIANA MERCEDES & 33386743 & 9 & 10 & 10 & 9,9 & 10 \\
+25 & ROJAS PAREJO JOHANNYS DEL VALLE & 32824239 & 6 & 10 & 8,5 & 9,5 & 9 \\
+26 & ROMERO BOLIVAR SHANTAL ANNIELA & 33093620 & 9 & 10 & 10 & 10 & 10 \\
+27 & SALAZAR YANEZ MARIANA DEL VALLE & 33570679 & 8 & 10 & 5 & 0 & 6 \\
+28 & SANTOYA RODRÍGUEZ ESTEFANI ALEXANDRA & 31686375 & 8 & 10 & 8,5 & 9,3 & 9 \\
+29 & SOSA ESCRIBANO THOMAIRYS ANTONELLA & 33685285 & 8 & 10 & 7,9 & 5,3 & 8 \\
+30 & SUCRE BETANCOURT ROSMEILYS ALEXANDRA & 33386357 & 8 & 9 & 8,3 & 10 & 9 \\
+31 & VALLENILLA ARROYO DANIELA DE LOS ANGELES & 32778547 & 9 & 9,5 & 9 & 7,5 & 9 \\
+32 & VELÁSQUEZ BRUZUAL SEBASTIÁN JESÚS & 32823835 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{longtable}
+% TABLA_DEFINITIVAS_END
+\begin{center}
+{\footnotesize\color{grisMedio}Nota definitiva $=$ promedio de las 4 unidades (\,/10\,) con aproximación a la unidad.
+Los exámenes no presentados se computan como $0$ (C. Cabrera y M. Salazar sin U.IV; S. Velásquez sin exámenes).}\\
+
+\end{center}
+\end{tcolorbox}
+
+\vspace{10pt}
+
+\end{document}

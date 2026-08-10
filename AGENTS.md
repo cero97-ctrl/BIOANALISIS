@@ -18,24 +18,28 @@ BIOANALISIS/
 │   ├── evaluar_examen.py         # Evalúa PDFs con Gemini multimodal
 │   ├── generar_informe.py        # Convierte JSON de evaluación a informe .tex
 │   └── alert_user.py             # Alertas audibles (success/waiting/error)
-├── evaluar_examen.py             # Layer 2: Orquestador del flujo de evaluación
+├── evaluar_examen.py             # Layer 2: Orquestador del flujo de evaluación (individual)
+├── evaluar_lote.py               # Layer 2: Orquestador de evaluación por lote (unidad completa)
 ├── examenes/                     # Exámenes organizados por unidad
-│   ├── 01/                       # Unidad I
-│   │   ├── examen_estudiantes/   # PDFs de exámenes de estudiantes (30)
-│   │   ├── examen_sol/           # Solucionario maestro
-│   │   └── evaluacion_*.pdf/tex  # Evaluaciones individuales con informe
-│   ├── 02/                       # Unidad II
-│   └── ...
-├── tareas/                       # Infografías y problemas individuales
-│   ├── problema_{1..25}.tex      # Unidad I
-│   ├── problema_{1..8}_u2.tex    # Unidad II
+│   ├── 01/ ... 05/               # Unidades I a V
+│   │   ├── examen_estudiantes/   # PDFs de exámenes de estudiantes
+│   │   ├── examen_sol/           # Examen, solucionario maestro y fórmulas
+│   │   └── informe_examenes/     # Evaluaciones individuales (JSON + *corregido.pdf/tex)
+├── tareas/                       # Infografías, problemas individuales y tareas completas
+│   ├── problema_{1..25}.tex      # Problemas Unidad I
+│   ├── problema_{1..8}_u2.tex    # Problemas Unidad II
+│   ├── tarea_{1,2}.tex           # Tareas completas (con y sin solución)
 │   ├── main.tex / main_u2.tex    # Documentos compiladores
 │   └── compilar_todo.sh          # Script de compilación LaTeX
 ├── docs/                         # Programa de asignatura, propuestas, documentación
+│   ├── (005-1713) FIS.CIENC.SALUD.PROGRAMA.{md,tex,pdf}
 │   ├── latex.md                  # Registro de errores y soluciones LaTeX
 │   ├── ia_salud.tex              # Propuesta: IA en Ciencias de la Salud
-│   └── propuesta_ia_renal.tex    # Propuesta: IA en enfermedad renal
+│   ├── prompts.tex               # Banco de prompts para evaluación
+│   ├── propuesta_ia_renal.tex    # Propuesta: IA en enfermedad renal
+│   └── PFA-en-ciencias-de-la-salud.pdf
 ├── curso/                        # Archivos del curso (PDF + Excel)
+├── .tmp/                         # Estado intermedio: JSONs de evaluación + run_state.json
 ├── clean_latex.py                # Limpia archivos auxiliares LaTeX
 ├── git-update.sh                 # Script de commit + update_repo
 └── update_repo.sh                # Script de git pull/commit/push
@@ -73,13 +77,19 @@ BIOANALISIS/
 ## Flujo de Evaluación de Exámenes
 
 ```
+# Individual
 evaluar_examen.py --pdf examenes/01/examen_estudiantes/Ana_Alcala.pdf
+
+# Por lote (unidad completa; actualmente fijado a la Unidad IV)
+evaluar_lote.py [--force]
+```
+
+Ambos flujos:
   ├── Paso 1: evaluar_examen.py → renderiza PDF a imágenes → Gemini → JSON
   ├── Paso 2: generar_informe.py → JSON → informe LaTeX (.tex)
   └── Paso 3: alert_user.py success → notificación audible
-```
 
-Estado intermedio guardado en `.tmp/run_state.json`. Máximo 3 reintentos ante fallos.
+Los JSON de evaluación van a `.tmp/` y los informes corregidos (`*_corregido.pdf/tex`) a `examenes/<unidad>/informe_examenes/`. Estado intermedio en `.tmp/run_state.json`. Máximo 3 reintentos ante fallos.
 
 ## Variables de Entorno Requeridas
 
